@@ -21,7 +21,7 @@
 	}
 
 	// track a page view when the pathname changes
-	$: $page.url.pathname, browser && Fathom.trackPageview();
+	$: ($page.url.pathname, browser && Fathom.trackPageview());
 
 	export let data: LayoutData;
 
@@ -45,7 +45,7 @@
 				<div
 					in:fly={{ easing: cubicOut, y: 10, duration: 300, delay: 400 }}
 					out:fly={{ easing: cubicIn, y: -10, duration: 300 }}
-					class="space-y-2"
+					class={$page.url.pathname === '/' ? '' : 'space-y-2'}
 				>
 					<slot />
 				</div>

@@ -14,15 +14,15 @@
 		--card-foreground: 222.2 84% 4.9%;
 		--border: 214.3 31.8% 91.4%;
 		--input: 214.3 31.8% 91.4%;
-		--primary: 222.2 47.4% 11.2%;
-		--primary-foreground: 210 40% 98%;
-		--secondary: 210 40% 96.1%;
-		--secondary-foreground: 222.2 47.4% 11.2%;
-		--accent: 210 40% 96.1%;
-		--accent-foreground: 222.2 47.4% 11.2%;
+		--primary: 147 53% 22%; /* Aurora Brand Green #2b482d */
+		--primary-foreground: 0 0% 100%;
+		--secondary: 147 20% 95%; /* Light green #f1f5f1 */
+		--secondary-foreground: 147 53% 22%;
+		--accent: 147 20% 95%;
+		--accent-foreground: 147 53% 22%;
 		--destructive: 0 72.2% 50.6%;
 		--destructive-foreground: 210 40% 98%;
-		--ring: 222.2 84% 4.9%;
+		--ring: 147 53% 22%;
 		--radius: 0.5rem;
 		--sidebar-background: 0 0% 98%;
 		--sidebar-foreground: 240 5.3% 26.1%;
@@ -32,6 +32,35 @@
 		--sidebar-accent-foreground: 240 5.9% 10%;
 		--sidebar-border: 220 13% 91%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
+
+		/* Aurora Animal Clinic Brand Colors */
+		--aurora-green: 147 53% 22%; /* #2b482d */
+		--aurora-green-light: 147 20% 95%; /* #f1f5f1 */
+		--aurora-green-dark: 165 100% 8%; /* #0d2623 */
+		--aurora-text-light: 0 0% 100%;
+		--aurora-text-dark: 0 0% 10%;
+	}
+
+	.dark {
+		--background: 147 53% 4%;
+		--foreground: 0 0% 98%;
+		--muted: 147 20% 15%;
+		--muted-foreground: 147 10% 70%;
+		--popover: 147 53% 6%;
+		--popover-foreground: 0 0% 98%;
+		--card: 147 53% 6%;
+		--card-foreground: 0 0% 98%;
+		--border: 147 20% 20%;
+		--input: 147 20% 20%;
+		--primary: 147 20% 95%;
+		--primary-foreground: 147 53% 22%;
+		--secondary: 147 53% 15%;
+		--secondary-foreground: 0 0% 98%;
+		--accent: 147 53% 15%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--ring: 147 20% 95%;
 	}
 }
 
@@ -149,4 +178,39 @@
 /* Add overflow rule separately */
 body {
 	overflow-x: hidden;
+}
+
+/* Aurora Animal Clinic Brand Utilities */
+@layer utilities {
+	.text-aurora-green {
+		color: hsl(var(--aurora-green));
+	}
+	
+	.text-aurora-green-dark {
+		color: hsl(var(--aurora-green-dark));
+	}
+	
+	.bg-aurora-green {
+		background-color: hsl(var(--aurora-green));
+	}
+	
+	.bg-aurora-green-light {
+		background-color: hsl(var(--aurora-green-light));
+	}
+	
+	.bg-aurora-green-dark {
+		background-color: hsl(var(--aurora-green-dark));
+	}
+	
+	.border-aurora-green {
+		border-color: hsl(var(--aurora-green));
+	}
+	
+	.hover\:bg-aurora-green:hover {
+		background-color: hsl(var(--aurora-green));
+	}
+	
+	.hover\:text-aurora-green:hover {
+		color: hsl(var(--aurora-green));
+	}
 }
