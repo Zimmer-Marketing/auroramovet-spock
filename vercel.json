@@ -1,0 +1,16 @@
+{
+    "redirects": [
+        {
+            "source": "/admin/",
+            "destination": "https://headlessz-pb.zimmer.marketing/_/"
+        },
+        {
+            "source": "/wp-admin/",
+            "destination": "https://headlessz-pb.zimmer.marketing/_/"
+        },
+        {
+            "source": "/home",
+            "destination": "/"
+        }
+    ]
+}
