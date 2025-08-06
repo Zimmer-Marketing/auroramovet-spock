@@ -1,20 +1,27 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { browser } from '$app/environment';
 
-	let visible = true;
+	let visible = false;
 
-	onMount(() => {
-		// Hide the preload screen after a short delay
-		setTimeout(() => {
-			visible = false;
-		}, 500);
-	});
+	// Only show preloader on client side
+	if (browser) {
+		visible = true;
+		
+		// Use onMount to ensure we're on the client
+		onMount(() => {
+			// Hide the preload screen after a short delay
+			setTimeout(() => {
+				visible = false;
+			}, 500);
+		});
+	}
 </script>
 
 {#if visible}
 	<div
-		class="preloader fixed inset-0 z-50 flex items-center justify-center bg-background"
+		class="fixed inset-0 z-50 flex items-center justify-center bg-background"
 		transition:fade={{ duration: 300 }}
 	>
 		<div class="text-center">
@@ -35,10 +42,3 @@
 		</div>
 	</div>
 {/if}
-
-<style>
-	/* Hide preloader if JavaScript is disabled */
-	:global(.no-js) .preloader {
-		display: none;
-	}
-</style>
