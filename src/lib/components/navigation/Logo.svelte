@@ -9,9 +9,7 @@
 </script>
 
 <div
-	class="relative col-span-3 flex items-center justify-center lg:justify-start {hidden
-		? 'lg:hidden'
-		: ''} "
+	class="relative flex items-center {hidden ? 'lg:hidden' : ''}"
 >
 	<a href="/" aria-label={ariaLabel}>
 		<img

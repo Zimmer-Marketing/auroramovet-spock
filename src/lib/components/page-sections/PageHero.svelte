@@ -23,11 +23,11 @@
 	const secondPart = titleParts.slice(Math.ceil(titleParts.length / 2)).join(' ');
 </script>
 
-<section class={cn('relative -mt-44 h-screen overflow-hidden', className)}>
+<section class={cn('relative h-[600px] overflow-hidden  md:-mt-44', className)}>
 	<!-- Background Image with Overlay -->
 	<div
 		class="absolute inset-0 bg-contain bg-center bg-no-repeat"
-		style="background-image: url('{backgroundImage}'); background-position: 49.88% 32.7%; background-size: 100% 280.17%;"
+		style="background-image: url('{backgroundImage}');  background-size: 100% ;"
 	></div>
 	<div class="absolute inset-0 bg-black/45"></div>
 
@@ -51,9 +51,8 @@
 		<!-- Description -->
 		{#if content}
 			<p class="max-w-4xl text-center text-lg leading-[35px] text-white md:text-xl">
-				{content}
+				{@html content}
 			</p>
 		{/if}
 	</div>
 </section>
-

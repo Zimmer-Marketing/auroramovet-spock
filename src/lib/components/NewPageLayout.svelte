@@ -32,6 +32,14 @@
 	// Get content blocks from route.meta
 	const blocksToRender = route?.meta?.contentBlocks || [];
 	
+	// Debug logging
+	console.log('NewPageLayout debug:', {
+		route: route,
+		meta: route?.meta,
+		contentBlocks: route?.meta?.contentBlocks,
+		blocksToRender: blocksToRender
+	});
+	
 	// Generate hero image URL
 	const heroImageUrl = $derived(() => {
 		if (route?.heroImage) return route.heroImage;

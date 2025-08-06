@@ -95,7 +95,7 @@
 	style="height: {10 - 4 * $scrollProgress}rem"
 >
 	<div class="container mx-auto h-full px-6">
-		<div class="flex h-full items-center">
+		<div class="flex h-full items-center justify-between">
 			<!-- Mobile Menu Button -->
 			<div class="md:hidden">
 				<MobileMenu {siteSettings} {logoSrc} />
@@ -113,7 +113,7 @@
 				/>
 			</div>
 
-			<!-- Desktop Navigation - Horizontal Layout -->
+			<!-- Desktop Navigation - Centered -->
 			<nav class="hidden flex-1 justify-center space-x-12 md:flex">
 				{#each navigationItems as item}
 					<a
@@ -126,6 +126,9 @@
 					</a>
 				{/each}
 			</nav>
+
+			<!-- Desktop spacer to balance layout -->
+			<div class="hidden md:flex md:w-[10rem]"></div>
 
 			<!-- Right side items for mobile -->
 			<div class="flex items-center space-x-4 md:hidden">

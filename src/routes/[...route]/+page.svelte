@@ -26,16 +26,27 @@
 	let { route, siteSettings, routeType, relatedServices } = $derived(data);
 
 	// Determine if this page should use the new layout
-	// You can customize this logic based on your needs
 	const shouldUseNewLayout = $derived(() => {
 		if (!route) return false;
 
 		try {
+			// Use new layout for services or pages with specific criteria
 			const newLayoutPages = ['pets', 'equine', 'livestock'];
 			const hasNewLayoutField = route?.useNewLayout === true;
 			const hasNewLayoutSlug = route?.slug && newLayoutPages.includes(route.slug);
+			const isService = routeType === 'service';
 
-			return hasNewLayoutField || hasNewLayoutSlug;
+			// Debug logging
+			console.log('Route debug:', {
+				slug: route?.slug,
+				routeType,
+				hasNewLayoutField,
+				hasNewLayoutSlug,
+				isService,
+				shouldUse: hasNewLayoutField || hasNewLayoutSlug || isService
+			});
+
+			return hasNewLayoutField || hasNewLayoutSlug || isService;
 		} catch (err) {
 			console.error('Error determining layout:', err);
 			return false;
@@ -45,10 +56,7 @@
 
 <RouteMeta {route} {siteSettings} />
 
-{#if routeType === 'service'}
-	<!-- Service Detail Page -->
-	<ServiceDetail service={route} {relatedServices} />
-{:else if shouldUseNewLayout()}
+{#if shouldUseNewLayout()}
 	<!-- New Page Layout -->
 	<NewPageLayout
 		{route}
