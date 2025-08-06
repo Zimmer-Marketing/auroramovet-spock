@@ -1,0 +1,98 @@
+{
+  "collections": [
+    {
+      "name": "content_blocks",
+      "type": "base",
+      "schema": [
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "options": {
+            "max": 200
+          }
+        },
+        {
+          "name": "content",
+          "type": "editor",
+          "required": true,
+          "options": {
+            "convertUrls": false
+          }
+        },
+        {
+          "name": "image",
+          "type": "file",
+          "required": false,
+          "options": {
+            "maxSelect": 1,
+            "maxSize": 5242880,
+            "mimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/svg+xml",
+              "image/gif",
+              "image/webp"
+            ]
+          }
+        },
+        {
+          "name": "imagePosition",
+          "type": "select",
+          "required": true,
+          "options": {
+            "maxSelect": 1,
+            "values": [
+              "left",
+              "right"
+            ]
+          }
+        },
+        {
+          "name": "backgroundColor",
+          "type": "select",
+          "required": true,
+          "options": {
+            "maxSelect": 1,
+            "values": [
+              "light",
+              "dark"
+            ]
+          }
+        },
+        {
+          "name": "buttonText",
+          "type": "text",
+          "required": false,
+          "options": {
+            "max": 100
+          }
+        },
+        {
+          "name": "buttonLink",
+          "type": "url",
+          "required": false,
+          "options": {}
+        },
+        {
+          "name": "sortOrder",
+          "type": "number",
+          "required": true,
+          "options": {
+            "min": 0,
+            "max": null
+          }
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX `idx_content_blocks_sortOrder` ON `content_blocks` (`sortOrder`)"
+      ],
+      "listRule": "",
+      "viewRule": "",
+      "createRule": null,
+      "updateRule": null,
+      "deleteRule": null,
+      "options": {}
+    }
+  ]
+}

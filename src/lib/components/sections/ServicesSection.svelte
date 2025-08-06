@@ -34,7 +34,10 @@
 		{#if services && services.length > 0}
 			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{#each services as service}
-					<div class="group cursor-pointer">
+					<a
+						href="/{service.slug}/"
+						class="group cursor-pointer transition-transform duration-300 hover:scale-105"
+					>
 						<!-- Card with image background -->
 						<div
 							class="relative h-[280px] overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-xl"
@@ -94,7 +97,7 @@
 								</p>
 							{/if}
 						</div>
-					</div>
+					</a>
 				{/each}
 			</div>
 		{/if}

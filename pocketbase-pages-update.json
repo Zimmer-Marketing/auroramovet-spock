@@ -1,0 +1,38 @@
+{
+  "pages_collection_additional_fields": [
+    {
+      "name": "content_blocks",
+      "type": "relation",
+      "required": false,
+      "options": {
+        "collectionId": "content_blocks",
+        "cascadeDelete": false,
+        "minSelect": null,
+        "maxSelect": null,
+        "displayFields": ["title"]
+      }
+    },
+    {
+      "name": "useNewLayout",
+      "type": "bool",
+      "required": false,
+      "options": {}
+    },
+    {
+      "name": "heroImage",
+      "type": "file",
+      "required": false,
+      "options": {
+        "maxSelect": 1,
+        "maxSize": 5242880,
+        "mimeTypes": [
+          "image/jpeg",
+          "image/png",
+          "image/svg+xml",
+          "image/gif",
+          "image/webp"
+        ]
+      }
+    }
+  ]
+}

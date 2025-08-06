@@ -85,7 +85,7 @@
 				<h4 class="mb-4 font-bold">Leave us a Review!</h4>
 				<div class="aspect-video overflow-hidden rounded-lg border border-primary-foreground/20">
 					<img
-						src="/building-exterior.jpg"
+						src="/ec316b037d8e402fcb1601e88281f7b2a405a596.png"
 						alt="Aurora Animal Clinic Building"
 						class="h-full w-full object-cover"
 					/>

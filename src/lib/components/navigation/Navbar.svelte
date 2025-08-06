@@ -14,6 +14,7 @@
 
 	const logoSrc = `${PUBLIC_POCKETBASE_URL}/api/files/${siteSettings.collectionId}/${siteSettings.id}/${siteSettings?.images[0]}`;
 	const scrollProgress = writable(0);
+	const isScrolled = writable(false);
 
 	// Aurora navigation items - can be moved to siteSettings later
 	const navigationItems = siteSettings?.expand?.menu;
@@ -34,6 +35,9 @@
 		const stabilityThreshold = 3;
 
 		const handleScroll = () => {
+			// Update isScrolled state
+			isScrolled.set(window.scrollY > 10);
+			
 			if (Math.abs(window.scrollY - lastScrollY) < threshold) return;
 
 			if (!ticking) {
@@ -86,7 +90,10 @@
 	});
 </script>
 
-<header class="sticky top-0 z-50 bg-transparent" style="height: {10 - 4 * $scrollProgress}rem">
+<header 
+	class="sticky top-0 z-50 transition-all duration-300 {$isScrolled ? 'backdrop-blur-sm bg-black/20' : 'bg-transparent'}" 
+	style="height: {10 - 4 * $scrollProgress}rem"
+>
 	<div class="container mx-auto h-full px-6">
 		<div class="flex h-full items-center">
 			<!-- Mobile Menu Button -->

@@ -1,0 +1,62 @@
+{
+  "contentBlocks": [
+    {
+      "title": "Vaccinations & Routine Exams Walk-In Hours",
+      "content": "We offer walk-in hours for vaccinations and routine exams from 12:00 p.m. to 2:00 p.m., Monday through Saturday—no appointment is needed! Whether your pet needs annual vaccinations, a wellness exam, or a health screening, we welcome you during these convenient times to make preventive care easy and accessible.",
+      "image": "/99c488715fc5a80efda078d74d1a898d4f35786d.png",
+      "imagePosition": "right",
+      "backgroundColor": "dark"
+    },
+    {
+      "title": "Internal Medicine",
+      "content": "Our veterinary team provides thorough diagnostic workups and effective management for a wide range of health conditions. From chronic illnesses to sudden concerns, we strive to get your pet healthy and back to their best life.",
+      "image": "/9d2e3aa8c1bf3e6042b694a744d5bdb730cff0e8.png",
+      "imagePosition": "left",
+      "backgroundColor": "light"
+    },
+    {
+      "title": "Surgical Services",
+      "content": "We offer a full suite of surgical options, performed in our modern surgical suite:<ul class=\"list-disc ml-9 mt-4\"><li>Spay & Neuter Surgery: Prevent unwanted litters and promote long-term health.</li><li>Soft-Tissue Surgery: Mass removals, wound repairs, hernia repair, and more.</li><li>Orthopedic Surgery: For bone and joint injuries or conditions, right here in Aurora.</li></ul>",
+      "image": "/7a2bc2a3b21a8a582dd04c99097de1d8cadd28d4.png",
+      "imagePosition": "right",
+      "backgroundColor": "dark"
+    },
+    {
+      "title": "Dental Care",
+      "content": "Oral health is a key part of your pet's well-being. We provide:<ul class=\"list-disc ml-9 mt-4\"><li>Dental Scaling & Polishing: Remove tartar and plaque for healthier teeth and gums.</li><li>Tooth Extraction: Gentle, effective extractions to address serious dental disease and discomfort.</li></ul>",
+      "image": "/f4228344f6060f12ae23aadba1399ebde59ed7f9.png",
+      "imagePosition": "right",
+      "backgroundColor": "dark"
+    },
+    {
+      "title": "In-House Diagnostic Services",
+      "content": "A fast and accurate diagnosis means faster relief for your pet. Our in-house capabilities include:<ul class=\"list-disc ml-9 mt-4\"><li>Digital Radiography (X-Ray)</li><li>Diagnostic Ultrasound</li><li>Urinalysis</li><li>Bloodwork Analyzers</li><li>Cytology (microscopic examination of cells)</li></ul>",
+      "image": "/a8a67f1b1008cf76c880587e41e0b099cc156cc0.png",
+      "imagePosition": "left",
+      "backgroundColor": "light"
+    },
+    {
+      "title": "Parasite Prevention",
+      "content": "Protect your dog or cat from fleas, ticks, heartworms, and intestinal parasites with our expertly tailored prevention and treatment plans, specifically designed for your pet and our local area.",
+      "image": "",
+      "imagePosition": "right",
+      "backgroundColor": "dark"
+    },
+    {
+      "title": "End-of-Life Care and Cremation",
+      "content": "When the time comes, our compassionate team is here to provide gentle end-of-life care, humane euthanasia, and respectful cremation services to support your family during difficult moments.",
+      "image": "/5bd32a1fde786abca629adbbd3814299fbbd691d.png",
+      "imagePosition": "left",
+      "backgroundColor": "light"
+    },
+    {
+      "title": "Online Pharmacy",
+      "content": "For convenient, safe, and affordable prescription refills and pet supplies, enjoy our secure online pharmacy – delivered right to your door.",
+      "image": "/3944d1bca823f22e1066f2dd3a0a8e066d40d3e1.png",
+      "imagePosition": "right",
+      "backgroundColor": "dark",
+      "buttonText": "Visit Pharmacy",
+      "buttonLink": "#"
+    }
+  ]
+}
