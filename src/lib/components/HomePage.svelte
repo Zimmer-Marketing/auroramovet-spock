@@ -51,10 +51,11 @@
 	}: Props = $props();
 </script>
 
-<div class={cn('min-h-screen bg-background', className)}>
+<div class={cn('relative  min-h-screen bg-background', className)}>
 	<HeroSection title={route.title} content={route.content} {heroImage} />
 	<ServicesSection {services} />
 	<TeamSection {teamMembers} />
 	<TestimonialsSection {testimonials} />
 	<ContactSection />
 </div>
+

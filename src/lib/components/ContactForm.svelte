@@ -66,80 +66,92 @@
 	}
 </script>
 
-<section class="my-5 max-w-xl">
+<div class="space-y-6">
 	{#if success}
-		<Alert.Root>
-			<Rocket class="h-4 w-4" />
-			<Alert.Title>Message Sent!</Alert.Title>
-			<Alert.Description>
+		<Alert.Root class="bg-green-50 border-green-200">
+			<Rocket class="h-5 w-5 text-green-600" />
+			<Alert.Title class="text-green-800">Message Sent!</Alert.Title>
+			<Alert.Description class="text-green-700">
 				Thank you for your message. We will get back to you soon.
 			</Alert.Description>
 		</Alert.Root>
 	{:else}
 		<form onsubmit={handleSubmit} class="space-y-6">
-			<div class="space-y-2">
-				<Label for="name">Name *</Label>
-				<Input
+			<!-- Name Field -->
+			<div class="rounded-[15px] bg-[#f3f3f3] p-6">
+				<input
 					id="name"
 					type="text"
 					required
 					bind:value={formData.name}
 					aria-invalid={form_errors.name ? 'true' : undefined}
-					placeholder="Enter your name"
+					placeholder="Your Name"
+					class="w-full border-none bg-transparent text-xl text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none font-normal"
 				/>
 				{#if form_errors.name}
-					<p class="text-sm text-destructive">{form_errors.name}</p>
+					<p class="text-sm text-red-600 mt-2">{form_errors.name}</p>
 				{/if}
 			</div>
 
-			<div class="space-y-2">
-				<Label for="email">Email *</Label>
-				<Input
-					id="email"
-					type="email"
-					required
-					bind:value={formData.email}
-					aria-invalid={form_errors.email ? 'true' : undefined}
-					placeholder="your.email@example.com"
-				/>
-				{#if form_errors.email}
-					<p class="text-sm text-destructive">{form_errors.email}</p>
-				{/if}
-			</div>
-
-			<div class="space-y-2">
-				<Label for="phone">Phone *</Label>
-				<Input
+			<!-- Phone Field -->
+			<div class="rounded-[15px] bg-[#f3f3f3] p-6">
+				<input
 					id="phone"
 					type="tel"
 					required
 					bind:value={formData.phone}
 					aria-invalid={form_errors.phone ? 'true' : undefined}
-					placeholder="Enter your phone number"
+					placeholder="Your Phone Number"
+					class="w-full border-none bg-transparent text-xl text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none font-normal"
 				/>
 				{#if form_errors.phone}
-					<p class="text-sm text-destructive">{form_errors.phone}</p>
+					<p class="text-sm text-red-600 mt-2">{form_errors.phone}</p>
 				{/if}
 			</div>
 
-			<div class="space-y-2">
-				<Label for="note">Message *</Label>
-				<Textarea
+			<!-- Email Field -->
+			<div class="rounded-[15px] bg-[#f3f3f3] p-6">
+				<input
+					id="email"
+					type="email"
+					required
+					bind:value={formData.email}
+					aria-invalid={form_errors.email ? 'true' : undefined}
+					placeholder="Your Email"
+					class="w-full border-none bg-transparent text-xl text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none font-normal"
+				/>
+				{#if form_errors.email}
+					<p class="text-sm text-red-600 mt-2">{form_errors.email}</p>
+				{/if}
+			</div>
+
+			<!-- Message Field -->
+			<div class="rounded-[15px] bg-[#f3f3f3] p-6">
+				<textarea
 					id="note"
-					rows="4"
 					required
 					bind:value={formData.note}
 					aria-invalid={form_errors.note ? 'true' : undefined}
-					placeholder="Enter your message"
-				/>
+					placeholder="Your Message"
+					rows="5"
+					class="w-full resize-none border-none bg-transparent text-xl text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none font-normal"
+				></textarea>
 				{#if form_errors.note}
-					<p class="text-sm text-destructive">{form_errors.note}</p>
+					<p class="text-sm text-red-600 mt-2">{form_errors.note}</p>
 				{/if}
 			</div>
 
-			<Button id="contact-form-submit" type="submit" disabled={submitting}>
-				{submitting ? 'Sending...' : 'Send Message'}
-			</Button>
+			<!-- Submit Button -->
+			<div class="flex justify-center pt-4">
+				<button
+					id="contact-form-submit"
+					type="submit"
+					disabled={submitting}
+					class="relative rounded-[30px] bg-white px-8 py-3 text-lg font-bold text-[#2b482d] border-2 border-[#2b482d] transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#2b482d]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+				>
+					{submitting ? 'SENDING...' : 'SEND MESSAGE'}
+				</button>
+			</div>
 		</form>
 	{/if}
-</section>
+</div>

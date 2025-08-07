@@ -3,214 +3,228 @@
 @tailwind utilities;
 
 @layer base {
-	:root {
-		--background: 0 0% 100%;
-		--foreground: 222.2 84% 4.9%;
-		--muted: 210 40% 96.1%;
-		--muted-foreground: 215.4 16.3% 46.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 222.2 84% 4.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 222.2 84% 4.9%;
-		--border: 214.3 31.8% 91.4%;
-		--input: 214.3 31.8% 91.4%;
-		--primary: 147 53% 22%; /* Aurora Brand Green #2b482d */
-		--primary-foreground: 0 0% 100%;
-		--secondary: 147 20% 95%; /* Light green #f1f5f1 */
-		--secondary-foreground: 147 53% 22%;
-		--accent: 147 20% 95%;
-		--accent-foreground: 147 53% 22%;
-		--destructive: 0 72.2% 50.6%;
-		--destructive-foreground: 210 40% 98%;
-		--ring: 147 53% 22%;
-		--radius: 0.5rem;
-		--sidebar-background: 0 0% 98%;
-		--sidebar-foreground: 240 5.3% 26.1%;
-		--sidebar-primary: 240 5.9% 10%;
-		--sidebar-primary-foreground: 0 0% 98%;
-		--sidebar-accent: 240 4.8% 95.9%;
-		--sidebar-accent-foreground: 240 5.9% 10%;
-		--sidebar-border: 220 13% 91%;
-		--sidebar-ring: 217.2 91.2% 59.8%;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --primary: 124 25 23;
+    /* Aurora Brand Green #2b482d */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 147 20% 95%;
+    /* Light green #f1f5f1 */
+    --secondary-foreground: 147 53% 22%;
+    --accent: 147 20% 95%;
+    --accent-foreground: 147 53% 22%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 147 53% 22%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
 
-		/* Aurora Animal Clinic Brand Colors */
-		--aurora-green: 147 53% 22%; /* #2b482d */
-		--aurora-green-light: 147 20% 95%; /* #f1f5f1 */
-		--aurora-green-dark: 165 100% 8%; /* #0d2623 */
-		--aurora-text-light: 0 0% 100%;
-		--aurora-text-dark: 0 0% 10%;
-	}
+    /* Aurora Animal Clinic Brand Colors */
+    --aurora-green: 124 25 23;
+    /* #2b482d */
+    --aurora-green-light: 147 20% 95%;
+    /* #f1f5f1 */
+    --aurora-green-dark: 165 100% 8%;
+    /* #0d2623 */
+    --aurora-text-light: 0 0% 100%;
+    --aurora-text-dark: 0 0% 10%;
+  }
 
-	.dark {
-		--background: 147 53% 4%;
-		--foreground: 0 0% 98%;
-		--muted: 147 20% 15%;
-		--muted-foreground: 147 10% 70%;
-		--popover: 147 53% 6%;
-		--popover-foreground: 0 0% 98%;
-		--card: 147 53% 6%;
-		--card-foreground: 0 0% 98%;
-		--border: 147 20% 20%;
-		--input: 147 20% 20%;
-		--primary: 147 20% 95%;
-		--primary-foreground: 147 53% 22%;
-		--secondary: 147 53% 15%;
-		--secondary-foreground: 0 0% 98%;
-		--accent: 147 53% 15%;
-		--accent-foreground: 0 0% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 0 0% 98%;
-		--ring: 147 20% 95%;
-	}
+  .dark {
+    --background: 147 53% 4%;
+    --foreground: 0 0% 98%;
+    --muted: 147 20% 15%;
+    --muted-foreground: 147 10% 70%;
+    --popover: 147 53% 6%;
+    --popover-foreground: 0 0% 98%;
+    --card: 147 53% 6%;
+    --card-foreground: 0 0% 98%;
+    --border: 147 20% 20%;
+    --input: 147 20% 20%;
+    --primary: 147 20% 95%;
+    --primary-foreground: 147 53% 22%;
+    --secondary: 147 53% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 147 53% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 147 20% 95%;
+  }
 }
 
 @layer base {
-	* {
-		@apply border-border;
-	}
+  * {
+    @apply border-border;
+  }
 
-	html {
-		@apply text-base; /* default */
-	}
-	@media (min-width: 1536px) {
-		/* 2xl */
-		html {
-			font-size: 18px;
-		}
-	}
-	@media (min-width: 1920px) {
-		/* 3xl */
-		html {
-			font-size: 20px;
-		}
-	}
-	@media (min-width: 2560px) {
-		/* 4xl */
-		html {
-			font-size: 22px;
-		}
-	}
-	@media (min-width: 3840px) {
-		/* 5xl */
-		html {
-			font-size: 24px;
-		}
-	}
+  html {
+    @apply text-base;
+    /* default */
+  }
 
-	body {
-		@apply bg-background text-foreground;
-	}
+  @media (min-width: 1536px) {
 
-	img {
-		@apply rounded-lg;
-	}
+    /* 2xl */
+    html {
+      font-size: 18px;
+    }
+  }
 
-	h1 {
-		@apply text-3xl lg:text-5xl;
-	}
+  @media (min-width: 1920px) {
 
-	h2 {
-		@apply text-2xl lg:text-4xl;
-	}
+    /* 3xl */
+    html {
+      font-size: 20px;
+    }
+  }
 
-	h3 {
-		@apply text-xl lg:text-3xl;
-	}
+  @media (min-width: 2560px) {
 
-	h4 {
-		@apply text-lg lg:text-2xl;
-	}
+    /* 4xl */
+    html {
+      font-size: 22px;
+    }
+  }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	article h1,
-	article h2,
-	article h3,
-	article h4 {
-		@apply text-start font-bold;
-	}
+  @media (min-width: 3840px) {
 
-	/* PocketBase WYSIWYG Classes Start
+    /* 5xl */
+    html {
+      font-size: 24px;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  img {
+    @apply rounded-lg;
+  }
+
+  h1 {
+    @apply text-3xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-lg lg:text-2xl;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  article h1,
+  article h2,
+  article h3,
+  article h4 {
+    @apply text-start font-bold;
+  }
+
+  /* PocketBase WYSIWYG Classes Start
   -------------------------------------------------------------- */
 
-	article h1,
-	article h2,
-	article h3,
-	article h4 {
-		@apply pb-2 pt-4;
-	}
+  article h1,
+  article h2,
+  article h3,
+  article h4 {
+    @apply pb-2 pt-4;
+  }
 
-	article p {
-		@apply my-4;
-	}
+  article p {
+    @apply my-4;
+  }
 
-	article a {
-		@apply underline transition-all;
-	}
+  article a {
+    @apply underline transition-all;
+  }
 
-	article a:hover {
-		@apply text-gray-600;
-	}
+  article a:hover {
+    @apply text-gray-600;
+  }
 
-	article ul {
-		@apply list-outside list-disc pl-4;
-	}
+  article ul {
+    @apply list-outside list-disc pl-4;
+  }
 
-	article ol {
-		@apply list-outside list-decimal pl-4;
-	}
+  article ol {
+    @apply list-outside list-decimal pl-4;
+  }
 
-	blockquote {
-		@apply border-l-4 border-primary bg-accent p-4;
-	}
+  blockquote {
+    @apply border-l-4 border-primary bg-accent p-4;
+  }
 
-	blockquote:before {
-		content: open-quote;
-	}
+  blockquote:before {
+    content: open-quote;
+  }
 
-	blockquote p {
-		display: inline;
-	}
+  blockquote p {
+    display: inline;
+  }
 }
 
 /* Add overflow rule separately */
 body {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 /* Aurora Animal Clinic Brand Utilities */
 @layer utilities {
-	.text-aurora-green {
-		color: hsl(var(--aurora-green));
-	}
-	
-	.text-aurora-green-dark {
-		color: hsl(var(--aurora-green-dark));
-	}
-	
-	.bg-aurora-green {
-		background-color: hsl(var(--aurora-green));
-	}
-	
-	.bg-aurora-green-light {
-		background-color: hsl(var(--aurora-green-light));
-	}
-	
-	.bg-aurora-green-dark {
-		background-color: hsl(var(--aurora-green-dark));
-	}
-	
-	.border-aurora-green {
-		border-color: hsl(var(--aurora-green));
-	}
-	
-	.hover\:bg-aurora-green:hover {
-		background-color: hsl(var(--aurora-green));
-	}
-	
-	.hover\:text-aurora-green:hover {
-		color: hsl(var(--aurora-green));
-	}
+  .text-aurora-green {
+    color: hsl(var(--aurora-green));
+  }
+
+  .text-aurora-green-dark {
+    color: hsl(var(--aurora-green-dark));
+  }
+
+  .bg-aurora-green {
+    background-color: hsl(var(--aurora-green));
+  }
+
+  .bg-aurora-green-light {
+    background-color: hsl(var(--aurora-green-light));
+  }
+
+  .bg-aurora-green-dark {
+    background-color: hsl(var(--aurora-green-dark));
+  }
+
+  .border-aurora-green {
+    border-color: hsl(var(--aurora-green));
+  }
+
+  .hover\:bg-aurora-green:hover {
+    background-color: hsl(var(--aurora-green));
+  }
+
+  .hover\:text-aurora-green:hover {
+    color: hsl(var(--aurora-green));
+  }
 }

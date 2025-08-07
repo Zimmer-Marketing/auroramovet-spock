@@ -21,7 +21,7 @@
 <section class="bg-gray-50 py-24 {className}">
 	<div class="container mx-auto px-6">
 		<div class="mb-16 text-center">
-			<h2 class="mb-6 text-5xl font-bold text-gray-800">
+			<h2 class="mb-6 flex text-5xl font-bold text-gray-800">
 				<span class="font-light tracking-widest text-gray-600">OUR</span>
 				<span class="text-gray-800">SERVICES</span>
 			</h2>

@@ -19,13 +19,9 @@
 				</Card.Header>
 				<Card.Content class="p-8">
 					<ContactForm />
-					<div class="mt-6 text-center">
-						<Button variant="secondary" class="px-8 py-3 font-bold tracking-wider">
-							SEND MESSAGE
-						</Button>
-					</div>
 				</Card.Content>
 			</Card.Root>
 		</div>
 	</div>
 </section>
+

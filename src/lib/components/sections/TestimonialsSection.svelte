@@ -18,20 +18,29 @@
 	// Default to 5 stars if rating is not provided
 	const getRating = (testimonial: Testimonial) => testimonial.rating || 5;
 
-	// Carousel state
+	// Carousel state - now tracks individual testimonial index, not page
 	let currentIndex = $state(0);
 	let autoPlayInterval: ReturnType<typeof setInterval> | undefined;
 
 	// Number of testimonials to show at once
 	const testimonialsPerView = 3;
 
-	// Calculate the number of pages
-	const totalPages = $derived(Math.ceil(testimonials.length / testimonialsPerView));
-
-	// Get the current set of testimonials to display
+	// Get the current set of testimonials to display (sliding window of 3)
 	const visibleTestimonials = $derived(
-		testimonials.slice(currentIndex * testimonialsPerView, (currentIndex + 1) * testimonialsPerView)
+		testimonials.length <= testimonialsPerView
+			? testimonials
+			: (() => {
+					const result = [];
+					for (let i = 0; i < testimonialsPerView; i++) {
+						const index = (currentIndex + i) % testimonials.length;
+						result.push(testimonials[index]);
+					}
+					return result;
+				})()
 	);
+
+	// Calculate total pages for dots
+	const totalPages = $derived(testimonials.length);
 
 	// Navigation functions
 	const goToPage = (index: number) => {
@@ -40,12 +49,12 @@
 	};
 
 	const nextPage = () => {
-		currentIndex = (currentIndex + 1) % totalPages;
+		currentIndex = (currentIndex + 1) % testimonials.length;
 		resetAutoPlay();
 	};
 
 	const prevPage = () => {
-		currentIndex = (currentIndex - 1 + totalPages) % totalPages;
+		currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
 		resetAutoPlay();
 	};
 
@@ -78,57 +87,48 @@
 	});
 </script>
 
-<!-- Testimonials Section with flowing wave design -->
-<section class="relative bg-[#2b482d] py-12 {className}">
-	<!-- Decorative wave backgrounds like in Figma -->
-	<div class="pointer-events-none absolute inset-0">
-		<!-- Top wave with rotation -->
-		<div class="absolute -top-20 left-0 right-0 h-64 w-full overflow-hidden opacity-30">
-			<img
-				src="/03267d81b22af4c48f998cfa906042bed8183496.png"
-				alt=""
-				class="h-full w-full rotate-[2.553deg] scale-110 transform object-cover"
-			/>
-		</div>
+<!-- Testimonials Section with Figma-generated wave design -->
+<section class="relative py-64 {className}">
+	<!-- Background layers matching Figma structure -->
+	<div class="pointer-events-none absolute inset-0 overflow-hidden">
+		<!-- Center dark green rectangle as base -->
+		<div class="absolute inset-0 bg-[#2b482d]"></div>
 
-		<!-- Bottom wave with opposite rotation - extends beyond section -->
-		<div class="absolute -bottom-40 left-0 right-0 z-20 h-80 w-full opacity-30">
-			<img
-				src="/03267d81b22af4c48f998cfa906042bed8183496.png"
-				alt=""
-				class="h-full w-full rotate-[182.543deg] scale-110 transform object-cover"
-			/>
-		</div>
-
-		<!-- Additional middle wave layers for depth -->
-		<div class="absolute left-0 right-0 top-1/4 h-48 w-full opacity-10">
-			<svg
-				viewBox="0 0 1440 200"
-				class="h-full w-full"
-				preserveAspectRatio="none"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					d="M0,100 C360,50 720,150 1080,100 C1260,75 1380,125 1440,100 L1440,0 L0,0 Z"
-					fill="#5a7d5f"
+		<!-- Top wave image (rotated and centered) -->
+		<div class="absolute left-1/2 top-1 z-[999] flex -translate-x-1/2 items-center justify-center">
+			<div class="flex-none">
+				<div
+					class="bg-cover bg-center bg-no-repeat"
+					style="background-image: url('/03267d81b22af4c48f998cfa906042bed8183496.png'); width: 100vw; height: 226px; min-width: 1506px;"
 				/>
-			</svg>
+			</div>
+		</div>
+
+		<!-- Bottom wave image (rotated and centered) -->
+		<div
+			class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-16 items-center justify-center"
+		>
+			<div class="flex-none rotate-[182.543deg]">
+				<div
+					class="bg-cover bg-center bg-no-repeat"
+					style="background-image: url('/03267d81b22af4c48f998cfa906042bed8183496.png'); width: 100vw; height: 226px; min-width: 1506px;"
+				/>
+			</div>
 		</div>
 	</div>
-
-	<div class="container relative z-10 mx-auto px-6">
-		<h2 class="mb-16 text-center text-4xl font-bold text-white md:text-5xl">
+	<div class="relative z-10 w-full px-6 lg:px-12 xl:px-20">
+		<h2 class="mb-16 text-center text-2xl font-bold text-white md:text-5xl">
 			Maintaining Outstanding<br />
 			Standards of Veterinary Care!
 		</h2>
 
 		<!-- Carousel Container -->
-		<div class="relative mx-auto max-w-7xl">
+		<div class="relative mx-auto w-full max-w-screen-2xl">
 			<!-- Previous Button -->
 			{#if testimonials.length > testimonialsPerView}
 				<button
 					onclick={() => prevPage()}
-					class="absolute left-0 top-1/2 z-20 -translate-x-12 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20"
+					class="absolute -left-16 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 lg:-left-20"
 					aria-label="Previous testimonials"
 				>
 					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,23 +143,32 @@
 			{/if}
 
 			<!-- Testimonials Grid -->
-			<div class="grid min-h-[400px] items-center gap-8 md:grid-cols-3">
+			<div
+				class="grid min-h-[400px] grid-cols-1 items-center gap-8 md:grid-cols-3 md:gap-12 lg:gap-20 xl:gap-24"
+			>
 				{#each visibleTestimonials as testimonial, index}
 					{#if index === 1}
 						<!-- Center testimonial with white card and speech bubble -->
-						<div class="relative w-96 text-center">
-							<div class="relative mx-8 rounded-2xl bg-white p-8 text-gray-800 shadow-2xl">
+						<div class="flex flex-col items-center text-center">
+							<div class="relative w-full rounded-2xl bg-white px-8 py-10 text-gray-800 shadow-2xl">
 								<!-- Speech bubble pointer -->
 								<div
 									class="absolute -bottom-4 left-1/2 h-0 w-0 -translate-x-1/2 transform border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white"
 								></div>
 
-								<p class="mb-6 text-base leading-relaxed text-gray-700">
-									{@html testimonial.review}
-								</p>
-								<div class="mb-4 flex justify-center space-x-1">
+								<!-- Review text with quote -->
+								<div class="text-left">
+									<!-- Large decorative quote positioned right above text -->
+									<div class="-mb-4 text-5xl text-gray-300">"</div>
+									<p class="mb-8 min-h-[100px] pl-8 text-base leading-relaxed text-gray-700">
+										{@html testimonial.review}
+									</p>
+								</div>
+
+								<!-- Stars -->
+								<div class="flex justify-center space-x-1">
 									{#each Array(getRating(testimonial)) as _}
-										<span class="text-2xl text-gray-600">★</span>
+										<span class="text-2xl text-yellow-400">★</span>
 									{/each}
 								</div>
 							</div>
@@ -167,19 +176,28 @@
 							<p class="mt-8 text-xl font-bold text-white">{testimonial.name}</p>
 						</div>
 					{:else}
-						<!-- Side testimonials blending with background -->
-						<div class="w-96 px-4 text-center text-white/90">
-							<!-- Large decorative quote -->
-							<div class="mb-4 text-8xl opacity-20">"</div>
-							<p class="mx-auto mb-6 max-w-xs text-base leading-relaxed">
-								{@html testimonial.review}
-							</p>
-							<div class="mb-4 flex justify-center space-x-1">
-								{#each Array(getRating(testimonial)) as _}
-									<span class="text-xl text-white/80">★</span>
-								{/each}
+						<!-- Side testimonials blending with background - hidden on mobile -->
+						<div class="hidden flex-col items-center text-center text-white/90 md:flex">
+							<div class="w-full px-4">
+								<!-- Review text with quote -->
+								<div class="text-left">
+									<!-- Large decorative quote positioned right above text -->
+									<div class="-mb-4 text-5xl text-white/30">"</div>
+									<p class="mb-8 min-h-[100px] pl-8 text-base leading-relaxed">
+										{@html testimonial.review}
+									</p>
+								</div>
+
+								<!-- Stars -->
+								<div class="mb-4 flex justify-center space-x-1">
+									{#each Array(getRating(testimonial)) as _}
+										<span class="text-2xl text-yellow-400">★</span>
+									{/each}
+								</div>
+
+								<!-- Name -->
+								<p class="text-lg font-semibold">{testimonial.name}</p>
 							</div>
-							<p class="text-lg font-semibold">{testimonial.name}</p>
 						</div>
 					{/if}
 				{/each}
@@ -189,7 +207,7 @@
 			{#if testimonials.length > testimonialsPerView}
 				<button
 					onclick={() => nextPage()}
-					class="absolute right-0 top-1/2 z-20 -translate-y-1/2 translate-x-12 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20"
+					class="absolute -right-16 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 lg:-right-20"
 					aria-label="Next testimonials"
 				>
 					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -204,35 +222,34 @@
 			{/if}
 		</div>
 
-		<!-- Navigation Dots -->
-		{#if totalPages > 1}
+		<!-- Navigation Dots - show dots for number of testimonials -->
+		{#if testimonials.length > testimonialsPerView}
 			<div class="mt-16 flex justify-center space-x-3">
-				{#each Array(totalPages) as _, pageIndex}
+				{#each Array(testimonials.length) as _, dotIndex}
 					<button
-						onclick={() => goToPage(pageIndex)}
-						class={`h-2 w-16 rounded-full transition-all ${
-							pageIndex === currentIndex ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
+						onclick={() => goToPage(dotIndex)}
+						class={`h-2 w-2 rounded-full transition-all ${
+							dotIndex === currentIndex ? 'w-8 bg-white' : 'bg-white/40 hover:bg-white/60'
 						}`}
-						aria-label={`Go to testimonials page ${pageIndex + 1}`}
+						aria-label={`Go to testimonial ${dotIndex + 1}`}
 					></button>
 				{/each}
 			</div>
 		{/if}
 	</div>
 
-	<!-- Wave transition to next section -->
-	<div class="absolute -bottom-1 left-0 right-0 w-full">
+	<!-- Bottom wave transition to next section -->
+	<div class="z-5 absolute -bottom-1 left-0 right-0 w-full">
 		<svg
-			viewBox="0 0 1440 120"
-			class="w-full"
+			viewBox="0 0 1440 80"
+			class="h-20 w-full"
 			preserveAspectRatio="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				d="M0,40 C360,100 720,20 1080,60 C1260,85 1380,65 1440,80 L1440,120 L0,120 Z"
+				d="M0,20 C360,60 720,10 1080,40 C1260,55 1380,45 1440,50 L1440,80 L0,80 Z"
 				fill="#f9fafb"
 			/>
 		</svg>
 	</div>
 </section>
-
