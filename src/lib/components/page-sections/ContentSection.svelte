@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 	import { Button } from '$lib/components/ui/button';
+	import PbImage from '$lib/components/PbImage.svelte';
 
 	interface Props {
 		title: string;
@@ -11,6 +12,7 @@
 		buttonText?: string;
 		buttonLink?: string;
 		className?: string;
+		record?: any; // PocketBase record for image access
 	}
 
 	let {
@@ -21,12 +23,29 @@
 		backgroundColor = 'light',
 		buttonText = '',
 		buttonLink = '',
-		className = ''
+		className = '',
+		record = null
 	}: Props = $props();
 
 	const isDark = backgroundColor === 'dark';
 	const textColor = isDark ? 'text-white' : 'text-[#2b482d]';
 	const bgColor = isDark ? 'bg-[#2b482d]' : 'bg-white';
+
+	// Debug logging
+	$effect(() => {
+		if (image && record) {
+			const imageIndex = parseInt(image);
+			console.log('ContentSection debug:', {
+				image,
+				imageIndex,
+				record,
+				images: record?.images,
+				imageName: record?.images?.[imageIndex],
+				hasImages: !!record?.images,
+				imageType: typeof image
+			});
+		}
+	});
 </script>
 
 <section class={cn('py-16', bgColor, className)}>
@@ -58,7 +77,25 @@
 			</div>
 
 			<!-- Image -->
-			{#if image}
+			{#if image && image !== "" && record && record.images}
+				{@const imageIndex = parseInt(image) - 1}
+				{@const imageName = record.images[imageIndex]}
+				{#if imageName}
+					<div class={cn('', imagePosition === 'left' ? 'lg:order-1' : '')}>
+						<div class="overflow-hidden rounded-[10px] shadow-lg">
+							<PbImage
+								{record}
+								photoName={imageName}
+								alt={title}
+								width={800}
+								height={400}
+								cssClass="h-[300px] md:h-[400px] w-full object-cover transition-transform duration-300 hover:scale-105"
+							/>
+						</div>
+					</div>
+				{/if}
+			{:else if image && !record}
+				<!-- Fallback for static images -->
 				<div class={cn('', imagePosition === 'left' ? 'lg:order-1' : '')}>
 					<div class="overflow-hidden rounded-[10px] shadow-lg">
 						<img

@@ -35,6 +35,7 @@
 	// Debug logging
 	console.log('NewPageLayout debug:', {
 		route: route,
+		routeImages: route?.images,
 		meta: route?.meta,
 		contentBlocks: route?.meta?.contentBlocks,
 		blocksToRender: blocksToRender
@@ -67,6 +68,7 @@
 			backgroundColor={block.backgroundColor}
 			buttonText={block.buttonText}
 			buttonLink={block.buttonLink}
+			record={route}
 		/>
 	{/each}
 
