@@ -37,7 +37,7 @@
 		const handleScroll = () => {
 			// Update isScrolled state
 			isScrolled.set(window.scrollY > 10);
-			
+
 			if (Math.abs(window.scrollY - lastScrollY) < threshold) return;
 
 			if (!ticking) {
@@ -90,19 +90,21 @@
 	});
 </script>
 
-<header 
-	class="sticky top-0 z-50 transition-all duration-300 {$isScrolled ? 'backdrop-blur-sm bg-black/20' : 'bg-transparent'}" 
+<header
+	class="sticky top-0 z-50 transition-all duration-300 {$isScrolled
+		? 'bg-black/20 backdrop-blur-sm'
+		: 'bg-transparent'}"
 	style="height: {10 - 4 * $scrollProgress}rem"
 >
-	<div class="container mx-auto h-full px-6">
-		<div class="flex h-full items-center justify-between">
+	<div class=" mx-auto h-full px-6">
+		<div class="flex h-full items-center justify-center md:space-x-44">
 			<!-- Mobile Menu Button -->
 			<div class="md:hidden">
 				<MobileMenu {siteSettings} {logoSrc} />
 			</div>
 
 			<!-- Logo -->
-			<div class="flex items-center">
+			<div class="flex items-center justify-center">
 				<Logo
 					{siteSettings}
 					{logoSrc}
@@ -114,7 +116,7 @@
 			</div>
 
 			<!-- Desktop Navigation - Centered -->
-			<nav class="hidden flex-1 justify-center space-x-12 md:flex">
+			<nav class="hidden justify-end space-x-9 md:flex">
 				{#each navigationItems as item}
 					<a
 						href={item.path}
