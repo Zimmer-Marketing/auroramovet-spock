@@ -19,6 +19,8 @@
 	const logoSrc = `${PUBLIC_POCKETBASE_URL}/api/files/${siteSettings.collectionId}/${siteSettings.id}/${siteSettings?.images[0]}`;
 	const scrollProgress = writable(0);
 	const isScrolled = writable(false);
+	
+	let logoLoaded = $state(false);
 
 	// Aurora navigation items - can be moved to siteSettings later
 	const navigationItems = siteSettings?.expand?.menu;
@@ -27,12 +29,15 @@
 	const isTransparentPage = $derived(() => {
 		const pathname = $page.url.pathname;
 		const transparentPages = ['/', '/home', '/pets', '/livestock', '/equine'];
-		return transparentPages.some(path => 
-			pathname === path || pathname === path + '/'
-		);
+		return transparentPages.some((path) => pathname === path || pathname === path + '/');
 	});
 
 	onMount(() => {
+		// Trigger logo slide-down animation after preload screen finishes (500ms + 200ms buffer)
+		setTimeout(() => {
+			logoLoaded = true;
+		}, 700);
+
 		let targetHeight = 10;
 		let currentHeight = 10;
 		const maxScroll = 180;
@@ -105,12 +110,14 @@
 
 <header
 	class="sticky top-0 z-50 transition-all duration-300 {isTransparentPage()
-		? ($isScrolled ? 'bg-black/20 backdrop-blur-sm' : 'bg-transparent')
-		: 'bg-black/50 backdrop-blur-md'}"
+		? $isScrolled
+			? 'bg-primary/50 backdrop-blur-sm'
+			: 'bg-transparent'
+		: 'bg-primary/75 backdrop-blur-md'}"
 	style="height: {10 - 4 * $scrollProgress}rem"
 >
 	<div class=" mx-auto h-full px-6">
-		<div class="flex h-full items-center justify-center md:space-x-44">
+		<div class="flex h-full items-center justify-center md:space-x-20">
 			<!-- Mobile Menu Button -->
 			<div class="md:hidden">
 				<MobileMenu {siteSettings} {logoSrc} />
@@ -118,14 +125,20 @@
 
 			<!-- Logo -->
 			<div class="flex items-center justify-center">
-				<Logo
-					{siteSettings}
-					{logoSrc}
-					logoAlt="Aurora Animal Clinic"
-					hidden={false}
-					ariaLabel="Go to home page"
-					shrink={$scrollProgress}
-				/>
+				<div 
+					class="transform transition-all duration-700 ease-out {logoLoaded 
+						? 'translate-y-0 opacity-100' 
+						: '-translate-y-8 opacity-0'}"
+				>
+					<Logo
+						{siteSettings}
+						{logoSrc}
+						logoAlt="Aurora Animal Clinic"
+						hidden={false}
+						ariaLabel="Go to home page"
+						shrink={$scrollProgress}
+					/>
+				</div>
 			</div>
 
 			<!-- Desktop Navigation - Centered -->

@@ -52,6 +52,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource/inter": "^5.2.6",
+		"@fontsource/jost": "^5.2.6",
 		"@sendgrid/mail": "^8.1.5",
 		"cmdk-sv": "^0.0.13",
 		"embla-carousel-svelte": "8.0.0-rc23",

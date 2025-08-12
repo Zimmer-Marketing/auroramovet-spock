@@ -16,6 +16,8 @@
 	import ServiceDetail from '$lib/components/ServiceDetail.svelte';
 	import NewPageLayout from '$lib/components/NewPageLayout.svelte';
 	import TestimonialsCarousel from '$lib/components/TestimonialsCarousel.svelte';
+	import TeamSection from '$lib/components/sections/TeamSection.svelte';
+	import Careers from '$lib/components/sections/Careers.svelte';
 
 	let isOpen = $state(false);
 
@@ -24,7 +26,7 @@
 	}
 
 	let { data }: Props = $props();
-	let { route, siteSettings, routeType, relatedServices, testimonials } = $derived(data);
+	let { route, siteSettings, routeType, relatedServices, testimonials, teamMembers, jobs } = $derived(data);
 
 	// Determine if this page should use the new layout
 	const shouldUseNewLayout = $derived(() => {
@@ -57,7 +59,10 @@
 
 <RouteMeta {route} {siteSettings} />
 
-{#if shouldUseNewLayout()}
+{#if route.slug === 'careers'}
+	<!-- Careers Page Layout -->
+	<Careers data={{ route, jobs, siteSettings }} />
+{:else if shouldUseNewLayout()}
 	<!-- New Page Layout -->
 	<NewPageLayout {route} showContactForm={true} />
 {:else}
@@ -66,6 +71,7 @@
 		<div class="col-span-full md:col-span-4">
 			<div class="max-w-3xl px-4 py-3 md:px-8">
 				<Breadcrumbs route={{ ...route, shortTitle: route.shortTitle }} />
+				<EditRecordButton record={route} />
 				<h1>{route.title}</h1>
 				{#if route.images.length === 1}
 					{@const imgSrc = getPbRecordImageURL(route, 0, '800x600')}
@@ -126,7 +132,12 @@
 					<ContactForm />
 				{/if}
 				{#if route.slug === 'testimonials' && testimonials && testimonials.length > 0}
-					<TestimonialsCarousel {testimonials} />
+					<TestimonialsCarousel {testimonials} testimonialsPerView={2} showTitle={false} />
+				{/if}
+				{#if route.slug === 'about' && teamMembers && teamMembers.length > 0}
+					<div class="mt-8">
+						<TeamSection {teamMembers} className="" showTitle={false} showAboutButton={false} />
+					</div>
 				{/if}
 			</div>
 		</div>

@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/inter':
+        specifier: ^5.2.6
+        version: 5.2.6
+      '@fontsource/jost':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@sendgrid/mail':
         specifier: ^8.1.5
         version: 8.1.5
@@ -472,6 +478,12 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
+  '@fontsource/inter@5.2.6':
+    resolution: {integrity: sha512-CZs9S1CrjD0jPwsNy9W6j0BhsmRSQrgwlTNkgQXTsAeDRM42LBRLo3eo9gCzfH4GvV7zpyf78Ozfl773826csw==}
+
+  '@fontsource/jost@5.2.6':
+    resolution: {integrity: sha512-9r/ZSnCORLvboyiOCZT8Ff7/Nvmu/+hKXpAtoL4b7KlewWD1G/RCaUeiduE05VhBwnxcCgkgvJ4S4HSQB/5/1w==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -2599,6 +2611,10 @@ snapshots:
       '@floating-ui/utils': 0.2.10
 
   '@floating-ui/utils@0.2.10': {}
+
+  '@fontsource/inter@5.2.6': {}
+
+  '@fontsource/jost@5.2.6': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:

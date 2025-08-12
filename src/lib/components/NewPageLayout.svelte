@@ -4,6 +4,7 @@
 	import ContactFormSection from './page-sections/ContactFormSection.svelte';
 	import { cn } from '$lib/utils';
 	import { getPbRecordImageURL } from '$lib/helpers/pbHelpers';
+	import EditRecordButton from '$lib/components/pocketbase/EditRecordButton.svelte';
 
 	interface ContentBlock {
 		id?: string;
@@ -50,6 +51,7 @@
 </script>
 
 <div class={cn('min-h-screen bg-white', className)}>
+	<EditRecordButton record={route} />
 	<!-- Hero Section -->
 	<PageHero 
 		title={route?.title || 'Page Title'} 

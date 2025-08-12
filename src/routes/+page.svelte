@@ -26,8 +26,6 @@
 			? `${PUBLIC_POCKETBASE_URL}/api/files/${route.collectionId}/${route.id}/${route.images[0]}?thumb=0x0`
 			: '/hero-building.jpg'
 	);
-
-	console.log(route);
 </script>
 
 <RouteMeta {route} {siteSettings} />

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import EditRecordButton from './pocketbase/EditRecordButton.svelte';
 
 	interface Testimonial {
 		id?: string;
@@ -11,9 +12,11 @@
 	interface Props {
 		testimonials?: Testimonial[];
 		className?: string;
+		testimonialsPerView?: number;
+		showTitle?: boolean;
 	}
 
-	let { testimonials = [], className = '' }: Props = $props();
+	let { testimonials = [], className = '', testimonialsPerView = 3, showTitle = true }: Props = $props();
 
 	// Default to 5 stars if rating is not provided
 	const getRating = (testimonial: Testimonial) => testimonial.rating || 5;
@@ -22,8 +25,7 @@
 	let currentIndex = $state(0);
 	let autoPlayInterval: ReturnType<typeof setInterval> | undefined;
 
-	// Number of testimonials to show at once
-	const testimonialsPerView = 3;
+	// Number of testimonials to show at once is now controlled by prop
 
 	// Get the current set of testimonials to display (sliding window of 3)
 	const visibleTestimonials = $derived(
@@ -90,9 +92,11 @@
 <!-- Simplified Testimonials Section without wave backgrounds -->
 <section class="relative bg-gray-50 py-20 {className}">
 	<div class="relative z-10 w-full px-6 lg:px-12 xl:px-20">
-		<h2 class="mb-16 text-center text-2xl font-bold text-gray-800 md:text-5xl">
-			What Our Clients Say
-		</h2>
+		{#if showTitle}
+			<h2 class="mb-16 text-center text-2xl font-bold text-gray-800 md:text-5xl">
+				What Our Clients Say
+			</h2>
+		{/if}
 
 		<!-- Carousel Container -->
 		<div class="relative mx-auto w-full max-w-screen-xl">
@@ -116,12 +120,13 @@
 
 			<!-- Testimonials Grid -->
 			<div
-				class="grid min-h-[300px] grid-cols-1 items-center gap-8 md:grid-cols-3 md:gap-8 lg:gap-12"
+				class="grid min-h-[300px] grid-cols-1 items-center gap-8 {testimonialsPerView === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'} md:gap-8 lg:gap-12"
 			>
 				{#each visibleTestimonials as testimonial, index}
 					<!-- All testimonials with white cards -->
 					<div class="flex flex-col items-center text-center">
 						<div class="relative w-full rounded-2xl bg-white px-8 py-10 text-gray-800 shadow-lg">
+							<EditRecordButton record={testimonial} />
 							<!-- Review text with quote -->
 							<div class="text-left">
 								<!-- Large decorative quote positioned right above text -->

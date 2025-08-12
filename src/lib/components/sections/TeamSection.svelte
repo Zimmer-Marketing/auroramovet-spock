@@ -2,6 +2,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { PUBLIC_POCKETBASE_URL } from '$env/static/public';
 	import { onMount, onDestroy } from 'svelte';
+	import EditRecordButton from '$lib/components/pocketbase/EditRecordButton.svelte';
 
 	interface TeamMember {
 		id: string;
@@ -14,9 +15,11 @@
 	interface Props {
 		teamMembers?: TeamMember[];
 		className?: string;
+		showTitle?: boolean;
+		showAboutButton?: boolean;
 	}
 
-	let { teamMembers = [], className = '' }: Props = $props();
+	let { teamMembers = [], className = '', showTitle = true, showAboutButton = true }: Props = $props();
 
 	// Mobile carousel state
 	let currentIndex = $state(0);
@@ -69,16 +72,19 @@
 
 <section class="relative z-10 bg-primary py-16 text-primary-foreground {className}">
 	<div class="container mx-auto px-6">
-		<h2 class="mb-12 px-14 text-center text-2xl font-bold md:text-4xl">
-			Meet the Aurora Animal Clinic Team
-		</h2>
+		{#if showTitle}
+			<h2 class="mb-12 px-14 text-center text-2xl font-bold md:text-4xl">
+				Meet the Aurora Animal Clinic Team
+			</h2>
+		{/if}
 
 		<!-- Desktop Grid Layout (hidden on mobile) -->
 		<div class="mx-auto hidden max-w-6xl gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
 			{#each teamMembers as member}
 				<div
-					class="mx-auto w-full max-w-[400px] overflow-hidden rounded-t-md bg-white shadow-md transition-all hover:shadow-xl"
+					class="mx-auto w-full max-w-[400px] overflow-hidden rounded-t-md bg-white shadow-md transition-all hover:shadow-xl relative"
 				>
+					<EditRecordButton record={member} />
 					<!-- Staff Image - no bottom rounding -->
 					<div class="relative h-[362px] w-full overflow-hidden rounded-t-md">
 						{#if member.image && member.id}
@@ -124,7 +130,8 @@
 				>
 					{#each teamMembers as member, index}
 						<div class="mr-6 flex-shrink-0" style="width: 233px;">
-							<div class="overflow-hidden rounded-[10px] bg-white shadow-md transition-all">
+							<div class="overflow-hidden rounded-[10px] bg-white shadow-md transition-all relative">
+								<EditRecordButton record={member} />
 								<!-- Staff Image -->
 								<div class="relative h-[281px] w-full overflow-hidden rounded-t-[10px]">
 									{#if member.image && member.id}
@@ -180,12 +187,14 @@
 			{/if}
 		</div>
 
-		<div class="mt-12 text-center">
-			<button
-				class="rounded-[50px] bg-white px-12 py-4 text-[24px] font-bold text-[#2b482d] transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-white/50"
-			>
-				About Us
-			</button>
-		</div>
+		{#if showAboutButton}
+			<div class="mt-12 text-center">
+				<button
+					class="rounded-[50px] bg-white px-12 py-4 text-[24px] font-bold text-[#2b482d] transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-white/50"
+				>
+					About Us
+				</button>
+			</div>
+		{/if}
 	</div>
 </section>

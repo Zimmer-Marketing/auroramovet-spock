@@ -66,11 +66,39 @@ export async function load({ locals, params }) {
 		// Silently fail if can't fetch testimonials
 	}
 
+	// Fetch team members for the about page
+	let teamMembers = [];
+	if (routeSlug === 'about') {
+		try {
+			teamMembers = await locals.pb.collection('staff').getFullList({
+				sort: 'created'
+			});
+		} catch (err) {
+			console.log('Could not fetch team members:', err instanceof Error ? err.message : String(err));
+			// Silently fail if can't fetch team members
+		}
+	}
+
+	// Fetch jobs for the careers page
+	let jobs = [];
+	if (routeSlug === 'careers') {
+		try {
+			jobs = await locals.pb.collection('jobs').getFullList({
+				sort: 'created'
+			});
+		} catch (err) {
+			console.log('Could not fetch jobs:', err instanceof Error ? err.message : String(err));
+			// Silently fail if can't fetch jobs
+		}
+	}
+
 	return {
 		route,
 		routeType,
 		relatedServices,
-		testimonials
+		testimonials,
+		teamMembers,
+		jobs
 	};
 }
 

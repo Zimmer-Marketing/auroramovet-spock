@@ -15,20 +15,20 @@
 	}: Props = $props();
 </script>
 
-<section class={cn('py-16 bg-white', className)}>
+<section class={cn('bg-white py-16', className)}>
 	<div class="container mx-auto px-6">
 		<!-- Section Title -->
 		<div class="mb-12 text-center">
-			<h2 class="mb-4 text-5xl md:text-6xl font-bold leading-[65px] text-[#2b482d]">
+			<h2 class="mb-4 text-5xl font-bold leading-[65px] text-[#2b482d] md:text-6xl">
 				{title}
 			</h2>
 		</div>
 
 		<!-- Contact Form Card -->
 		<div class="mx-auto max-w-4xl">
-			<div class="rounded-[10px] bg-[#2b482d] p-8 md:p-12 shadow-xl">
+			<div class="rounded-[10px] bg-[#2b482d] p-8 shadow-xl md:p-12">
 				<!-- Form Title -->
-				<h3 class="mb-8 text-center text-4xl md:text-5xl font-bold leading-[65px] text-white">
+				<h3 class="mb-8 text-center text-4xl font-bold leading-[65px] text-white md:text-5xl">
 					{subtitle}
 				</h3>
 
@@ -39,7 +39,7 @@
 						<input
 							type="text"
 							placeholder="Your Name"
-							class="w-full border-none bg-transparent text-xl text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none font-normal"
+							class="w-full border-none bg-transparent text-xl font-normal text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none"
 						/>
 					</div>
 
@@ -48,7 +48,7 @@
 						<input
 							type="tel"
 							placeholder="Your Phone Number"
-							class="w-full border-none bg-transparent text-xl text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none font-normal"
+							class="w-full border-none bg-transparent text-xl font-normal text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none"
 						/>
 					</div>
 
@@ -57,7 +57,7 @@
 						<input
 							type="email"
 							placeholder="Your Email"
-							class="w-full border-none bg-transparent text-xl text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none font-normal"
+							class="w-full border-none bg-transparent text-xl font-normal text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none"
 						/>
 					</div>
 
@@ -66,7 +66,7 @@
 						<textarea
 							placeholder="Your Message"
 							rows="5"
-							class="w-full resize-none border-none bg-transparent text-xl text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none font-normal"
+							class="w-full resize-none border-none bg-transparent text-xl font-normal text-[#2b482d] placeholder:text-[#2b482d] focus:outline-none"
 						></textarea>
 					</div>
 
@@ -84,3 +84,4 @@
 		</div>
 	</div>
 </section>
+

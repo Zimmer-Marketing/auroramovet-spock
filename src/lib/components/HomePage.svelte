@@ -5,6 +5,7 @@
 	import TeamSection from './sections/TeamSection.svelte';
 	import TestimonialsSection from './sections/TestimonialsSection.svelte';
 	import ContactSection from './sections/ContactSection.svelte';
+	import EditRecordButton from './pocketbase/EditRecordButton.svelte';
 
 	interface TeamMember {
 		id: string;
@@ -52,10 +53,10 @@
 </script>
 
 <div class={cn('relative  min-h-screen bg-background', className)}>
+	<EditRecordButton record={route} />
 	<HeroSection title={route.title} content={route.content} {heroImage} />
 	<ServicesSection {services} />
 	<TeamSection {teamMembers} />
-	<TestimonialsSection {testimonials} />
+	<TestimonialsSection {testimonials} showTitle={true} showWaveBackground={true} />
 	<ContactSection />
 </div>
-

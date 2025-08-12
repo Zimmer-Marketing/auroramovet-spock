@@ -10,7 +10,7 @@
 	let { className = '' }: Props = $props();
 </script>
 
-<section class="bg-background py-16 {className}">
+<section class="relative z-[999] mt-20 bg-background py-44 {className}">
 	<div class="container mx-auto px-6">
 		<div class="mx-auto max-w-2xl">
 			<Card.Root class="border-primary bg-primary text-primary-foreground">
@@ -24,4 +24,3 @@
 		</div>
 	</div>
 </section>
-

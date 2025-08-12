@@ -11,9 +11,16 @@
 	interface Props {
 		testimonials?: Testimonial[];
 		className?: string;
+		showTitle?: boolean;
+		showWaveBackground?: boolean;
 	}
 
-	let { testimonials = [], className = '' }: Props = $props();
+	let {
+		testimonials = [],
+		className = '',
+		showTitle = false,
+		showWaveBackground = false
+	}: Props = $props();
 
 	// Default to 5 stars if rating is not provided
 	const getRating = (testimonial: Testimonial) => testimonial.rating || 5;
@@ -87,40 +94,31 @@
 	});
 </script>
 
-<!-- Testimonials Section with Figma-generated wave design -->
+<!-- Testimonials Section -->
 <section class="relative py-64 {className}">
-	<!-- Background layers matching Figma structure -->
-	<div class="pointer-events-none absolute inset-0 overflow-hidden">
-		<!-- Center dark green rectangle as base -->
+	{#if showWaveBackground}
+		<!-- Background with separate top and bottom testimonials SVGs -->
+		<div class="absolute inset-0 bg-[#2b482d]">
+			<!-- Top wave -->
+			<div class="absolute left-0 top-0 w-full">
+				<img src="/testimonialsTop.svg" alt="" class="h-auto w-full" />
+			</div>
+			<!-- Bottom wave -->
+			<div class="absolute -bottom-32 left-0 z-10 w-full">
+				<img src="/testimonialsBottom.svg" alt="" class="h-auto w-full" />
+			</div>
+		</div>
+	{:else}
+		<!-- Simple background for non-homepage usage -->
 		<div class="absolute inset-0 bg-[#2b482d]"></div>
-
-		<!-- Top wave image (rotated and centered) -->
-		<div class="absolute left-1/2 top-1 z-[999] flex -translate-x-1/2 items-center justify-center">
-			<div class="flex-none">
-				<div
-					class="bg-cover bg-center bg-no-repeat"
-					style="background-image: url('/03267d81b22af4c48f998cfa906042bed8183496.png'); width: 100vw; height: 226px; min-width: 1506px;"
-				/>
-			</div>
-		</div>
-
-		<!-- Bottom wave image (rotated and centered) -->
-		<div
-			class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-16 items-center justify-center"
-		>
-			<div class="flex-none rotate-[182.543deg]">
-				<div
-					class="bg-cover bg-center bg-no-repeat"
-					style="background-image: url('/03267d81b22af4c48f998cfa906042bed8183496.png'); width: 100vw; height: 226px; min-width: 1506px;"
-				/>
-			</div>
-		</div>
-	</div>
+	{/if}
 	<div class="relative z-10 w-full px-6 lg:px-12 xl:px-20">
-		<h2 class="mb-16 text-center text-2xl font-bold text-white md:text-5xl">
-			Maintaining Outstanding<br />
-			Standards of Veterinary Care!
-		</h2>
+		{#if showTitle}
+			<h2 class="mb-16 text-center text-2xl font-bold text-white md:text-5xl">
+				Maintaining Outstanding<br />
+				Standards of Veterinary Care!
+			</h2>
+		{/if}
 
 		<!-- Carousel Container -->
 		<div class="relative mx-auto w-full max-w-screen-2xl">
@@ -236,20 +234,5 @@
 				{/each}
 			</div>
 		{/if}
-	</div>
-
-	<!-- Bottom wave transition to next section -->
-	<div class="z-5 absolute -bottom-1 left-0 right-0 w-full">
-		<svg
-			viewBox="0 0 1440 80"
-			class="h-20 w-full"
-			preserveAspectRatio="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path
-				d="M0,20 C360,60 720,10 1080,40 C1260,55 1380,45 1440,50 L1440,80 L0,80 Z"
-				fill="#f9fafb"
-			/>
-		</svg>
 	</div>
 </section>
