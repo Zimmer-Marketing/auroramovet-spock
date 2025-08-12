@@ -15,6 +15,7 @@
 	import { getPbRecordImageURL } from '$lib/helpers/pbHelpers';
 	import ServiceDetail from '$lib/components/ServiceDetail.svelte';
 	import NewPageLayout from '$lib/components/NewPageLayout.svelte';
+	import TestimonialsCarousel from '$lib/components/TestimonialsCarousel.svelte';
 
 	let isOpen = $state(false);
 
@@ -23,7 +24,7 @@
 	}
 
 	let { data }: Props = $props();
-	let { route, siteSettings, routeType, relatedServices } = $derived(data);
+	let { route, siteSettings, routeType, relatedServices, testimonials } = $derived(data);
 
 	// Determine if this page should use the new layout
 	const shouldUseNewLayout = $derived(() => {
@@ -58,10 +59,7 @@
 
 {#if shouldUseNewLayout()}
 	<!-- New Page Layout -->
-	<NewPageLayout
-		{route}
-		showContactForm={true}
-	/>
+	<NewPageLayout {route} showContactForm={true} />
 {:else}
 	<!-- Regular Page Content -->
 	<div class="relative mx-auto grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-6">
@@ -124,26 +122,11 @@
 					{@const faqs = route.expand.faqs}
 					<FAQCard {faqs} />
 				{/if}
-				{#if route.expand?.testimonials}
-					{@const testimonials = route.expand.testimonials}
-					<div class="grid grid-cols-1 gap-4">
-						{#each testimonials as testimonial}
-							<Card.Root>
-								<Card.Header>
-									<Card.Title>{testimonial.name}</Card.Title>
-								</Card.Header>
-								<Card.Content>
-									<article>
-										{@html testimonial.review}
-									</article>
-								</Card.Content>
-								<EditRecordButton record={testimonial} />
-							</Card.Root>
-						{/each}
-					</div>
-				{/if}
 				{#if route.slug === 'contact-us'}
 					<ContactForm />
+				{/if}
+				{#if route.slug === 'testimonials' && testimonials && testimonials.length > 0}
+					<TestimonialsCarousel {testimonials} />
 				{/if}
 			</div>
 		</div>

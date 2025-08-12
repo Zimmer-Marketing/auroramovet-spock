@@ -55,10 +55,22 @@ export async function load({ locals, params }) {
 		// Silently fail if can't fetch related services
 	}
 
+	// Fetch testimonials for the carousel
+	let testimonials = [];
+	try {
+		testimonials = await locals.pb.collection('testimonials').getFullList({
+			sort: 'created'
+		});
+	} catch (err) {
+		console.log('Could not fetch testimonials:', err instanceof Error ? err.message : String(err));
+		// Silently fail if can't fetch testimonials
+	}
+
 	return {
 		route,
 		routeType,
-		relatedServices
+		relatedServices,
+		testimonials
 	};
 }
 

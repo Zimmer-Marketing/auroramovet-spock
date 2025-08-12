@@ -10,7 +10,11 @@
 	import { writable } from 'svelte/store';
 	import { page } from '$app/stores';
 
-	export let siteSettings: any;
+	interface Props {
+		siteSettings: any;
+	}
+
+	let { siteSettings }: Props = $props();
 
 	const logoSrc = `${PUBLIC_POCKETBASE_URL}/api/files/${siteSettings.collectionId}/${siteSettings.id}/${siteSettings?.images[0]}`;
 	const scrollProgress = writable(0);
@@ -18,6 +22,15 @@
 
 	// Aurora navigation items - can be moved to siteSettings later
 	const navigationItems = siteSettings?.expand?.menu;
+
+	// Check if current page should have transparent header (no background blur)
+	const isTransparentPage = $derived(() => {
+		const pathname = $page.url.pathname;
+		const transparentPages = ['/', '/home', '/pets', '/livestock', '/equine'];
+		return transparentPages.some(path => 
+			pathname === path || pathname === path + '/'
+		);
+	});
 
 	onMount(() => {
 		let targetHeight = 10;
@@ -91,9 +104,9 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 transition-all duration-300 {$isScrolled
-		? 'bg-black/20 backdrop-blur-sm'
-		: 'bg-transparent'}"
+	class="sticky top-0 z-50 transition-all duration-300 {isTransparentPage()
+		? ($isScrolled ? 'bg-black/20 backdrop-blur-sm' : 'bg-transparent')
+		: 'bg-black/50 backdrop-blur-md'}"
 	style="height: {10 - 4 * $scrollProgress}rem"
 >
 	<div class=" mx-auto h-full px-6">
