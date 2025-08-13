@@ -21,7 +21,7 @@
 	});
 </script>
 
-<section class="relative -mt-44 h-screen overflow-hidden md:pt-24 {className}">
+<section class="relative h-screen overflow-hidden md:-mt-44 md:pt-24 {className}">
 	<div
 		class="absolute inset-0 bg-cover bg-center bg-no-repeat"
 		style="background-image: url('{heroImage}')"
@@ -29,21 +29,24 @@
 	<div class="absolute inset-0 bg-black/35"></div>
 
 	<div
-		class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-primary-foreground"
+		class="relative z-10 flex h-full flex-col items-center justify-center text-center text-primary-foreground"
 	>
 		<div
-			class="transform transition-all duration-700 ease-out md:w-1/2 {heroLoaded
+			class="w-full max-w-sm transform px-4 transition-all duration-700 ease-out md:w-1/2 md:max-w-none md:px-0 {heroLoaded
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
 			<h1
-				class="mb-6 text-center text-xl font-bold md:text-6xl"
+				class="mb-6 text-center text-xl font-bold md:px-12 md:text-6xl"
 				style="text-shadow: rgba(0,0,0,0.5) 0px 4px 7px"
 			>
-				{title}
+				{@html title.replace(
+					/^(.*?\s+to)\s+(.*)$/,
+					'<span class="block">$1</span><span class="block">$2</span>'
+				)}
 			</h1>
 			<p
-				class="mx-auto mb-8 max-w-4xl text-sm md:text-lg"
+				class="mx-auto mb-4 max-w-sm px-4 text-base md:max-w-4xl md:px-0 md:text-lg"
 				style="text-shadow: rgba(0,0,0,0.5) 0px 4px 4px"
 			>
 				{@html content}

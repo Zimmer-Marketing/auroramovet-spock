@@ -52,8 +52,8 @@
 	<div class="mx-auto w-full max-w-[1920px]">
 		<div class="grid items-center gap-0 lg:grid-cols-2">
 			<!-- Content -->
-			<div class={cn('px-12 py-8 lg:px-2 lg:py-12', imagePosition === 'left' ? 'lg:order-2' : '')}>
-				<h2 class={cn('mb-6 text-3xl font-bold md:text-5xl', textColor)}>
+			<div class={cn('px-8 pb-8 lg:px-2 lg:py-12', imagePosition === 'left' ? 'lg:order-2' : '')}>
+				<h2 class={cn('mb-6 text-2xl font-bold md:text-5xl', textColor)}>
 					{title}
 				</h2>
 
@@ -116,4 +116,3 @@
 		</div>
 	</div>
 </section>
-

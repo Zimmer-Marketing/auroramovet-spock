@@ -14,7 +14,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --primary: 124 25 23;
+    --primary: 124 25% 23%;
     /* Aurora Brand Green #2b482d */
     --primary-foreground: 0 0% 100%;
     --secondary: 147 20% 95%;
@@ -204,6 +204,16 @@
 /* Add overflow rule separately */
 body {
   overflow-x: hidden;
+}
+
+/* Ensure all containers respect viewport width */
+@media (max-width: 768px) {
+  .container, 
+  section,
+  div {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 }
 
 /* Aurora Animal Clinic Brand Utilities */

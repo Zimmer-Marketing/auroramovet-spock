@@ -1,0 +1,1 @@
+- please only do what task i ask, when i ask to fix the testimonial carousel for example, fix the issue dont change other stuff like font size, leading xyz, just change what is neeeded to fix the task ive given you

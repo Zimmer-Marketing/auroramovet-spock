@@ -117,15 +117,11 @@
 		: 'bg-primary/75 backdrop-blur-md'}"
 	style="height: {10 - 4 * $scrollProgress}rem"
 >
-	<div class=" mx-auto h-full px-6">
-		<div class="flex h-full items-center justify-center md:space-x-20">
-			<!-- Mobile Menu Button -->
-			<div class="md:hidden">
-				<MobileMenu {siteSettings} logoSrc={mobileLogoSrc} />
-			</div>
-
-			<!-- Logo -->
-			<div class="flex items-center justify-center">
+	<div class="mx-auto h-full px-4 md:px-6">
+		<!-- Mobile Layout -->
+		<div class="flex h-full items-center justify-between md:hidden">
+			<!-- Logo on the left -->
+			<div class="flex items-center">
 				<div 
 					class="transform transition-all duration-700 ease-out {logoLoaded 
 						? 'translate-y-0 opacity-100' 
@@ -142,8 +138,34 @@
 				</div>
 			</div>
 
-			<!-- Desktop Navigation - Centered -->
-			<nav class="hidden justify-end space-x-9 md:flex">
+			<!-- Hamburger menu on the right -->
+			<div>
+				<MobileMenu {siteSettings} logoSrc={mobileLogoSrc} />
+			</div>
+		</div>
+
+		<!-- Desktop Layout -->
+		<div class="hidden h-full items-center justify-between md:flex">
+			<!-- Logo on the left -->
+			<div class="flex items-center">
+				<div 
+					class="transform transition-all duration-700 ease-out {logoLoaded 
+						? 'translate-y-0 opacity-100' 
+						: '-translate-y-8 opacity-0'}"
+				>
+					<Logo
+						{siteSettings}
+						{logoSrc}
+						logoAlt="Aurora Animal Clinic"
+						hidden={false}
+						ariaLabel="Go to home page"
+						shrink={$scrollProgress}
+					/>
+				</div>
+			</div>
+
+			<!-- Desktop Navigation - Right side -->
+			<nav class="flex space-x-9">
 				{#each navigationItems as item}
 					<a
 						href={item.path}
@@ -155,33 +177,6 @@
 					</a>
 				{/each}
 			</nav>
-
-			<!-- Desktop spacer to balance layout -->
-			<div class="hidden md:flex md:w-[10rem]"></div>
-
-			<!-- Right side items for mobile -->
-			<div class="flex items-center space-x-4 md:hidden">
-				{#if siteSettings.meta?.phone}
-					{@const phone = siteSettings.meta?.phone}
-					<Button
-						onclick={() => Fathom.trackEvent('Phone Call')}
-						href={`tel:${phone[0]}`}
-						variant="ghost"
-						size="icon"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="h-5 w-5 text-white"
-							viewBox="0 0 23 20"
-							fill="currentColor"
-						>
-							<path
-								d="M20 14.92v3a1.998 1.998 0 0 1-2.18 2 19.791 19.791 0 0 1-8.63-3.07 19.502 19.502 0 0 1-6-6A19.79 19.79 0 0 1 .12 2.18 2 2 0 0 1 2.11 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L6.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 20 14.92Z"
-							/>
-						</svg>
-					</Button>
-				{/if}
-			</div>
 		</div>
 	</div>
 </header>

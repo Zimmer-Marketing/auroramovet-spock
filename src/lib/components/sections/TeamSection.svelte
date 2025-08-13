@@ -19,7 +19,12 @@
 		showAboutButton?: boolean;
 	}
 
-	let { teamMembers = [], className = '', showTitle = true, showAboutButton = true }: Props = $props();
+	let {
+		teamMembers = [],
+		className = '',
+		showTitle = true,
+		showAboutButton = true
+	}: Props = $props();
 
 	// Mobile carousel state
 	let currentIndex = $state(0);
@@ -82,7 +87,7 @@
 		<div class="mx-auto hidden max-w-6xl gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
 			{#each teamMembers as member}
 				<div
-					class="mx-auto w-full max-w-[400px] overflow-hidden rounded-t-md bg-white shadow-md transition-all hover:shadow-xl relative"
+					class="relative mx-auto w-full max-w-[400px] overflow-hidden rounded-t-md bg-white shadow-md transition-all hover:shadow-xl"
 				>
 					<EditRecordButton record={member} />
 					<!-- Staff Image - no bottom rounding -->
@@ -104,14 +109,14 @@
 					<div class="relative flex flex-col items-start bg-white p-5">
 						<!-- Title positioned on the left -->
 						<div class="">
-							<p class="text-2xl font-normal leading-[35px] text-[#2b482d]">
+							<p class="text-2xl font-normal leading-[35px] text-primary">
 								{member.title}
 							</p>
 						</div>
 
 						<!-- Name centered in the card -->
 						<div class="flex w-full justify-start">
-							<h3 class="text-2xl font-bold leading-[65px] text-[#2b482d]">
+							<h3 class="text-2xl font-bold leading-[65px] text-primary">
 								{member.name}
 							</h3>
 						</div>
@@ -121,44 +126,40 @@
 		</div>
 
 		<!-- Mobile Carousel Layout (visible on mobile only) -->
-		<div class="relative mx-auto w-full overflow-hidden px-6 md:hidden">
+		<div class="relative mx-auto w-full overflow-hidden md:hidden">
 			{#if teamMembers.length > 0}
-				<!-- Carousel Container with overflow to show partial cards -->
-				<div
-					class="flex transition-transform duration-300 ease-in-out"
-					style="transform: translateX(-{currentIndex * 60}%);"
-				>
-					{#each teamMembers as member, index}
-						<div class="mr-6 flex-shrink-0" style="width: 233px;">
-							<div class="overflow-hidden rounded-[10px] bg-white shadow-md transition-all relative">
-								<EditRecordButton record={member} />
-								<!-- Staff Image -->
-								<div class="relative h-[281px] w-full overflow-hidden rounded-t-[10px]">
-									{#if member.image && member.id}
-										<img
-											src={`${PUBLIC_POCKETBASE_URL}/api/files/staff/${member.id}/${member.image}?thumb=600x724`}
-											alt={member.name}
-											class="h-full w-full rounded-none object-cover"
-										/>
-									{:else}
-										<div class="flex h-full w-full items-center justify-center bg-muted">
-											<span class="text-6xl text-muted-foreground">{member.name.charAt(0)}</span>
-										</div>
-									{/if}
-								</div>
+				{@const member = teamMembers[currentIndex]}
+				<!-- Single card display -->
+				<div class="px-6">
+					<div class="mx-auto max-w-[280px]">
+						<div class="relative overflow-hidden rounded-[10px] bg-white shadow-md transition-all">
+							<EditRecordButton record={member} />
+							<!-- Staff Image -->
+							<div class="relative h-[281px] w-full overflow-hidden rounded-t-[10px]">
+								{#if member.image && member.id}
+									<img
+										src={`${PUBLIC_POCKETBASE_URL}/api/files/staff/${member.id}/${member.image}?thumb=600x724`}
+										alt={member.name}
+										class="h-full w-full rounded-none object-cover"
+									/>
+								{:else}
+									<div class="flex h-full w-full items-center justify-center bg-muted">
+										<span class="text-6xl text-muted-foreground">{member.name.charAt(0)}</span>
+									</div>
+								{/if}
+							</div>
 
-								<!-- Staff Info Footer -->
-								<div class="flex h-[71px] flex-col items-start bg-white p-5">
-									<p class="text-sm font-normal leading-[35px] text-[#2b482d]">
-										{member.title}
-									</p>
-									<h3 class="text-sm font-bold leading-[65px] text-[#2b482d]">
-										{member.name}
-									</h3>
-								</div>
+							<!-- Staff Info Footer -->
+							<div class="flex h-[71px] flex-col items-start bg-white p-5">
+								<p class="text-sm font-normal text-primary md:leading-[35px]">
+									{member.title}
+								</p>
+								<h3 class="text-sm font-bold text-primary md:leading-[65px]">
+									{member.name}
+								</h3>
 							</div>
 						</div>
-					{/each}
+					</div>
 				</div>
 
 				<!-- Progress Bar -->

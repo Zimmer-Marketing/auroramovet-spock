@@ -112,21 +112,21 @@
 		<!-- Simple background for non-homepage usage -->
 		<div class="absolute inset-0 bg-[#2b482d]"></div>
 	{/if}
-	<div class="relative z-10 w-full px-6 lg:px-12 xl:px-20">
+	<div class="relative z-10 w-full px-4 md:px-2 lg:px-12 xl:px-20">
 		{#if showTitle}
-			<h2 class="mb-16 text-center text-2xl font-bold text-white md:text-5xl">
+			<h2 class="mb-16 text-center text-2xl font-bold text-white md:text-6xl">
 				Maintaining Outstanding<br />
 				Standards of Veterinary Care!
 			</h2>
 		{/if}
 
 		<!-- Carousel Container -->
-		<div class="relative mx-auto w-full max-w-screen-2xl">
+		<div class="relative mx-auto w-full max-w-screen-2xl overflow-hidden">
 			<!-- Previous Button -->
 			{#if testimonials.length > testimonialsPerView}
 				<button
 					onclick={() => prevPage()}
-					class="absolute -left-16 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 lg:-left-20"
+					class="absolute top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hidden md:block md:-left-16 lg:-left-20"
 					aria-label="Previous testimonials"
 				>
 					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -205,7 +205,7 @@
 			{#if testimonials.length > testimonialsPerView}
 				<button
 					onclick={() => nextPage()}
-					class="absolute -right-16 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 lg:-right-20"
+					class="absolute top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hidden md:block md:-right-16 lg:-right-20"
 					aria-label="Next testimonials"
 				>
 					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

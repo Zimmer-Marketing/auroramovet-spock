@@ -49,10 +49,10 @@
 </script>
 
 <section bind:this={sectionElement} class="bg-gray-50 py-24 {className}">
-	<div class="container mx-auto px-6">
+	<div class=" container mx-auto px-6">
 		<div class="mb-16 flex flex-col items-center text-center">
-			<h2 class="mb-6 text-[20px] font-bold text-primary md:text-[60px]">
-				<span class="px-5 font-light">OUR </span>SERVICES
+			<h2 class="text-xl font-bold text-primary md:mb-6 md:text-6xl">
+				<span class="px-2 font-light md:px-5">OUR </span>SERVICES
 			</h2>
 			<p
 				class="mx-auto max-w-prose text-[14px] leading-relaxed text-primary md:px-36 md:text-[24px]"
@@ -144,7 +144,7 @@
 									style="transition-delay: {index * 150 + 400}ms"
 								>
 									<h3
-										class="mb-2 text-center text-base font-bold uppercase tracking-wider text-gray-800"
+										class="mb-2 text-center text-base font-bold uppercase tracking-wider text-gray-800 md:text-2xl"
 									>
 										{service.title}
 									</h3>

@@ -24,24 +24,11 @@
 		className?: string;
 	}
 
-	let {
-		route,
-		showContactForm = true,
-		className = ''
-	}: Props = $props();
+	let { route, showContactForm = true, className = '' }: Props = $props();
 
 	// Get content blocks from route.meta
 	const blocksToRender = route?.meta?.contentBlocks || [];
-	
-	// Debug logging
-	console.log('NewPageLayout debug:', {
-		route: route,
-		routeImages: route?.images,
-		meta: route?.meta,
-		contentBlocks: route?.meta?.contentBlocks,
-		blocksToRender: blocksToRender
-	});
-	
+
 	// Generate hero image URL
 	const heroImageUrl = $derived(() => {
 		if (route?.heroImage) return route.heroImage;
@@ -53,10 +40,10 @@
 <div class={cn('min-h-screen bg-white', className)}>
 	<EditRecordButton record={route} />
 	<!-- Hero Section -->
-	<PageHero 
-		title={route?.title || 'Page Title'} 
-		subtitle={route?.subtitle || ''} 
-		content={route?.content || ''} 
+	<PageHero
+		title={route?.title || 'Page Title'}
+		subtitle={route?.subtitle || ''}
+		content={route?.content || ''}
 		backgroundImage={heroImageUrl()}
 	/>
 
@@ -79,4 +66,3 @@
 		<ContactFormSection />
 	{/if}
 </div>
-
