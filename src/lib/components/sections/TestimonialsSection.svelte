@@ -95,7 +95,7 @@
 </script>
 
 <!-- Testimonials Section -->
-<section class="relative py-64 {className}">
+<section class="relative py-32 md:py-64 {className}">
 	{#if showWaveBackground}
 		<!-- Background with separate top and bottom testimonials SVGs -->
 		<div class="absolute inset-0 bg-[#2b482d]">
@@ -104,7 +104,7 @@
 				<img src="/testimonialsTop.svg" alt="" class="h-auto w-full" />
 			</div>
 			<!-- Bottom wave -->
-			<div class="absolute -bottom-32 left-0 z-10 w-full">
+			<div class="absolute -bottom-14 left-0 z-10 w-full md:-bottom-32">
 				<img src="/testimonialsBottom.svg" alt="" class="h-auto w-full" />
 			</div>
 		</div>
