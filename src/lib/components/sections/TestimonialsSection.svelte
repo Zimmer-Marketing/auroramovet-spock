@@ -104,7 +104,7 @@
 				<img src="/testimonialsTop.svg" alt="" class="h-auto w-full" />
 			</div>
 			<!-- Bottom wave -->
-			<div class="absolute -bottom-14 left-0 z-10 w-full md:-bottom-32">
+			<div class="absolute -bottom-8 left-0 z-50 w-full md:-bottom-32">
 				<img src="/testimonialsBottom.svg" alt="" class="h-auto w-full" />
 			</div>
 		</div>
@@ -126,7 +126,7 @@
 			{#if testimonials.length > testimonialsPerView}
 				<button
 					onclick={() => prevPage()}
-					class="absolute top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hidden md:block md:-left-16 lg:-left-20"
+					class="absolute top-1/2 z-20 hidden -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 md:-left-16 md:block lg:-left-20"
 					aria-label="Previous testimonials"
 				>
 					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -205,7 +205,7 @@
 			{#if testimonials.length > testimonialsPerView}
 				<button
 					onclick={() => nextPage()}
-					class="absolute top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hidden md:block md:-right-16 lg:-right-20"
+					class="absolute top-1/2 z-20 hidden -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 md:-right-16 md:block lg:-right-20"
 					aria-label="Next testimonials"
 				>
 					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
