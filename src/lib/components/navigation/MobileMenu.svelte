@@ -59,7 +59,7 @@
 		<Sheet.Content side="top" class="max-h-[100vh] w-full overflow-y-auto">
 			<Sheet.Header>
 				<Sheet.Title>
-					<a href="/" class="mx-auto block w-[11rem] lg:w-[18rem]">
+					<a href="/" class="h=full mx-auto block w-[11rem] lg:w-[18rem]">
 						<img src={logoSrc} alt={siteSettings.name} class="relative z-10 py-3" />
 					</a>
 				</Sheet.Title>

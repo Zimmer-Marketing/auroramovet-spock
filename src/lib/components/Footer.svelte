@@ -45,35 +45,40 @@
 	</div>
 
 	<!-- Footer background -->
-	<div class="relative z-10 -mt-3 bg-primary pt-32 text-primary-foreground">
+	<div class="relative z-10 -mt-3 bg-primary pt-10 text-primary-foreground md:pt-32">
 		<div class="relative z-20 mx-auto max-w-screen-xl px-6 pb-8 lg:px-8">
-			<div class="grid gap-8 md:grid-cols-12 md:gap-8">
-				<!-- Logo and Contact Info - spans 4 columns -->
-				<div class="md:col-span-4">
+			<!-- Mobile Layout -->
+			<div class="space-y-8 md:hidden">
+				<!-- Logo centered -->
+				<div class="flex justify-center">
 					<img
 						src={logoImage}
 						alt={meta?.siteTitle || 'Aurora Animal Clinic'}
-						class="mb-8 h-24 w-auto"
+						class="h-24 w-auto shadow-lg"
 					/>
-					<div class="space-y-3 text-lg">
+				</div>
+
+				<!-- Contact Info Section - centered single column -->
+				<div class="flex justify-center">
+					<div class="flex flex-col space-y-4 text-xl">
 						{#if meta?.phone?.[1]}
 							<div class="flex items-center gap-3">
-								<Phone class="h-5 w-5 flex-shrink-0" />
-								<a href={meta.phone[0]} class="transition-colors hover:text-secondary">
+								<Phone class="h-6 w-6 flex-shrink-0" />
+								<a href={meta.phone[0]} class="text-xl transition-colors hover:text-secondary">
 									{meta.phone[1]}
 								</a>
 							</div>
 						{/if}
 						{#if meta?.address}
 							<div class="flex items-start gap-3">
-								<MapPin class="mt-1 h-5 w-5 flex-shrink-0" />
-								<div>
+								<MapPin class="mt-1 h-6 w-6 flex-shrink-0" />
+								<div class="text-start">
 									{#if meta?.directionsLink}
 										<a
 											href={meta.directionsLink}
 											target="_blank"
 											rel="noopener noreferrer"
-											class="transition-colors hover:text-secondary"
+											class="text-xl transition-colors hover:text-secondary"
 										>
 											{#each meta.address as line}
 												<div>{line}</div>
@@ -89,8 +94,8 @@
 						{/if}
 						{#if meta?.hours}
 							<div class="flex items-start gap-3">
-								<Clock class="mt-1 h-5 w-5 flex-shrink-0" />
-								<div>
+								<Clock class="mt-1 h-6 w-6 flex-shrink-0" />
+								<div class="text-xl">
 									{#each meta.hours as hour}
 										<div>{hour}</div>
 									{/each}
@@ -100,63 +105,170 @@
 					</div>
 				</div>
 
-				<!-- Navigation Links - spans 2 columns -->
-				<div class="md:col-span-2">
-					<ul class="space-y-2 text-lg">
-						{#each menuItems as item}
-							<li>
-								<a href={item.path} class="transition-colors hover:text-secondary">
-									{item.title}
-								</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
-
-				<!-- Follow Us Section - spans 3 columns -->
-				<div class="md:col-span-3">
-					<h4 class="mb-4 text-2xl font-bold">Follow Us</h4>
-					<div class="space-y-3">
-						<!-- Google Reviews -->
+				<!-- Two column layout: Google Reviews (left) and Navigation (right) -->
+				<div class="grid grid-cols-2 gap-8">
+					<!-- Left column: Leave us a Review Section -->
+					<div class="space-y-3 text-center">
+						<h4 class="text-2xl font-bold">Leave us a Review!</h4>
 						{#if meta?.googleReviewLink}
 							<a
 								href={meta.googleReviewLink}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="flex items-center gap-2 text-lg transition-colors hover:text-yellow-400"
+								class="flex flex-col items-center gap-2 text-xl transition-colors hover:text-yellow-400"
 							>
 								<span class="font-semibold">Google</span>
 								<div class="flex">
 									{#each Array(5) as _}
-										<Star class="h-4 w-4 fill-current" />
+										<Star class="h-5 w-5 fill-current" />
 									{/each}
 								</div>
 							</a>
 						{/if}
 
-						<!-- Facebook -->
-						{#if meta?.facebook?.[0]}
-							<a
-								href={meta.facebook[0]}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="flex items-center gap-2 text-lg transition-colors hover:text-blue-400"
-							>
-								<Facebook class="h-5 w-5" />
-								<span>Facebook</span>
-							</a>
-						{/if}
+						<!-- Follow Us Section -->
+						<div class="mt-6 space-y-3">
+							<h4 class="text-2xl font-bold">Follow Us</h4>
+							{#if meta?.facebook?.[0]}
+								<a
+									href={meta.facebook[0]}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex items-center justify-center gap-2 text-xl font-semibold transition-colors hover:text-blue-400"
+								>
+									<Facebook class="h-6 w-6" />
+									<span>Facebook</span>
+								</a>
+							{/if}
+						</div>
+					</div>
+
+					<!-- Right column: Navigation Menu -->
+					<div class="space-y-1 text-xl">
+						{#each menuItems as item}
+							<div>
+								<a href={item.path} class="block py-1 transition-colors hover:text-secondary">
+									{item.title}
+								</a>
+							</div>
+						{/each}
 					</div>
 				</div>
+			</div>
 
-				<!-- Review Section with Image - spans 3 columns -->
-				<div class="md:col-span-3">
-					<div class="overflow-hidden rounded-2xl">
+			<!-- Desktop Layout -->
+			<div class="hidden md:block">
+				<div class="grid gap-8 md:grid-cols-12 md:gap-8">
+					<!-- Logo and Contact Info - spans 4 columns -->
+					<div class="md:col-span-4">
 						<img
-							src="/ec316b037d8e402fcb1601e88281f7b2a405a596.png"
-							alt="{meta?.siteTitle || 'Aurora Animal Clinic'} Building"
-							class="h-full w-full object-cover"
+							src={logoImage}
+							alt={meta?.siteTitle || 'Aurora Animal Clinic'}
+							class="mb-8 h-24 w-auto"
 						/>
+						<div class="space-y-3 text-lg">
+							{#if meta?.phone?.[1]}
+								<div class="flex items-center gap-3">
+									<Phone class="h-5 w-5 flex-shrink-0" />
+									<a href={meta.phone[0]} class="transition-colors hover:text-secondary">
+										{meta.phone[1]}
+									</a>
+								</div>
+							{/if}
+							{#if meta?.address}
+								<div class="flex items-start gap-3">
+									<MapPin class="mt-1 h-5 w-5 flex-shrink-0" />
+									<div>
+										{#if meta?.directionsLink}
+											<a
+												href={meta.directionsLink}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="transition-colors hover:text-secondary"
+											>
+												{#each meta.address as line}
+													<div>{line}</div>
+												{/each}
+											</a>
+										{:else}
+											{#each meta.address as line}
+												<div>{line}</div>
+											{/each}
+										{/if}
+									</div>
+								</div>
+							{/if}
+							{#if meta?.hours}
+								<div class="flex items-start gap-3">
+									<Clock class="mt-1 h-5 w-5 flex-shrink-0" />
+									<div>
+										{#each meta.hours as hour}
+											<div>{hour}</div>
+										{/each}
+									</div>
+								</div>
+							{/if}
+						</div>
+					</div>
+
+					<!-- Navigation Links - spans 2 columns -->
+					<div class="md:col-span-2">
+						<ul class="space-y-2 text-lg">
+							{#each menuItems as item}
+								<li>
+									<a href={item.path} class="transition-colors hover:text-secondary">
+										{item.title}
+									</a>
+								</li>
+							{/each}
+						</ul>
+					</div>
+
+					<!-- Follow Us Section - spans 3 columns -->
+					<div class="md:col-span-3">
+						<h4 class="mb-4 text-2xl font-bold">Follow Us</h4>
+						<div class="space-y-3">
+							<!-- Google Reviews -->
+							{#if meta?.googleReviewLink}
+								<a
+									href={meta.googleReviewLink}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex items-center gap-2 text-lg transition-colors hover:text-yellow-400"
+								>
+									<span class="font-semibold">Google</span>
+									<div class="flex">
+										{#each Array(5) as _}
+											<Star class="h-4 w-4 fill-current" />
+										{/each}
+									</div>
+								</a>
+							{/if}
+
+							<!-- Facebook -->
+							{#if meta?.facebook?.[0]}
+								<a
+									href={meta.facebook[0]}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex items-center gap-2 text-lg transition-colors hover:text-blue-400"
+								>
+									<Facebook class="h-5 w-5" />
+									<span>Facebook</span>
+								</a>
+							{/if}
+						</div>
+					</div>
+
+					<!-- Review Section with Image - spans 3 columns -->
+					<div class="md:col-span-3">
+						<div class="overflow-hidden rounded-2xl">
+							<img
+								src="/ec316b037d8e402fcb1601e88281f7b2a405a596.png"
+								alt="{meta?.siteTitle || 'Aurora Animal Clinic'} Building"
+								class="h-full w-full object-cover"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -17,6 +17,7 @@
 	let { siteSettings }: Props = $props();
 
 	const logoSrc = `${PUBLIC_POCKETBASE_URL}/api/files/${siteSettings.collectionId}/${siteSettings.id}/${siteSettings?.images[0]}`;
+	const mobileLogoSrc = `${PUBLIC_POCKETBASE_URL}/api/files/${siteSettings.collectionId}/${siteSettings.id}/${siteSettings?.images[1]}`;
 	const scrollProgress = writable(0);
 	const isScrolled = writable(false);
 	
@@ -120,7 +121,7 @@
 		<div class="flex h-full items-center justify-center md:space-x-20">
 			<!-- Mobile Menu Button -->
 			<div class="md:hidden">
-				<MobileMenu {siteSettings} {logoSrc} />
+				<MobileMenu {siteSettings} logoSrc={mobileLogoSrc} />
 			</div>
 
 			<!-- Logo -->
