@@ -18,6 +18,7 @@
 	import TestimonialsCarousel from '$lib/components/TestimonialsCarousel.svelte';
 	import TeamSection from '$lib/components/sections/TeamSection.svelte';
 	import Careers from '$lib/components/sections/Careers.svelte';
+	import ServiceCardsSidebar from '$lib/components/ServiceCardsSidebar.svelte';
 
 	let isOpen = $state(false);
 
@@ -62,8 +63,10 @@
 		<div class="col-span-full md:col-span-4">
 			<div class="max-w-3xl px-4 py-3 md:px-8">
 				<Breadcrumbs route={{ ...route, shortTitle: route.shortTitle }} />
-				<EditRecordButton record={route} />
-				<h1>{route.title}</h1>
+				<div class="relative">
+					<h1>{route.title}</h1>
+					<EditRecordButton record={route} />
+				</div>
 				{#if route.images.length === 1}
 					{@const imgSrc = getPbRecordImageURL(route, 0, '800x600')}
 					{@const imgSrcZoom = getPbRecordImageURL(route, 0, '1920x0')}
@@ -138,7 +141,7 @@
 			{#if route.slug === 'contact-us'}
 				<ContactInfo {siteSettings} />
 			{:else}
-				<GlobalCard record={findGlobal(siteSettings, 'related-pages-data')} />
+				<ServiceCardsSidebar services={relatedServices} />
 			{/if}
 		</div>
 	</div>

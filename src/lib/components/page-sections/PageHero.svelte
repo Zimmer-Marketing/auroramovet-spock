@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
+	import EditRecordButton from '$lib/components/pocketbase/EditRecordButton.svelte';
 
 	interface Props {
 		title: string;
@@ -7,9 +8,10 @@
 		content?: string;
 		backgroundImage?: string;
 		className?: string;
+		record?: any;
 	}
 
-	let { title, subtitle = '', content = '', backgroundImage, className = '' }: Props = $props();
+	let { title, subtitle = '', content = '', backgroundImage, className = '', record }: Props = $props();
 
 	// Split title to style differently (first part light, second part bold)
 	const titleParts = title.split(' ');
@@ -18,6 +20,11 @@
 </script>
 
 <section class={cn('relative -mt-40 overflow-hidden  md:h-[600px]', className)}>
+	<!-- Edit Record Button -->
+	{#if record}
+		<EditRecordButton {record} />
+	{/if}
+
 	<!-- Background Image with Overlay -->
 	<div
 		class="absolute inset-0 bg-cover bg-center bg-no-repeat"

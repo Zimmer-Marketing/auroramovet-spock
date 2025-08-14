@@ -38,13 +38,13 @@
 </script>
 
 <div class={cn('min-h-screen bg-white', className)}>
-	<EditRecordButton record={route} />
 	<!-- Hero Section -->
 	<PageHero
 		title={route?.title || 'Page Title'}
 		subtitle={route?.subtitle || ''}
 		content={route?.content || ''}
 		backgroundImage={heroImageUrl()}
+		record={route}
 	/>
 
 	<!-- Content Sections -->

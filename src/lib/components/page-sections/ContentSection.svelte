@@ -67,7 +67,7 @@
 				</div>
 
 				{#if buttonText && buttonLink}
-					<div class="pt-4">
+					<div class="px-10 pt-4">
 						<Button
 							size="lg"
 							class={cn(
