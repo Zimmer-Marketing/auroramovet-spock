@@ -41,7 +41,7 @@
 
 <Navbar {siteSettings} />
 <div class="relative flex min-h-screen w-full flex-col" id="page">
-	<main class="transition-outer relative">
+	<main class="transition-outer relative mx-auto max-w-screen-3xl">
 		<div class="mx-auto w-full min-w-0">
 			{#key currentRoute}
 				<div
