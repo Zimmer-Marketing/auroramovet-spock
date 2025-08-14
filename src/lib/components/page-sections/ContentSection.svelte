@@ -48,7 +48,7 @@
 	});
 </script>
 
-<section class={cn('py-16', bgColor, className)}>
+<section class={cn('py-10', bgColor, className)}>
 	<div class="mx-auto w-full max-w-[1920px]">
 		<div class="grid items-center gap-0 lg:grid-cols-2">
 			<!-- Content -->
@@ -107,7 +107,7 @@
 							alt={title}
 							width={960}
 							height={600}
-							cssClass="absolute inset-0 h-full w-full object-cover"
+							cssClass="absolute inset-0 h-96 w-full object-cover"
 						/>
 					</div>
 				{/if}
