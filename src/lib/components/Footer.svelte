@@ -269,8 +269,8 @@
 				class="mt-12 border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/80"
 			>
 				<p>
-					Copyright © 2025 {meta?.siteTitle || 'Aurora Animal Clinic'} | Privacy Policy | Website by
-					Zimmer Marketing
+					Copyright © 2025 {meta?.siteTitle || 'Aurora Animal Clinic'} | <a href="/privacy-policy" class="hover:text-secondary transition-colors">Privacy Policy</a> | Website by
+					<a href="https://www.zimmermarketing.com/" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">Zimmer Marketing</a>
 				</p>
 			</div>
 		</div>
