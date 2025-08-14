@@ -242,9 +242,9 @@
 									href={meta.facebook[0]}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="flex items-center gap-2 text-lg transition-colors hover:text-blue-400"
+									class="flex items-center text-lg transition-colors hover:text-blue-400"
 								>
-									<Facebook class="h-6 w-5 fill-white" />
+									<Facebook class="-ml-2 h-8 w-7 fill-white" />
 									<span>Facebook</span>
 								</a>
 							{/if}
@@ -257,7 +257,7 @@
 							<img
 								src="/footer-barn.jpg"
 								alt="{meta?.siteTitle || 'Aurora Animal Clinic'} Building"
-								class="h-96 w-full object-cover"
+								class="h-full w-full object-cover"
 							/>
 						</div>
 					</div>
