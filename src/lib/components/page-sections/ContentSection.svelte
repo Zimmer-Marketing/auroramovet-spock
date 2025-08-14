@@ -76,7 +76,13 @@
 									? 'bg-white text-[#2b482d] hover:bg-gray-100'
 									: 'bg-[#2b482d] text-white hover:bg-[#1e3d21]'
 							)}
-							onclick={() => (window.location.href = buttonLink)}
+							onclick={() => {
+								if (buttonLink.startsWith('http://') || buttonLink.startsWith('https://')) {
+									window.open(buttonLink, '_blank');
+								} else {
+									window.location.href = buttonLink;
+								}
+							}}
 						>
 							{buttonText}
 						</Button>
