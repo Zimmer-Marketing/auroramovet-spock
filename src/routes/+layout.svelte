@@ -39,9 +39,9 @@
 
 <PreloadScreen />
 
-<Navbar {siteSettings} />
-<div class="relative flex min-h-screen w-full flex-col" id="page">
-	<main class="transition-outer relative mx-auto max-w-screen-3xl">
+<div class="relative mx-auto flex min-h-screen w-full max-w-screen-3xl flex-col" id="page">
+	<main class="transition-outer relative mx-auto">
+		<Navbar {siteSettings} />
 		<div class="mx-auto w-full min-w-0">
 			{#key currentRoute}
 				<div

@@ -49,7 +49,7 @@
 </script>
 
 <section class={cn('py-10', bgColor, className)}>
-	<div class="mx-auto w-full max-w-[1920px]">
+	<div class="mx-auto w-full">
 		<div class="grid items-center gap-0 lg:grid-cols-2">
 			<!-- Content -->
 			<div class={cn('px-10 pb-8 lg:px-2 lg:py-12', imagePosition === 'left' ? 'lg:order-2' : '')}>

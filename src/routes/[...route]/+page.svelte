@@ -59,27 +59,33 @@
 	<NewPageLayout {route} showContactForm={true} />
 {:else}
 	<!-- Regular Page Content -->
-	<div class="relative mx-auto grid max-w-screen-2xl grid-cols-1 gap-4 md:grid-cols-6">
+	<div
+		class="relative mx-auto grid w-full max-w-screen-3xl grid-cols-1 gap-4 md:grid-cols-6 3xl:min-w-[1920px]"
+	>
 		<div class="col-span-full md:col-span-4">
-			<div class="max-w-3xl px-4 py-3 md:px-8">
-				<Breadcrumbs route={{ ...route, shortTitle: route.shortTitle }} />
-				<div class="relative">
+			<div class="py-3">
+				<div class="px-4 md:px-8">
+					<Breadcrumbs route={{ ...route, shortTitle: route.shortTitle }} />
+				</div>
+				<div class="relative px-4 md:px-8">
 					<h1>{route.title}</h1>
 					<EditRecordButton record={route} />
 				</div>
 				{#if route.images.length === 1}
 					{@const imgSrc = getPbRecordImageURL(route, 0, '800x600')}
 					{@const imgSrcZoom = getPbRecordImageURL(route, 0, '1920x0')}
-					<button
-						onclick={() => (isOpen = true)}
-						class="group relative cursor-zoom-in overflow-hidden rounded-lg"
-					>
-						<img
-							src={imgSrc}
-							alt={route.title}
-							class="w-full transition-transform duration-700 ease-out group-hover:scale-110"
-						/>
-					</button>
+					<div class="px-4 md:px-8">
+						<button
+							onclick={() => (isOpen = true)}
+							class="group relative cursor-zoom-in overflow-hidden rounded-lg"
+						>
+							<img
+								src={imgSrc}
+								alt={route.title}
+								class="w-full transition-transform duration-700 ease-out group-hover:scale-110"
+							/>
+						</button>
+					</div>
 
 					<Dialog.Root bind:open={isOpen}>
 						<Dialog.Content class="max-h-fit max-w-fit bg-transparent p-0 shadow-none">
@@ -91,7 +97,7 @@
 						</Dialog.Content>
 					</Dialog.Root>
 				{:else if route.images.length > 1}
-					<div class="py-3">
+					<div class="px-4 py-3 md:px-8">
 						<Carousel.Root class="w-full max-w-xl">
 							<Carousel.Content>
 								{#each route.images as image, i (i)}
@@ -113,30 +119,36 @@
 						</Carousel.Root>
 					</div>
 				{/if}
-				{#if route.content}
-					<article class="max-w-prose">
+				<article class="min-h-[1px] px-4 md:px-8">
+					{#if route.content}
 						{@html route.content}
-					</article>
-				{/if}
+					{/if}
+				</article>
 				{#if route.expand?.faqs}
 					{@const faqs = route.expand.faqs}
-					<FAQCard {faqs} />
+					<div class="px-4 md:px-8">
+						<FAQCard {faqs} />
+					</div>
 				{/if}
 				{#if route.slug === 'contact-us'}
-					<ContactForm />
+					<div class="px-4 md:px-8">
+						<ContactForm />
+					</div>
 				{/if}
 				{#if route.slug === 'testimonials' && testimonials && testimonials.length > 0}
-					<TestimonialsCarousel {testimonials} testimonialsPerView={2} showTitle={false} />
+					<div class="px-4 md:px-8">
+						<TestimonialsCarousel {testimonials} testimonialsPerView={2} showTitle={false} />
+					</div>
 				{/if}
 				{#if route.slug === 'about' && teamMembers && teamMembers.length > 0}
-					<div class="mt-8">
+					<div class="mt-8 px-4 md:px-8">
 						<TeamSection {teamMembers} className="" showTitle={false} showAboutButton={false} />
 					</div>
 				{/if}
 			</div>
 		</div>
 		<div
-			class="col-span-full flex flex-col gap-4 p-4 md:sticky md:top-4 md:col-span-2 md:self-start"
+			class="col-span-full flex flex-col gap-4 px-4 py-4 md:sticky md:top-4 md:col-span-2 md:self-start md:px-4"
 		>
 			{#if route.slug === 'contact-us'}
 				<ContactInfo {siteSettings} />

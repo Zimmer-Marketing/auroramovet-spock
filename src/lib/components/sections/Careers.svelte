@@ -21,15 +21,15 @@
 <RouteMeta {route} {siteSettings} />
 
 <div
-	class="relative mx-auto min-h-screen w-full max-w-screen-2xl bg-[url('/wood-grain.svg')] bg-cover bg-repeat"
+	class="relative mx-auto min-h-screen w-full max-w-screen-3xl bg-[url('/wood-grain.svg')] bg-cover bg-repeat"
 >
 	<EditRecordButton record={route} />
-	<div class="container mx-auto px-4 py-16">
+	<div class="mx-auto max-w-screen-3xl px-4 py-16">
 		{#if jobs.length === 0}
 			<!-- Header Section -->
 			<div class="my-12 text-center">
 				<h1 class="mb-4 text-5xl font-bold text-primary drop-shadow-lg">{route.title}</h1>
-				<article class="mx-auto max-w-2xl text-xl text-primary drop-shadow">
+				<article class="mx-auto text-xl text-primary drop-shadow">
 					{@html route.content}
 				</article>
 			</div>

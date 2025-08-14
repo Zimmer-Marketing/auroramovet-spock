@@ -15,7 +15,7 @@
 	let { faqs }: Props = $props();
 </script>
 
-<section class="w-full max-w-3xl">
+<section class="w-full">
 	<Accordion.Root class="mx-auto">
 		{#each faqs as faq, i}
 			<Accordion.Item class="relative mb-5 border-l-8 border-accent p-2 shadow-md" value="item-{i}">
