@@ -38,14 +38,14 @@
 </script>
 
 <!-- Footer -->
-<footer class="relative z-10 mt-32 md:mt-32">
+<footer class="relative z-10 mt-32">
 	<!-- Footer SVG wave at the top -->
 	<div class="absolute -top-16 z-20 w-full md:-top-44">
 		<img src="/footer.svg" alt="Footer decoration" class="h-full w-full translate-y-1" />
 	</div>
 
 	<!-- Footer background -->
-	<div class="relative z-10 -mt-3 bg-primary pt-10 text-primary-foreground md:pt-32">
+	<div class="relative z-10 -mt-3 bg-primary pt-10 text-primary-foreground md:pt-44">
 		<div class="relative z-20 mx-auto max-w-screen-xl px-6 pb-8 lg:px-8">
 			<!-- Mobile Layout -->
 			<div class="space-y-8 md:hidden">
@@ -108,33 +108,28 @@
 				<!-- Two column layout: Google Reviews (left) and Navigation (right) -->
 				<div class="grid grid-cols-2 gap-8">
 					<!-- Left column: Leave us a Review Section -->
-					<div class="space-y-3 text-center">
+					<div class="space-y-3 pl-7 text-center">
 						<h4 class="text-2xl font-bold">Leave us a Review!</h4>
 						{#if meta?.googleReviewLink}
 							<a
 								href={meta.googleReviewLink}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="flex flex-col items-center gap-2 text-xl transition-colors hover:text-yellow-400"
+								class="flex flex-col items-start gap-2 text-xl transition-colors hover:text-yellow-400"
 							>
-								<span class="font-semibold">Google</span>
-								<div class="flex">
-									{#each Array(5) as _}
-										<Star class="h-5 w-5 fill-current" />
-									{/each}
-								</div>
+								<img src="/google.svg" alt="Google Review Icon" />
 							</a>
 						{/if}
 
 						<!-- Follow Us Section -->
-						<div class="mt-6 space-y-3">
+						<div class="mt-6 flex flex-col items-start space-y-3">
 							<h4 class="text-2xl font-bold">Follow Us</h4>
 							{#if meta?.facebook?.[0]}
 								<a
 									href={meta.facebook[0]}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="flex items-center justify-center gap-2 text-xl font-semibold transition-colors hover:text-blue-400"
+									class="flex items-start justify-center gap-2 text-xl font-semibold transition-colors hover:text-blue-400"
 								>
 									<Facebook class="h-6 w-6" />
 									<span>Facebook</span>
@@ -226,7 +221,7 @@
 
 					<!-- Follow Us Section - spans 3 columns -->
 					<div class="md:col-span-3">
-						<h4 class="mb-4 text-2xl font-bold">Follow Us</h4>
+						<h4 class="mb-4 text-2xl font-bold">Leave us a<br /> Review!</h4>
 						<div class="space-y-3">
 							<!-- Google Reviews -->
 							{#if meta?.googleReviewLink}
@@ -236,24 +231,20 @@
 									rel="noopener noreferrer"
 									class="flex items-center gap-2 text-lg transition-colors hover:text-yellow-400"
 								>
-									<span class="font-semibold">Google</span>
-									<div class="flex">
-										{#each Array(5) as _}
-											<Star class="h-4 w-4 fill-current" />
-										{/each}
-									</div>
+									<img src="/google.svg" alt="Google Review Icon" />
 								</a>
 							{/if}
 
 							<!-- Facebook -->
 							{#if meta?.facebook?.[0]}
+								<h4 class="mb-4 text-2xl font-bold">Follow Us</h4>
 								<a
 									href={meta.facebook[0]}
 									target="_blank"
 									rel="noopener noreferrer"
 									class="flex items-center gap-2 text-lg transition-colors hover:text-blue-400"
 								>
-									<Facebook class="h-5 w-5" />
+									<Facebook class="h-6 w-5 fill-white" />
 									<span>Facebook</span>
 								</a>
 							{/if}
@@ -264,7 +255,7 @@
 					<div class="md:col-span-3">
 						<div class="overflow-hidden rounded-2xl">
 							<img
-								src="/ec316b037d8e402fcb1601e88281f7b2a405a596.png"
+								src="/footer-barn.jpg"
 								alt="{meta?.siteTitle || 'Aurora Animal Clinic'} Building"
 								class="h-full w-full object-cover"
 							/>
