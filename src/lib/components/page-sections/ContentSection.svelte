@@ -80,6 +80,7 @@
 								if (buttonLink.startsWith('http://') || buttonLink.startsWith('https://')) {
 									window.open(buttonLink, '_blank');
 								} else {
+									window.scrollTo(0, 0);
 									window.location.href = buttonLink;
 								}
 							}}
