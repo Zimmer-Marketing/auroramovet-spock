@@ -16,7 +16,12 @@
 		showTitle?: boolean;
 	}
 
-	let { testimonials = [], className = '', testimonialsPerView = 3, showTitle = true }: Props = $props();
+	let {
+		testimonials = [],
+		className = '',
+		testimonialsPerView = 3,
+		showTitle = true
+	}: Props = $props();
 
 	// Default to 5 stars if rating is not provided
 	const getRating = (testimonial: Testimonial) => testimonial.rating || 5;
@@ -93,7 +98,7 @@
 </script>
 
 <!-- Simplified Testimonials Section without wave backgrounds -->
-<section class="relative bg-gray-50 py-20 {className}">
+<section class="relative py-20 {className}">
 	<div class="relative z-10 w-full px-6 lg:px-12 xl:px-20">
 		{#if showTitle}
 			<h2 class="mb-16 text-center text-2xl font-bold text-gray-800 md:text-5xl">
@@ -156,32 +161,34 @@
 			<!-- Desktop: Show multiple testimonials -->
 			<div class="hidden md:block">
 				<div
-					class="grid min-h-[300px] items-center gap-8 {testimonialsPerView === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-8 lg:gap-12"
+					class="grid min-h-[300px] items-center gap-8 {testimonialsPerView === 2
+						? 'grid-cols-2'
+						: 'grid-cols-3'} gap-8 lg:gap-12"
 				>
 					{#each visibleTestimonials as testimonial, index}
-					<!-- All testimonials with white cards -->
-					<div class="flex flex-col items-center text-center">
-						<div class="relative w-full rounded-2xl bg-white px-8 py-10 text-gray-800 shadow-lg">
-							<EditRecordButton record={testimonial} />
-							<!-- Review text with quote -->
-							<div class="text-left">
-								<!-- Large decorative quote positioned right above text -->
-								<div class="-mb-4 text-5xl text-gray-300">"</div>
-								<p class="mb-8 min-h-[80px] pl-8 text-base leading-relaxed text-gray-700">
-									{@html testimonial.review}
-								</p>
-							</div>
+						<!-- All testimonials with white cards -->
+						<div class="flex flex-col items-center text-center">
+							<div class="relative w-full rounded-2xl bg-white px-8 py-10 text-gray-800 shadow-lg">
+								<EditRecordButton record={testimonial} />
+								<!-- Review text with quote -->
+								<div class="text-left">
+									<!-- Large decorative quote positioned right above text -->
+									<div class="-mb-4 text-5xl text-gray-300">"</div>
+									<p class="mb-8 min-h-[80px] pl-8 text-base leading-relaxed text-gray-700">
+										{@html testimonial.review}
+									</p>
+								</div>
 
-							<!-- Stars -->
-							<div class="flex justify-center space-x-1">
-								{#each Array(getRating(testimonial)) as _}
-									<span class="text-2xl text-yellow-400">★</span>
-								{/each}
+								<!-- Stars -->
+								<div class="flex justify-center space-x-1">
+									{#each Array(getRating(testimonial)) as _}
+										<span class="text-2xl text-yellow-400">★</span>
+									{/each}
+								</div>
 							</div>
+							<!-- Name below the card -->
+							<p class="mt-6 text-lg font-bold text-gray-800">{testimonial.name}</p>
 						</div>
-						<!-- Name below the card -->
-						<p class="mt-6 text-lg font-bold text-gray-800">{testimonial.name}</p>
-					</div>
 					{/each}
 				</div>
 			</div>
@@ -221,3 +228,4 @@
 		{/if}
 	</div>
 </section>
+
