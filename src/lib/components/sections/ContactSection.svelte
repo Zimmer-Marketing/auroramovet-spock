@@ -47,12 +47,12 @@
 	<div class=" mx-auto px-2 md:px-6">
 		<!-- Contact Images Grid - Wider than form -->
 		<div class="mx-auto mb-8 max-w-4xl">
-			<div 
-				class="grid grid-cols-1 gap-6 md:grid-cols-3 transform transition-all duration-1000 ease-out {imagesVisible 
-					? 'translate-x-0 opacity-100' 
+			<div
+				class="grid transform grid-cols-1 gap-6 transition-all duration-1000 ease-out md:grid-cols-3 {imagesVisible
+					? 'translate-x-0 opacity-100'
 					: '-translate-x-full opacity-0'}"
 			>
-				{#each ['contact-1.jpg', 'contact-2.jpg', 'conatct-3.jpg'] as image}
+				{#each ['contact-1.jpg', 'contact-2.jpg', 'contact-3.jpg'] as image}
 					<div class="overflow-hidden rounded-lg">
 						<img
 							src="/{image}"
