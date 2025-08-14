@@ -67,11 +67,11 @@
 				</div>
 
 				{#if buttonText && buttonLink}
-					<div class="px-10 pt-4">
+					<div class="pt-4 md:px-10">
 						<Button
 							size="lg"
 							class={cn(
-								'rounded-[50px] px-8 py-4 text-lg shadow-lg',
+								'rounded-[50px] py-4 text-lg shadow-lg md:px-8',
 								isDark
 									? 'bg-white text-[#2b482d] hover:bg-gray-100'
 									: 'bg-[#2b482d] text-white hover:bg-[#1e3d21]'
