@@ -96,7 +96,7 @@
 				<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 					{#each completeRowsMembers as member}
 						<div
-							class="relative mx-auto w-full max-w-[400px] overflow-hidden rounded-t-md bg-white shadow-md transition-all hover:shadow-xl"
+							class="relative mx-auto w-full max-w-[400px] overflow-hidden rounded-md bg-white shadow-md transition-all hover:shadow-xl"
 						>
 							<EditRecordButton record={member} />
 							<!-- Staff Image - no bottom rounding -->
