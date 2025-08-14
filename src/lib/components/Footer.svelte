@@ -257,7 +257,7 @@
 							<img
 								src="/footer-barn.jpg"
 								alt="{meta?.siteTitle || 'Aurora Animal Clinic'} Building"
-								class="h-full w-full object-cover"
+								class="h-96 w-full object-cover"
 							/>
 						</div>
 					</div>
