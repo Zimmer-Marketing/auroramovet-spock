@@ -159,7 +159,7 @@
 						<img
 							src={logoImage}
 							alt={meta?.siteTitle || 'Aurora Animal Clinic'}
-							class="mb-8 h-24 w-auto"
+							class="mb-8 h-44 w-auto"
 						/>
 						<div class="space-y-3 text-lg">
 							{#if meta?.phone?.[1]}
@@ -257,7 +257,7 @@
 							<img
 								src="/footer-barn.jpg"
 								alt="{meta?.siteTitle || 'Aurora Animal Clinic'} Building"
-								class="h-full w-full object-cover"
+								class="h-96 w-full object-cover"
 							/>
 						</div>
 					</div>
@@ -269,8 +269,16 @@
 				class="mt-12 border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/80"
 			>
 				<p>
-					Copyright © 2025 {meta?.siteTitle || 'Aurora Animal Clinic'} | <a href="/privacy-policy" class="hover:text-secondary transition-colors">Privacy Policy</a> | Website by
-					<a href="https://www.zimmermarketing.com/" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">Zimmer Marketing</a>
+					Copyright © 2025 {meta?.siteTitle || 'Aurora Animal Clinic'} |
+					<a href="/privacy-policy" class="transition-colors hover:text-secondary">Privacy Policy</a
+					>
+					| Website by
+					<a
+						href="https://www.zimmermarketing.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="transition-colors hover:text-secondary">Zimmer Marketing</a
+					>
 				</p>
 			</div>
 		</div>
