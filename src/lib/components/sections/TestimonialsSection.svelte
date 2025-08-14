@@ -104,7 +104,7 @@
 				<img src="/testimonialsTop.svg" alt="" class="h-auto w-full" />
 			</div>
 			<!-- Bottom wave -->
-			<div class="absolute -bottom-8 left-0 z-50 w-full md:-bottom-32">
+			<div class="absolute -bottom-8 left-0 w-full md:-bottom-32">
 				<img src="/testimonialsBottom.svg" alt="" class="h-auto w-full" />
 			</div>
 		</div>
