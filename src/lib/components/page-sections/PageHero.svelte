@@ -21,14 +21,13 @@
 	<!-- Background Image with Overlay -->
 	<div
 		class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-		style="background-image: url('{backgroundImage ||
-			'/6b88cf6b7f70eb0603621916b7758dec4e0a5e6d.png'}');"
+		style="background-image: url('{backgroundImage}');"
 	></div>
 	<div class="absolute inset-0 bg-black/45"></div>
 
 	<!-- Content -->
 	<div
-		class="relative z-10 flex h-full flex-col items-center justify-center pt-44 text-white md:px-6 md:pt-32"
+		class="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-44 text-white md:pt-32"
 	>
 		<!-- Main Title -->
 		<h1
@@ -38,16 +37,9 @@
 			<span class="font-bold">{secondPart.toUpperCase()}</span>
 		</h1>
 
-		<!-- Subtitle -->
-		{#if subtitle}
-			<h2 class="mb-8 text-center text-3xl font-extralight leading-[65px] text-white md:text-4xl">
-				{subtitle.toUpperCase()}
-			</h2>
-		{/if}
-
 		<!-- Description -->
 		{#if content}
-			<p class="max-w-4xl text-center text-lg leading-[35px] text-white md:text-xl">
+			<p class="mb-8 max-w-4xl text-center text-lg leading-[35px] text-white md:text-xl">
 				{@html content}
 			</p>
 		{/if}
