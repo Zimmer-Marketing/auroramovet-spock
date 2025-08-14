@@ -144,15 +144,10 @@
 									style="transition-delay: {index * 150 + 400}ms"
 								>
 									<h3
-										class="mb-2 text-center text-base font-bold uppercase tracking-wider text-gray-800 md:text-2xl"
+										class="mb-2 text-center text-base font-bold uppercase text-primary md:text-[22px]"
 									>
 										{service.title}
 									</h3>
-									{#if service.description}
-										<p class="px-4 text-center text-sm leading-relaxed text-gray-600">
-											{service.description}
-										</p>
-									{/if}
 								</div>
 							</div>
 						</a>
