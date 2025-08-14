@@ -114,7 +114,7 @@
 	{/if}
 	<div class="relative z-10 w-full px-4 md:px-2 lg:px-12 xl:px-20">
 		{#if showTitle}
-			<h2 class="mb-16 text-center text-2xl font-bold text-white md:text-6xl">
+			<h2 class="mb-16 text-center text-2xl font-bold leading-relaxed text-white md:text-6xl">
 				Maintaining Outstanding<br />
 				Standards of Veterinary Care!
 			</h2>
