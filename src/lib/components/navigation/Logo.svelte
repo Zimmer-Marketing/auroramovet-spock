@@ -8,15 +8,13 @@
 	export let shrink: number = 0;
 </script>
 
-<div
-	class="relative flex items-center {hidden ? 'lg:hidden' : ''}"
->
+<div class="relative flex items-center {hidden ? 'lg:hidden' : ''}">
 	<a href="/" aria-label={ariaLabel}>
 		<img
 			src={logoSrc}
 			alt={logoAlt}
-			class="relative z-10 w-[10rem] transform-gpu transition-transform duration-75"
-			style="transform: scale({1 - (0.4 * shrink)})"
+			class="relative z-10 w-28 transform-gpu transition-transform duration-75 md:w-[10rem]"
+			style="transform: scale({1 - 0.4 * shrink})"
 		/>
 	</a>
 </div>
