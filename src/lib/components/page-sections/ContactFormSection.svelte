@@ -16,7 +16,7 @@
 </script>
 
 <section class={cn('bg-white py-16', className)}>
-	<div class="mx-auto max-w-screen-3xl px-6">
+	<div class="mx-auto max-w-2xl px-6">
 		<!-- Section Title -->
 		<div class="mb-12 px-12 text-center md:px-0">
 			<h2 class="mb-4 text-2xl font-bold text-[#2b482d] md:text-6xl md:leading-[65px]">
