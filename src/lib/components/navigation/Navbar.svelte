@@ -110,12 +110,12 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 transition-all duration-300 {isTransparentPage()
+	class="sticky top-0 z-50 transition-all duration-300 md:pt-10 {isTransparentPage()
 		? $isScrolled
 			? 'bg-primary/90  backdrop-blur-sm'
 			: 'bg-transparent'
 		: 'bg-primary/90 backdrop-blur-md'}"
-	style="height: {10 - 4 * $scrollProgress}rem"
+	style="height: {10 - 2 * $scrollProgress}rem"
 >
 	<div class="mx-auto h-full px-4 md:px-6">
 		<!-- Mobile Layout -->
@@ -125,7 +125,7 @@
 				<div
 					class="transform transition-all duration-700 ease-out {logoLoaded
 						? 'translate-y-0 opacity-100'
-						: '-translate-y-8 opacity-0'}"
+						: '-translate-y-20 opacity-0'}"
 				>
 					<Logo
 						{siteSettings}
@@ -145,9 +145,9 @@
 		</div>
 
 		<!-- Desktop Layout -->
-		<div class="hidden h-full items-center justify-between md:flex">
-			<!-- Logo on the left -->
-			<div class="flex items-center">
+		<div class="relative hidden h-full md:block">
+			<!-- Logo positioned at bottom left -->
+			<div class="absolute bottom-2 left-6">
 				<div
 					class="transform transition-all duration-700 ease-out {logoLoaded
 						? 'translate-y-0 opacity-100'
@@ -164,8 +164,8 @@
 				</div>
 			</div>
 
-			<!-- Desktop Navigation - Right side -->
-			<nav class="flex space-x-9">
+			<!-- Navigation positioned at top, spanning from above logo to right edge -->
+			<nav class="absolute left-[200px] right-6 top-4 flex justify-between">
 				{#each navigationItems as item}
 					<a
 						href={item.path}
