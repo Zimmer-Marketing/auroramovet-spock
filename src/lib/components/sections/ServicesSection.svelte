@@ -51,8 +51,8 @@
 <section bind:this={sectionElement} class="bg-gray-50 py-24 {className}">
 	<div class=" container mx-auto px-6">
 		<div class="mb-16 flex flex-col items-center text-center">
-			<h2 class="text-xl font-bold text-primary md:mb-6 md:text-6xl">
-				<span class="px-2 font-light md:px-5">OUR </span>SERVICES
+			<h2 class="text-xl text-primary md:mb-6 md:text-6xl">
+				<span class="px-2 font-light md:px-5">OUR </span><span class="font-bold">SERVICES</span>
 			</h2>
 			<p
 				class="mx-auto max-w-prose text-[14px] leading-relaxed text-primary md:px-36 md:text-[24px]"

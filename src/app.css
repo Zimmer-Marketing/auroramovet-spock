@@ -79,37 +79,7 @@
     /* default */
   }
 
-  @media (min-width: 1536px) {
 
-    /* 2xl */
-    html {
-      font-size: 18px;
-    }
-  }
-
-  @media (min-width: 1920px) {
-
-    /* 3xl */
-    html {
-      font-size: 20px;
-    }
-  }
-
-  @media (min-width: 2560px) {
-
-    /* 4xl */
-    html {
-      font-size: 22px;
-    }
-  }
-
-  @media (min-width: 3840px) {
-
-    /* 5xl */
-    html {
-      font-size: 24px;
-    }
-  }
 
   body {
     @apply bg-background text-foreground;
@@ -155,7 +125,7 @@
   article h4,
   article h5,
   article h6 {
-    @apply text-start font-bold font-heading;
+    @apply text-start font-heading;
   }
 
   /* PocketBase WYSIWYG Classes Start
@@ -208,7 +178,8 @@
 
 /* Ensure all containers respect viewport width */
 @media (max-width: 768px) {
-  .container, 
+
+  .container,
   section,
   div {
     max-width: 100vw;

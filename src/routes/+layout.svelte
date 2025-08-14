@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '@fontsource/inter';
+	import '@fontsource-variable/inter';
 	import '@fontsource/jost';
 	import '../app.css';
 	import type { LayoutData } from './$types';
