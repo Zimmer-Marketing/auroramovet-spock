@@ -142,12 +142,12 @@
 			</div>
 
 			<!-- Submit Button -->
-			<div class="flex justify-center pt-4">
+			<div class="pt-4">
 				<button
 					id="contact-form-submit"
 					type="submit"
 					disabled={submitting}
-					class="relative rounded-[30px] bg-white px-8 py-3 text-lg font-bold text-[#2b482d] border-2 border-[#2b482d] transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#2b482d]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+					class="w-full relative rounded-[30px] bg-white px-8 py-3 text-lg font-bold text-[#2b482d] border-2 border-[#2b482d] transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#2b482d]/20 disabled:opacity-50 disabled:cursor-not-allowed"
 				>
 					{submitting ? 'SENDING...' : 'SEND MESSAGE'}
 				</button>
