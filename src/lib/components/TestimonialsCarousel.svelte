@@ -27,7 +27,7 @@
 
 	// Number of testimonials to show at once is now controlled by prop
 
-	// Get the current set of testimonials to display (sliding window of 3)
+	// Get the current set of testimonials to display (sliding window)
 	const visibleTestimonials = $derived(
 		testimonials.length <= testimonialsPerView
 			? testimonials
@@ -40,6 +40,9 @@
 					return result;
 				})()
 	);
+
+	// For mobile, show only the first testimonial from visibleTestimonials
+	const mobileVisibleTestimonials = $derived([visibleTestimonials[0]].filter(Boolean));
 
 	// Calculate total pages for dots
 	const totalPages = $derived(testimonials.length);
@@ -119,10 +122,43 @@
 			{/if}
 
 			<!-- Testimonials Grid -->
-			<div
-				class="grid min-h-[300px] grid-cols-1 items-center gap-8 {testimonialsPerView === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'} md:gap-8 lg:gap-12"
-			>
-				{#each visibleTestimonials as testimonial, index}
+			<!-- Mobile: Show 1 testimonial -->
+			<div class="block md:hidden">
+				<div class="grid min-h-[300px] grid-cols-1 items-center gap-8">
+					{#each mobileVisibleTestimonials as testimonial, index}
+						<!-- All testimonials with white cards -->
+						<div class="flex flex-col items-center text-center">
+							<div class="relative w-full rounded-2xl bg-white px-8 py-10 text-gray-800 shadow-lg">
+								<EditRecordButton record={testimonial} />
+								<!-- Review text with quote -->
+								<div class="text-left">
+									<!-- Large decorative quote positioned right above text -->
+									<div class="-mb-4 text-5xl text-gray-300">"</div>
+									<p class="mb-8 min-h-[80px] pl-8 text-base leading-relaxed text-gray-700">
+										{@html testimonial.review}
+									</p>
+								</div>
+
+								<!-- Stars -->
+								<div class="flex justify-center space-x-1">
+									{#each Array(getRating(testimonial)) as _}
+										<span class="text-2xl text-yellow-400">★</span>
+									{/each}
+								</div>
+							</div>
+							<!-- Name below the card -->
+							<p class="mt-6 text-lg font-bold text-gray-800">{testimonial.name}</p>
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Desktop: Show multiple testimonials -->
+			<div class="hidden md:block">
+				<div
+					class="grid min-h-[300px] items-center gap-8 {testimonialsPerView === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-8 lg:gap-12"
+				>
+					{#each visibleTestimonials as testimonial, index}
 					<!-- All testimonials with white cards -->
 					<div class="flex flex-col items-center text-center">
 						<div class="relative w-full rounded-2xl bg-white px-8 py-10 text-gray-800 shadow-lg">
@@ -146,7 +182,8 @@
 						<!-- Name below the card -->
 						<p class="mt-6 text-lg font-bold text-gray-800">{testimonial.name}</p>
 					</div>
-				{/each}
+					{/each}
+				</div>
 			</div>
 
 			<!-- Next Button -->
