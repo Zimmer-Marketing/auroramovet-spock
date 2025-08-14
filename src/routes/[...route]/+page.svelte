@@ -26,7 +26,8 @@
 	}
 
 	let { data }: Props = $props();
-	let { route, siteSettings, routeType, relatedServices, testimonials, teamMembers, jobs } = $derived(data);
+	let { route, siteSettings, routeType, relatedServices, testimonials, teamMembers, jobs } =
+		$derived(data);
 
 	// Determine if this page should use the new layout
 	const shouldUseNewLayout = $derived(() => {
@@ -38,16 +39,6 @@
 			const hasNewLayoutField = route?.useNewLayout === true;
 			const hasNewLayoutSlug = route?.slug && newLayoutPages.includes(route.slug);
 			const isService = routeType === 'service';
-
-			// Debug logging
-			console.log('Route debug:', {
-				slug: route?.slug,
-				routeType,
-				hasNewLayoutField,
-				hasNewLayoutSlug,
-				isService,
-				shouldUse: hasNewLayoutField || hasNewLayoutSlug || isService
-			});
 
 			return hasNewLayoutField || hasNewLayoutSlug || isService;
 		} catch (err) {

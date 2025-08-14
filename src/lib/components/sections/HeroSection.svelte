@@ -21,7 +21,7 @@
 	});
 </script>
 
-<section class="relative h-screen overflow-hidden md:-mt-44 md:pt-24 {className}">
+<section class="relative -mt-40 h-screen md:pt-24 {className}">
 	<div
 		class="absolute inset-0 bg-cover bg-center bg-no-repeat"
 		style="background-image: url('{heroImage}')"
@@ -29,7 +29,7 @@
 	<div class="absolute inset-0 bg-black/35"></div>
 
 	<div
-		class="relative z-10 flex h-full flex-col items-center justify-center text-center text-primary-foreground"
+		class="relative z-10 flex h-full flex-col items-center justify-center pt-32 text-center text-primary-foreground md:pt-0"
 	>
 		<div
 			class="w-full max-w-sm transform px-4 transition-all duration-700 ease-out md:w-1/2 md:max-w-none md:px-0 {heroLoaded

@@ -20,7 +20,7 @@
 	const mobileLogoSrc = `${PUBLIC_POCKETBASE_URL}/api/files/${siteSettings.collectionId}/${siteSettings.id}/${siteSettings?.images[1]}`;
 	const scrollProgress = writable(0);
 	const isScrolled = writable(false);
-	
+
 	let logoLoaded = $state(false);
 
 	// Aurora navigation items - can be moved to siteSettings later
@@ -112,9 +112,9 @@
 <header
 	class="sticky top-0 z-50 transition-all duration-300 {isTransparentPage()
 		? $isScrolled
-			? 'bg-primary/50 backdrop-blur-sm'
+			? 'bg-primary/90  backdrop-blur-sm'
 			: 'bg-transparent'
-		: 'bg-primary/75 backdrop-blur-md'}"
+		: 'bg-primary/90 backdrop-blur-md'}"
 	style="height: {10 - 4 * $scrollProgress}rem"
 >
 	<div class="mx-auto h-full px-4 md:px-6">
@@ -122,9 +122,9 @@
 		<div class="flex h-full items-center justify-between md:hidden">
 			<!-- Logo on the left -->
 			<div class="flex items-center">
-				<div 
-					class="transform transition-all duration-700 ease-out {logoLoaded 
-						? 'translate-y-0 opacity-100' 
+				<div
+					class="transform transition-all duration-700 ease-out {logoLoaded
+						? 'translate-y-0 opacity-100'
 						: '-translate-y-8 opacity-0'}"
 				>
 					<Logo
@@ -148,9 +148,9 @@
 		<div class="hidden h-full items-center justify-between md:flex">
 			<!-- Logo on the left -->
 			<div class="flex items-center">
-				<div 
-					class="transform transition-all duration-700 ease-out {logoLoaded 
-						? 'translate-y-0 opacity-100' 
+				<div
+					class="transform transition-all duration-700 ease-out {logoLoaded
+						? 'translate-y-0 opacity-100'
 						: '-translate-y-8 opacity-0'}"
 				>
 					<Logo
