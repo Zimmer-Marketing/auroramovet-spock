@@ -242,7 +242,7 @@
 									href={meta.facebook[0]}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="flex items-center text-lg transition-colors hover:text-blue-400"
+									class="flex items-center text-lg transition-colors"
 								>
 									<Facebook class="-ml-2 h-8 w-7 fill-white" />
 									<span>Facebook</span>
