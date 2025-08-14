@@ -147,7 +147,7 @@
 								<!-- Stars -->
 								<div class="flex justify-center space-x-1">
 									{#each Array(getRating(testimonial)) as _}
-										<span class="text-2xl text-yellow-400">★</span>
+										<span class="text-2xl text-primary">★</span>
 									{/each}
 								</div>
 							</div>
@@ -182,7 +182,7 @@
 								<!-- Stars -->
 								<div class="flex justify-center space-x-1">
 									{#each Array(getRating(testimonial)) as _}
-										<span class="text-2xl text-yellow-400">★</span>
+										<span class="text-2xl text-primary">★</span>
 									{/each}
 								</div>
 							</div>
@@ -228,4 +228,3 @@
 		{/if}
 	</div>
 </section>
-

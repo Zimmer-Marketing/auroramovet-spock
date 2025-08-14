@@ -166,7 +166,7 @@
 								<!-- Stars -->
 								<div class="flex justify-center space-x-1">
 									{#each Array(getRating(testimonial)) as _}
-										<span class="text-2xl text-yellow-400">★</span>
+										<span class="text-pirmary text-2xl">★</span>
 									{/each}
 								</div>
 							</div>
@@ -180,8 +180,8 @@
 								<!-- Review text with quote -->
 								<div class="text-left">
 									<!-- Large decorative quote positioned right above text -->
-									<div class="-mb-4 text-5xl text-white/30">"</div>
-									<p class="mb-8 min-h-[100px] pl-8 text-base leading-relaxed">
+									<div class="-mb-4 text-5xl text-gray-500">"</div>
+									<p class="mb-8 min-h-[100px] pl-8 text-base leading-relaxed text-gray-500">
 										{@html testimonial.review}
 									</p>
 								</div>
@@ -189,12 +189,12 @@
 								<!-- Stars -->
 								<div class="mb-4 flex justify-center space-x-1">
 									{#each Array(getRating(testimonial)) as _}
-										<span class="text-2xl text-yellow-400">★</span>
+										<span class="text-2xl text-gray-500">★</span>
 									{/each}
 								</div>
 
 								<!-- Name -->
-								<p class="text-lg font-semibold">{testimonial.name}</p>
+								<p class="text-lg font-semibold text-gray-500">{testimonial.name}</p>
 							</div>
 						</div>
 					{/if}
