@@ -70,7 +70,7 @@
 						<a href="/{service.slug}/" class="group relative block cursor-pointer">
 							<!-- Card with image background - Fade in animation -->
 							<div
-								class="relative h-[280px] overflow-hidden rounded-2xl transition-all duration-700 ease-out {servicesVisible
+								class="relative h-[280px] overflow-hidden rounded-lg transition-all duration-700 ease-out {servicesVisible
 									? 'opacity-100'
 									: 'opacity-0'}"
 								style="transition-delay: {index * 150}ms"
