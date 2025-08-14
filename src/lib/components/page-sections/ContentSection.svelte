@@ -108,7 +108,7 @@
 							alt={title}
 							width={960}
 							height={600}
-							cssClass="absolute inset-0 h-96 w-full object-cover"
+							cssClass="absolute inset-0 h-full  w-full object-cover"
 						/>
 					</div>
 				{/if}
