@@ -118,7 +118,7 @@
 							<div class="relative flex flex-col items-start bg-white p-5">
 								<!-- Title positioned on the left -->
 								<div class="">
-									<p class="text-2xl font-normal leading-[35px] text-primary">
+									<p class="text-2xl !font-extralight leading-[35px] text-primary">
 										{member.title}
 									</p>
 								</div>
