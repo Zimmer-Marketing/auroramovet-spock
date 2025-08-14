@@ -125,7 +125,7 @@
 
 								<!-- Name centered in the card -->
 								<div class="flex w-full justify-start">
-									<h3 class="text-2xl font-bold leading-[65px] text-primary">
+									<h3 class="font-extraboldx text-2xl leading-[65px] text-primary">
 										{member.name}
 									</h3>
 								</div>
