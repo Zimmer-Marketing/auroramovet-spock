@@ -9,6 +9,10 @@
 	} from '$lib/components/ui/accordion';
 	import JobsForm from '$lib/components/JobsForm.svelte';
 	import EditRecordButton from '$lib/components/pocketbase/EditRecordButton.svelte';
+	import PbImage from '$lib/components/PbImage.svelte';
+	import * as Carousel from '$lib/components/ui/carousel';
+	import * as Dialog from '$lib/components/ui/dialog';
+	import { getPbRecordImageURL } from '$lib/helpers/pbHelpers';
 
 	interface Props {
 		data: PageData;
@@ -16,6 +20,8 @@
 
 	let { data }: Props = $props();
 	let { route, jobs, siteSettings } = $derived(data);
+
+	let isOpen = $state(false);
 </script>
 
 <RouteMeta {route} {siteSettings} />
@@ -32,6 +38,56 @@
 				<article class="mx-auto text-xl text-primary drop-shadow">
 					{@html route.content}
 				</article>
+
+				<!-- Images Section -->
+				{#if route.images && route.images.length === 1}
+					{@const imgSrc = getPbRecordImageURL(route, 0, '800x600')}
+					{@const imgSrcZoom = getPbRecordImageURL(route, 0, '1920x0')}
+					<div class="mt-8">
+						<button
+							onclick={() => (isOpen = true)}
+							class="group relative cursor-zoom-in overflow-hidden rounded-lg"
+						>
+							<img
+								src={imgSrc}
+								alt={route.title}
+								class="w-full transition-transform duration-700 ease-out group-hover:scale-110"
+							/>
+						</button>
+					</div>
+
+					<Dialog.Root bind:open={isOpen}>
+						<Dialog.Content class="max-h-fit max-w-fit bg-transparent p-0 shadow-none">
+							<img
+								src={imgSrcZoom}
+								alt={route.title}
+								class="mx-auto block h-auto max-h-[95vh] w-auto max-w-[95vw] object-contain"
+							/>
+						</Dialog.Content>
+					</Dialog.Root>
+				{:else if route.images && route.images.length > 1}
+					<div class="mt-8">
+						<Carousel.Root class="w-full max-w-xl mx-auto">
+							<Carousel.Content>
+								{#each route.images as image, i (i)}
+									<Carousel.Item>
+										<div class="p-1">
+											<PbImage
+												record={route}
+												photoName={image}
+												alt={route.title + 1}
+												height={800}
+												width={600}
+											/>
+										</div>
+									</Carousel.Item>
+								{/each}
+							</Carousel.Content>
+							<Carousel.Previous />
+							<Carousel.Next />
+						</Carousel.Root>
+					</div>
+				{/if}
 			</div>
 
 			<div class="mx-auto max-w-2xl">
@@ -74,6 +130,56 @@
 						>
 							{@html route.content}
 						</article>
+
+						<!-- Images Section -->
+						{#if route.images && route.images.length === 1}
+							{@const imgSrc = getPbRecordImageURL(route, 0, '800x600')}
+							{@const imgSrcZoom = getPbRecordImageURL(route, 0, '1920x0')}
+							<div class="mt-8">
+								<button
+									onclick={() => (isOpen = true)}
+									class="group relative cursor-zoom-in overflow-hidden rounded-lg"
+								>
+									<img
+										src={imgSrc}
+										alt={route.title}
+										class="w-full transition-transform duration-700 ease-out group-hover:scale-110"
+									/>
+								</button>
+							</div>
+
+							<Dialog.Root bind:open={isOpen}>
+								<Dialog.Content class="max-h-fit max-w-fit bg-transparent p-0 shadow-none">
+									<img
+										src={imgSrcZoom}
+										alt={route.title}
+										class="mx-auto block h-auto max-h-[95vh] w-auto max-w-[95vw] object-contain"
+									/>
+								</Dialog.Content>
+							</Dialog.Root>
+						{:else if route.images && route.images.length > 1}
+							<div class="mt-8">
+								<Carousel.Root class="w-full max-w-xl">
+									<Carousel.Content>
+										{#each route.images as image, i (i)}
+											<Carousel.Item>
+												<div class="p-1">
+													<PbImage
+														record={route}
+														photoName={image}
+														alt={route.title + 1}
+														height={800}
+														width={600}
+													/>
+												</div>
+											</Carousel.Item>
+										{/each}
+									</Carousel.Content>
+									<Carousel.Previous />
+									<Carousel.Next />
+								</Carousel.Root>
+							</div>
+						{/if}
 					</div>
 				</div>
 

@@ -247,7 +247,7 @@
 			<div class="mt-12 text-center">
 				<Button
 					href="/about"
-					class="rounded-[50px] bg-white px-12 py-4 text-[24px] font-bold text-[#2b482d] transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-white/50"
+					class="rounded-[50px] bg-white px-12 py-8 text-[24px] font-bold text-[#2b482d] transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-white/50"
 				>
 					About Us
 				</Button>
