@@ -38,7 +38,7 @@
 </script>
 
 <!-- Footer -->
-<footer class="relative z-10 mt-32">
+<footer class="relative z-10 mt-48">
 	<!-- Footer SVG wave at the top -->
 	<div class="absolute -top-16 z-20 w-full md:-top-44">
 		<img src="/footer.svg" alt="Footer decoration" class="h-full w-full translate-y-1" />
