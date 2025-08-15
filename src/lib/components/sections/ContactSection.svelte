@@ -43,7 +43,7 @@
 	});
 </script>
 
-<section bind:this={sectionElement} class="relative mt-20 bg-background py-44 {className}">
+<section bind:this={sectionElement} class="relative mt-24 bg-background py-44 {className}">
 	<div class=" mx-auto px-2 md:px-6">
 		<!-- Contact Images Grid - Wider than form -->
 		<div class="mx-auto mb-8 max-w-4xl">
