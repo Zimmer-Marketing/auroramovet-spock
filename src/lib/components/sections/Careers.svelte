@@ -46,12 +46,12 @@
 					<div class="mt-8">
 						<button
 							onclick={() => (isOpen = true)}
-							class="group relative cursor-zoom-in overflow-hidden rounded-lg"
+							class="group relative h-96 w-full cursor-zoom-in overflow-hidden rounded-lg"
 						>
 							<img
 								src={imgSrc}
 								alt={route.title}
-								class="w-full transition-transform duration-700 ease-out group-hover:scale-110"
+								class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
 							/>
 						</button>
 					</div>
@@ -67,7 +67,7 @@
 					</Dialog.Root>
 				{:else if route.images && route.images.length > 1}
 					<div class="mt-8">
-						<Carousel.Root class="w-full max-w-xl mx-auto">
+						<Carousel.Root class="mx-auto w-full max-w-xl">
 							<Carousel.Content>
 								{#each route.images as image, i (i)}
 									<Carousel.Item>
@@ -138,12 +138,12 @@
 							<div class="mt-8">
 								<button
 									onclick={() => (isOpen = true)}
-									class="group relative cursor-zoom-in overflow-hidden rounded-lg"
+									class="group relative h-96 w-full cursor-zoom-in overflow-hidden rounded-lg"
 								>
 									<img
 										src={imgSrc}
 										alt={route.title}
-										class="w-full transition-transform duration-700 ease-out group-hover:scale-110"
+										class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
 									/>
 								</button>
 							</div>
@@ -212,7 +212,7 @@
 								{#each jobs as job (job.id)}
 									<AccordionItem
 										value={job.id}
-										class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md relative"
+										class="relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
 									>
 										<EditRecordButton record={job} />
 										<AccordionTrigger
