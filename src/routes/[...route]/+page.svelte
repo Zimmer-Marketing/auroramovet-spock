@@ -167,8 +167,11 @@
 					</div>
 				{/if}
 				{#if route.slug === 'about' && teamMembers && teamMembers.length > 0}
+					{@const filteredTeamMembers = teamMembers.filter(member => 
+						!member.name.includes('Dr. Ryan Jones') && !member.name.includes('Dr. Bill Bader')
+					)}
 					<div class="mt-8 px-4 md:px-8">
-						<TeamSection {teamMembers} className="" showTitle={false} showAboutButton={false} />
+						<TeamSection teamMembers={filteredTeamMembers} className="" showTitle={false} showAboutButton={false} />
 					</div>
 				{/if}
 			</div>
