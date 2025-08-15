@@ -68,7 +68,7 @@
 					<Breadcrumbs route={{ ...route, shortTitle: route.shortTitle }} />
 				</div>
 				<div class="relative px-4 md:px-8">
-					<h1>{route.title}</h1>
+					<h1 class="text-primary">{route.title}</h1>
 					<EditRecordButton record={route} />
 				</div>
 				{#if route.images.length === 1}

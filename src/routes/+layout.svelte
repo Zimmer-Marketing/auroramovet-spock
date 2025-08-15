@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '@fontsource-variable/inter';
-	import '@fontsource/jost';
+	import '@fontsource-variable/jost';
 	import '../app.css';
 	import type { LayoutData } from './$types';
 	import Footer from '$lib/components/Footer.svelte';

@@ -11,6 +11,9 @@ importers:
       '@fontsource-variable/inter':
         specifier: ^5.2.6
         version: 5.2.6
+      '@fontsource-variable/jost':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@fontsource/inter':
         specifier: ^5.2.6
         version: 5.2.6
@@ -484,6 +487,9 @@ packages:
 
   '@fontsource-variable/inter@5.2.6':
     resolution: {integrity: sha512-jks/bficUPQ9nn7GvXvHtlQIPudW7Wx8CrlZoY8bhxgeobNxlQan8DclUJuYF2loYRrGpfrhCIZZspXYysiVGg==}
+
+  '@fontsource-variable/jost@5.2.6':
+    resolution: {integrity: sha512-MvNwzo2j2gARQ2z9w2bH7z5KCnXWGcdlBcJ91cmpWPixvhpi5qSUdHIyFcf7AuwrSIY/BTkbYBwPX+njcE5Law==}
 
   '@fontsource/inter@5.2.6':
     resolution: {integrity: sha512-CZs9S1CrjD0jPwsNy9W6j0BhsmRSQrgwlTNkgQXTsAeDRM42LBRLo3eo9gCzfH4GvV7zpyf78Ozfl773826csw==}
@@ -2619,6 +2625,8 @@ snapshots:
   '@floating-ui/utils@0.2.10': {}
 
   '@fontsource-variable/inter@5.2.6': {}
+
+  '@fontsource-variable/jost@5.2.6': {}
 
   '@fontsource/inter@5.2.6': {}
 

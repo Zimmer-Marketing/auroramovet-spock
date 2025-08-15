@@ -147,7 +147,7 @@
 		<!-- Desktop Layout -->
 		<div class="relative hidden h-full md:block">
 			<!-- Logo positioned at bottom left -->
-			<div class="absolute bottom-2 left-6">
+			<div class="absolute -bottom-4 left-12">
 				<div
 					class="transform transition-all duration-700 ease-out {logoLoaded
 						? 'translate-y-0 opacity-100'
@@ -165,12 +165,11 @@
 			</div>
 
 			<!-- Navigation positioned at top, spanning from above logo to right edge -->
-			<nav class="absolute left-[200px] right-6 top-4 flex justify-between">
+			<nav class="absolute left-[250px] right-6 top-4 flex justify-between">
 				{#each navigationItems as item}
 					<a
 						href={item.path}
-						class="text-2xl font-normal text-white transition-colors hover:text-white/80"
-						style="text-shadow: rgba(0,0,0,0.5) 0px 4px 4px; font-family: 'Jost', sans-serif; line-height: 35px;"
+						class="text-2xl font-light text-white transition-colors hover:text-white/80"
 						class:font-semibold={$page.url.pathname === item.path}
 					>
 						{item.title}
