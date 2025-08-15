@@ -157,7 +157,9 @@
 								<!-- Review text with quote -->
 								<div class="text-left">
 									<!-- Large decorative quote positioned right above text -->
-									<div class="-mb-4 text-5xl text-gray-300">"</div>
+									<div class=" mb-4 ml-8 text-5xl text-gray-300">
+										<img src="/quote.svg" alt="" />
+									</div>
 									<p class="mb-8 min-h-[100px] pl-8 text-base leading-relaxed text-gray-700">
 										{@html testimonial.review}
 									</p>
@@ -180,7 +182,9 @@
 								<!-- Review text with quote -->
 								<div class="text-left">
 									<!-- Large decorative quote positioned right above text -->
-									<div class="-mb-4 text-5xl text-gray-500">"</div>
+									<div class="mb-4 ml-8 text-5xl text-gray-500">
+										<img src="/quote.svg" alt="" />
+									</div>
 									<p class="mb-8 min-h-[100px] pl-8 text-base leading-relaxed text-gray-500">
 										{@html testimonial.review}
 									</p>
