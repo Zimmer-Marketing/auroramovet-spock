@@ -136,8 +136,30 @@
 					</div>
 				{/if}
 				{#if route.slug === 'testimonials' && testimonials && testimonials.length > 0}
-					<div class="px-4 md:px-8">
-						<TestimonialsCarousel {testimonials} testimonialsPerView={2} showTitle={false} />
+					<div class="px-4 md:px-8 py-8">
+						<div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+							{#each testimonials as testimonial}
+								<div class="flex flex-col items-center text-center">
+									<div class="relative w-full rounded-2xl bg-white px-8 py-10 text-gray-800 shadow-lg">
+										<!-- Review text with quote -->
+										<div class="text-left">
+											<div class="-mb-4 text-5xl text-gray-300">"</div>
+											<p class="mb-8 min-h-[80px] pl-8 text-base leading-relaxed text-gray-700">
+												{@html testimonial.review}
+											</p>
+										</div>
+										<!-- Stars -->
+										<div class="flex justify-center space-x-1">
+											{#each Array(testimonial.rating || 5) as _}
+												<span class="text-2xl text-primary">★</span>
+											{/each}
+										</div>
+									</div>
+									<!-- Name below card -->
+									<p class="mt-6 text-lg font-bold text-gray-800">{testimonial.name}</p>
+								</div>
+							{/each}
+						</div>
 					</div>
 				{/if}
 				{#if route.slug === 'about' && teamMembers && teamMembers.length > 0}
