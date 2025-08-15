@@ -125,7 +125,7 @@
 
 								<!-- Name centered in the card -->
 								<div class="flex w-full justify-start">
-									<h3 class="font-extraboldx text-2xl leading-[65px] text-primary">
+									<h3 class="font-extraboldx text-2xl font-bold leading-[65px] text-primary">
 										{member.name}
 									</h3>
 								</div>
@@ -137,7 +137,7 @@
 
 			<!-- Remaining members centered -->
 			{#if remainingMembers.length > 0}
-				<div class="mt-6 flex justify-center gap-6">
+				<div class="mx-auto mt-6 grid max-w-[700px] grid-cols-2 gap-6 lg:grid-cols-2">
 					{#each remainingMembers as member}
 						<div
 							class="relative w-full max-w-[400px] overflow-hidden rounded-md bg-white shadow-md transition-all hover:shadow-xl"
