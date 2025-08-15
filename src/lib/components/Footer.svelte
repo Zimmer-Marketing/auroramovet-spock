@@ -38,14 +38,14 @@
 </script>
 
 <!-- Footer -->
-<footer class="relative z-10 mt-48">
+<footer class="relative z-10 mt-4">
 	<!-- Footer SVG wave at the top -->
-	<div class="absolute -top-16 z-20 w-full md:-top-44">
+	<div class="">
 		<img src="/footer.svg" alt="Footer decoration" class="h-full w-full translate-y-1" />
 	</div>
 
 	<!-- Footer background -->
-	<div class="relative z-10 -mt-3 bg-[#2b482d] pt-10 text-primary-foreground md:pt-44">
+	<div class="relative z-10 -mt-3 bg-[#2b482d] pt-10 text-primary-foreground md:pt-10">
 		<div class="relative z-20 mx-auto max-w-screen-xl px-6 pb-8 lg:px-8">
 			<!-- Mobile Layout -->
 			<div class="space-y-8 md:hidden">

@@ -110,7 +110,7 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 transition-all duration-300 md:pt-10 {isTransparentPage()
+	class="sticky top-0 z-50 transition-all duration-300 md:pt-12 {isTransparentPage()
 		? $isScrolled
 			? 'bg-primary/90  backdrop-blur-sm'
 			: 'bg-transparent'
