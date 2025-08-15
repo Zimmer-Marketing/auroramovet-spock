@@ -140,7 +140,7 @@
 				<div class="mt-6 flex justify-center gap-6">
 					{#each remainingMembers as member}
 						<div
-							class="relative w-full max-w-[400px] overflow-hidden rounded-t-md bg-white shadow-md transition-all hover:shadow-xl"
+							class="relative w-full max-w-[400px] overflow-hidden rounded-md bg-white shadow-md transition-all hover:shadow-xl"
 						>
 							<EditRecordButton record={member} />
 							<!-- Staff Image - no bottom rounding -->
