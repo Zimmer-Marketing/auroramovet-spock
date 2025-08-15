@@ -54,7 +54,7 @@
 					<img
 						src={logoImage}
 						alt={meta?.siteTitle || 'Aurora Animal Clinic'}
-						class="h-24 w-auto shadow-lg"
+						class="h-24 w-auto"
 					/>
 				</div>
 
