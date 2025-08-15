@@ -46,7 +46,7 @@
 				)}
 			</h1>
 			<p
-				class="mx-auto max-w-sm px-2 text-base md:mb-4 md:max-w-4xl md:px-0 md:text-lg"
+				class="mx-auto max-w-sm px-2 text-base md:mb-6 md:max-w-4xl md:px-0 md:text-lg"
 				style="text-shadow: rgba(0,0,0,0.5) 0px 4px 4px"
 			>
 				{@html content}
