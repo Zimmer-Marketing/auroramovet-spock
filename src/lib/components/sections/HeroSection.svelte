@@ -51,7 +51,9 @@
 			>
 				{@html content}
 			</p>
-			<Button size="lg" href="/contact-us" class="rounded-full px-8 py-3">Contact Us</Button>
+			<Button size="lg" href="/contact-us" class="w-44 rounded-full px-8 py-6 text-2xl"
+				>Contact Us</Button
+			>
 		</div>
 	</div>
 </section>
