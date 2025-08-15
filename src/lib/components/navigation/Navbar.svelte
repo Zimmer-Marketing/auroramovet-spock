@@ -147,7 +147,7 @@
 		<!-- Desktop Layout -->
 		<div class="relative hidden h-full md:block">
 			<!-- Logo positioned at bottom left -->
-			<div class="absolute -bottom-4 left-12">
+			<div class="absolute {isTransparentPage() ? '-bottom-2' : 'bottom-2'} left-12">
 				<div
 					class="transform transition-all duration-700 ease-out {logoLoaded
 						? 'translate-y-0 opacity-100'
