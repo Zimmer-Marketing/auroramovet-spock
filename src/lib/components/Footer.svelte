@@ -45,7 +45,7 @@
 	</div>
 
 	<!-- Footer background -->
-	<div class="relative z-10 -mt-3 bg-primary pt-10 text-primary-foreground md:pt-44">
+	<div class="relative z-10 -mt-3 bg-[#2b482d] pt-10 text-primary-foreground md:pt-44">
 		<div class="relative z-20 mx-auto max-w-screen-xl px-6 pb-8 lg:px-8">
 			<!-- Mobile Layout -->
 			<div class="space-y-8 md:hidden">
