@@ -26,12 +26,33 @@
 	// Aurora navigation items - can be moved to siteSettings later
 	const navigationItems = siteSettings?.expand?.menu;
 
+	// Reactive current pathname
+	const currentPath = $derived($page.url.pathname);
+
 	// Check if current page should have transparent header (no background blur)
 	const isTransparentPage = $derived(() => {
-		const pathname = $page.url.pathname;
+		const pathname = currentPath;
 		const transparentPages = ['/', '/home', '/pets', '/livestock', '/equine'];
 		return transparentPages.some((path) => pathname === path || pathname === path + '/');
 	});
+
+	// Function to check if a navigation item is active
+	const isActiveRoute = (itemPath: string) => {
+		if (!currentPath) return false;
+		
+		// Exact match
+		if (currentPath === itemPath) return true;
+		
+		// Match with trailing slash
+		if (currentPath === itemPath + '/') return true;
+		
+		// Handle root path specially
+		if (itemPath === '/') return currentPath === '/';
+		
+		// For non-root paths, check if current path starts with item path followed by slash
+		// This handles child routes correctly
+		return currentPath.startsWith(itemPath + '/');
+	};
 
 	onMount(() => {
 		// Trigger logo slide-down animation after preload screen finishes (500ms + 200ms buffer)
@@ -170,7 +191,7 @@
 					<a
 						href={item.path}
 						class="text-2xl font-light text-white transition-colors hover:text-white/80"
-						class:font-semibold={$page.url.pathname === item.path}
+						class:font-extrabold={isActiveRoute(item.path)}
 					>
 						{item.title}
 					</a>
