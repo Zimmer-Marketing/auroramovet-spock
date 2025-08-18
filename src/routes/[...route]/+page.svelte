@@ -62,11 +62,7 @@
 	<div
 		class="relative mx-auto grid w-full max-w-screen-3xl grid-cols-1 gap-4 md:grid-cols-6 3xl:min-w-[1920px]"
 	>
-		<div
-			class="col-span-full {route.slug === 'faq' || route.slug === 'contact-us'
-				? 'md:col-span-5'
-				: 'md:col-span-4'}"
-		>
+		<div class="col-span-full md:col-span-4">
 			<div class="py-3">
 				<div class="px-4 md:px-8">
 					<Breadcrumbs route={{ ...route, shortTitle: route.shortTitle }} />
@@ -187,10 +183,7 @@
 			</div>
 		</div>
 		<div
-			class="col-span-full flex flex-col gap-4 px-4 py-4 md:sticky md:top-4 {route.slug === 'faq' ||
-			route.slug === 'contact-us'
-				? 'md:col-span-1'
-				: 'md:col-span-2'} md:self-start md:px-4"
+			class="col-span-full flex flex-col gap-4 px-4 py-4 md:sticky md:top-4 md:col-span-2 md:self-start md:px-4"
 		>
 			{#if route.slug === 'contact-us'}
 				<ContactInfo {siteSettings} />
