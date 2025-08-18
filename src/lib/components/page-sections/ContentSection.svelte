@@ -56,16 +56,13 @@
 	<div class="mx-auto w-full">
 		<div class="grid items-center gap-0 lg:grid-cols-2">
 			<!-- Content -->
-			<div class={cn('px-10 pb-8 lg:px-2 lg:py-12', imagePosition === 'left' ? 'lg:order-2' : '')}>
-				<h2 class={cn('mb-6 text-2xl font-bold md:px-10 md:text-5xl', textColor)}>
+			<div class={cn('px-10 pb-8 lg:px-16 lg:py-12', imagePosition === 'left' ? 'lg:order-2' : '')}>
+				<h2 class={cn('mb-6 text-2xl font-bold  md:text-5xl', textColor)}>
 					{title}
 				</h2>
 
 				<article
-					class={cn(
-						'prose prose-lg max-w-none text-base leading-relaxed md:px-10  md:text-lg',
-						textColor
-					)}
+					class={cn('prose prose-lg max-w-none text-base leading-relaxed   md:text-lg', textColor)}
 				>
 					{@html content}
 				</article>
