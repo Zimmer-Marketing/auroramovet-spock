@@ -29,7 +29,7 @@
 <RouteMeta {route} {siteSettings} />
 
 <div
-	class="relative left-1/2 grid w-screen -translate-x-1/2 grid-cols-1 gap-4 px-2 md:grid-cols-6 md:px-0"
+	class="relative left-1/2 grid w-screen -translate-x-1/2 grid-cols-1 gap-4 px-2 md:px-0 lg:grid-cols-6"
 >
 	<div class="col-span-full md:col-span-4">
 		<div class="py-3">
@@ -43,7 +43,7 @@
 			{#if route.expand?.globals && route.expand.globals.length > 0}
 				{#each route.expand.globals as global}
 					<div class="mb-8 px-4 md:mt-10 md:px-8">
-						<div class="grid grid-cols-1 items-center gap-4 md:grid-cols-2 md:gap-6">
+						<div class="grid grid-cols-1 items-center gap-4 md:gap-6 xl:grid-cols-2">
 							<!-- Left column: Title and Image -->
 							<div class="flex flex-col items-start justify-start space-y-4 text-center">
 								{#if global.title}

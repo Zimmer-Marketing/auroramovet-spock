@@ -39,16 +39,16 @@
 	// Function to check if a navigation item is active
 	const isActiveRoute = (itemPath: string) => {
 		if (!currentPath) return false;
-		
+
 		// Exact match
 		if (currentPath === itemPath) return true;
-		
+
 		// Match with trailing slash
 		if (currentPath === itemPath + '/') return true;
-		
+
 		// Handle root path specially
 		if (itemPath === '/') return currentPath === '/';
-		
+
 		// For non-root paths, check if current path starts with item path followed by slash
 		// This handles child routes correctly
 		return currentPath.startsWith(itemPath + '/');
@@ -140,7 +140,7 @@
 >
 	<div class="mx-auto h-full px-4 md:px-6">
 		<!-- Mobile Layout -->
-		<div class="flex h-full items-center justify-between md:hidden">
+		<div class="flex h-full items-center justify-between lg:hidden">
 			<!-- Logo on the left -->
 			<div class="flex items-center">
 				<div
@@ -166,7 +166,7 @@
 		</div>
 
 		<!-- Desktop Layout -->
-		<div class="relative hidden h-full md:block">
+		<div class="relative hidden h-full lg:block">
 			<!-- Logo positioned at bottom left -->
 			<div class="absolute {isTransparentPage() ? '-bottom-2' : 'bottom-2'} left-12">
 				<div
@@ -186,7 +186,7 @@
 			</div>
 
 			<!-- Navigation positioned at top, spanning from above logo to right edge -->
-			<nav class="absolute left-[250px] right-6 top-4 flex justify-between">
+			<nav class="absolute right-6 top-4 flex justify-between lg:left-[250px]">
 				{#each navigationItems as item}
 					<a
 						href={item.path}
