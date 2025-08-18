@@ -168,9 +168,9 @@
 		<!-- Desktop Layout -->
 		<div class="relative hidden h-full lg:block">
 			<!-- Logo positioned at bottom left -->
-			<div class="absolute {isTransparentPage() ? '-bottom-2' : 'bottom-2'} left-12">
+			<div class="absolute {isTransparentPage() ? '-bottom-2' : 'bottom-2'} xl:left-12">
 				<div
-					class="transform transition-all duration-700 ease-out {logoLoaded
+					class="h-32 w-32 transform transition-all duration-700 ease-out lg:h-full lg:w-full {logoLoaded
 						? 'translate-y-0 opacity-100'
 						: '-translate-y-8 opacity-0'}"
 				>
@@ -186,7 +186,7 @@
 			</div>
 
 			<!-- Navigation positioned at top, spanning from above logo to right edge -->
-			<nav class="absolute right-6 top-4 flex justify-between lg:left-[250px]">
+			<nav class="absolute right-6 top-4 flex justify-between md:left-[160px] xl:left-[250px]">
 				{#each navigationItems as item}
 					<a
 						href={item.path}
