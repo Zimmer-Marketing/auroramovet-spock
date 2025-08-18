@@ -87,7 +87,10 @@
 									{#each item.globalData.expand.pages as page}
 										{@const isPageActive = page.slug === $currentSlug}
 										<Button
-											on:click={() => goto(`/${page.slug}`)}
+											on:click={() => {
+												goto(`/${page.slug}`);
+												window.scrollTo(0, 0);
+											}}
 											variant="ghost"
 											class={`w-full justify-start rounded-none px-6 py-2 text-sm text-black hover:bg-gray-200 hover:text-black ${
 												isPageActive ? 'border-l-4 border-secondary bg-gray-200 font-medium' : ''
@@ -102,7 +105,10 @@
 							</Collapsible.Root>
 						{:else}
 							<Button
-								on:click={() => goto(`${item.path}`)}
+								on:click={() => {
+									goto(`${item.path}`);
+									window.scrollTo(0, 0);
+								}}
 								variant="ghost"
 								class={`w-full rounded-none bg-primary uppercase text-white hover:bg-primary/90 hover:text-gray-300 ${
 									item.isActive ? 'border-b-2 border-secondary bg-primary/80' : ''
