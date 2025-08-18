@@ -19,7 +19,8 @@
 	const secondPart = titleParts.slice(Math.ceil(titleParts.length / 2)).join(' ');
 </script>
 
-<section class={cn('relative -mt-40 overflow-hidden  md:h-[600px]', className)}>
+<section class={cn('relative overflow-hidden md:h-[600px]', className)} style="margin-top: calc(-1 * var(--navbar-height));">
+	<!-- Hero positioned behind transparent navbar using negative margin equal to navbar height -->
 	<!-- Edit Record Button -->
 	{#if record}
 		<EditRecordButton {record} />

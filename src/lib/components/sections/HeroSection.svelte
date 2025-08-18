@@ -21,7 +21,8 @@
 	});
 </script>
 
-<section class="relative -mt-40 h-full pb-10 md:pb-32 md:pt-24 {className}">
+<section class="relative h-full pb-10 md:pb-32 md:pt-24 {className}" style="margin-top: calc(-1 * var(--navbar-height));">
+	<!-- Hero positioned behind transparent navbar using negative margin equal to navbar height -->
 	<div
 		class="absolute inset-0 bg-cover bg-center bg-no-repeat"
 		style="background-image: url('{heroImage}')"

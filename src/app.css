@@ -44,6 +44,9 @@
     /* #0d2623 */
     --aurora-text-light: 0 0% 100%;
     --aurora-text-dark: 0 0% 10%;
+
+    /* Layout Constants */
+    --navbar-height: 10rem; /* 160px - used for transparent header positioning */
   }
 
   .dark {
