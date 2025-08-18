@@ -68,7 +68,7 @@
 				</article>
 
 				{#if buttonText && buttonLink}
-					<div class="pt-4 md:px-10">
+					<div class="pt-4">
 						<Button
 							size="lg"
 							class={cn(
