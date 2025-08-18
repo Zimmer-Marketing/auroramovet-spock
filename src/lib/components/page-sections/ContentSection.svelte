@@ -2,6 +2,7 @@
 	import { cn } from '$lib/utils';
 	import { Button } from '$lib/components/ui/button';
 	import PbImage from '$lib/components/PbImage.svelte';
+	import EditRecordButton from '$lib/components/pocketbase/EditRecordButton.svelte';
 
 	interface Props {
 		title: string;
@@ -34,13 +35,11 @@
 	// Debug logging
 	$effect(() => {
 		if (image && record) {
-			const imageIndex = parseInt(image);
 			console.log('ContentSection debug:', {
 				image,
-				imageIndex,
 				record,
 				images: record?.images,
-				imageName: record?.images?.[imageIndex],
+				imageName: image,
 				hasImages: !!record?.images,
 				imageType: typeof image
 			});
@@ -48,7 +47,12 @@
 	});
 </script>
 
-<section class={cn('py-10', bgColor, className)}>
+<section class={cn('relative py-10', bgColor, className)}>
+	<!-- Edit Record Button -->
+	{#if record}
+		<EditRecordButton {record} />
+	{/if}
+	
 	<div class="mx-auto w-full">
 		<div class="grid items-center gap-0 lg:grid-cols-2">
 			<!-- Content -->
@@ -93,8 +97,7 @@
 
 			<!-- Image -->
 			{#if image && image !== '' && record && record.images}
-				{@const imageIndex = parseInt(image) - 1}
-				{@const imageName = record.images[imageIndex]}
+				{@const imageName = image}
 				{#if imageName}
 					<div
 						class={cn(

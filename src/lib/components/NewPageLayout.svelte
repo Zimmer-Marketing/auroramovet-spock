@@ -26,8 +26,8 @@
 
 	let { route, showContactForm = true, className = '' }: Props = $props();
 
-	// Get content blocks from route.meta
-	const blocksToRender = route?.meta?.contentBlocks || [];
+	// Get content blocks from route.expand.globals
+	const blocksToRender = route?.expand?.globals || [];
 
 	// Generate hero image URL
 	const heroImageUrl = $derived(() => {
@@ -48,16 +48,16 @@
 	/>
 
 	<!-- Content Sections -->
-	{#each blocksToRender as block, index}
+	{#each blocksToRender as global, index}
 		<ContentSection
-			title={block.title}
-			content={block.content}
-			image={block.image}
-			imagePosition={block.imagePosition}
-			backgroundColor={block.backgroundColor}
-			buttonText={block.buttonText}
-			buttonLink={block.buttonLink}
-			record={route}
+			title={global.title}
+			content={global.content}
+			image={global.images?.[0] || ''}
+			imagePosition={global.imagePosition}
+			backgroundColor={global.backgroundColor}
+			buttonText={global.buttonText}
+			buttonLink={global.buttonLink}
+			record={global}
 		/>
 	{/each}
 
