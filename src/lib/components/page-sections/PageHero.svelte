@@ -11,7 +11,14 @@
 		record?: any;
 	}
 
-	let { title, subtitle = '', content = '', backgroundImage, className = '', record }: Props = $props();
+	let {
+		title,
+		subtitle = '',
+		content = '',
+		backgroundImage,
+		className = '',
+		record
+	}: Props = $props();
 
 	// Split title to style differently (first part light, second part bold)
 	const titleParts = title.split(' ');
@@ -19,7 +26,10 @@
 	const secondPart = titleParts.slice(Math.ceil(titleParts.length / 2)).join(' ');
 </script>
 
-<section class={cn('relative overflow-hidden md:h-[600px]', className)} style="margin-top: calc(-1 * var(--navbar-height));">
+<section
+	class={cn('relative overflow-hidden md:h-[600px]', className)}
+	style="margin-top: calc(-1 * var(--navbar-height));"
+>
 	<!-- Hero positioned behind transparent navbar using negative margin equal to navbar height -->
 	<!-- Edit Record Button -->
 	{#if record}
@@ -28,7 +38,7 @@
 
 	<!-- Background Image with Overlay -->
 	<div
-		class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+		class="absolute inset-0 bg-cover bg-no-repeat {record?.slug === 'pets' ? 'bg-right' : 'bg-center'}"
 		style="background-image: url('{backgroundImage}');"
 	></div>
 	<div class="absolute inset-0 bg-black/45"></div>
