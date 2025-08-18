@@ -6,6 +6,7 @@
 	import type { LayoutData } from '../$types';
 	import TeamSection from '$lib/components/sections/TeamSection.svelte';
 	import ServiceCardsSidebar from '$lib/components/ServiceCardsSidebar.svelte';
+	import PbImage from '$lib/components/PbImage.svelte';
 
 	interface Props {
 		data: PageData;
@@ -20,15 +21,16 @@
 	// Filter team members to exclude specific doctors
 	const filteredTeamMembers = $derived(
 		teamMembers.filter(
-			(member) =>
-				!member.name.includes('Dr. Ryan Jones') && !member.name.includes('Dr. Bill Bader')
+			(member) => !member.name.includes('Dr. Ryan Jones') && !member.name.includes('Dr. Bill Bader')
 		)
 	);
 </script>
 
 <RouteMeta {route} {siteSettings} />
 
-<div class="relative left-1/2 grid w-screen grid-cols-1 gap-4 -translate-x-1/2 md:grid-cols-6">
+<div
+	class="relative left-1/2 grid w-screen -translate-x-1/2 grid-cols-1 gap-4 px-2 md:grid-cols-6 md:px-0"
+>
 	<div class="col-span-full md:col-span-4">
 		<div class="py-3">
 			<div class="px-4 md:px-8">
@@ -38,6 +40,43 @@
 				<h1 class="text-primary">{route.title}</h1>
 				<EditRecordButton record={route} />
 			</div>
+			{#if route.expand?.globals && route.expand.globals.length > 0}
+				{#each route.expand.globals as global}
+					<div class="mb-8 px-4 md:mt-10 md:px-8">
+						<div class="grid grid-cols-1 items-center gap-4 md:grid-cols-2 md:gap-6">
+							<!-- Left column: Title and Image -->
+							<div class="flex flex-col items-start justify-start space-y-4 text-center">
+								{#if global.title}
+									<h2 class="text-2xl font-bold text-primary">{global.title}</h2>
+								{/if}
+								{#if global.images && global.images[0]}
+									<div
+										class="flex max-h-96 w-full items-center justify-center overflow-hidden rounded-lg md:w-96"
+									>
+										<PbImage
+											record={global}
+											photoName={global.images[0]}
+											alt={global.title || 'Global content image'}
+											width={600}
+											height={250}
+											cssClass="w-full h-full object-cover h-96"
+										/>
+									</div>
+								{/if}
+							</div>
+							<!-- Right column: Content -->
+							<div class="space-y-4">
+								{#if global.content}
+									<article class="prose max-w-none">
+										{@html global.content}
+									</article>
+								{/if}
+								<EditRecordButton record={global} />
+							</div>
+						</div>
+					</div>
+				{/each}
+			{/if}
 			<article class="min-h-[1px] max-w-prose px-4 md:px-8">
 				{#if route.content}
 					{@html route.content}

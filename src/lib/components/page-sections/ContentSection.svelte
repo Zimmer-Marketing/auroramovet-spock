@@ -52,7 +52,7 @@
 	{#if record}
 		<EditRecordButton {record} />
 	{/if}
-	
+
 	<div class="mx-auto w-full">
 		<div class="grid items-center gap-0 lg:grid-cols-2">
 			<!-- Content -->
@@ -61,14 +61,14 @@
 					{title}
 				</h2>
 
-				<div
+				<article
 					class={cn(
 						'prose prose-lg max-w-none text-base leading-relaxed md:px-10  md:text-lg',
 						textColor
 					)}
 				>
 					{@html content}
-				</div>
+				</article>
 
 				{#if buttonText && buttonLink}
 					<div class="pt-4 md:px-10">
