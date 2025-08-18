@@ -3,13 +3,11 @@
 	import RouteMeta from '$lib/components/RouteMeta.svelte';
 	import type { PageData } from './$types';
 	import FAQCard from '$lib/components/FAQCard.svelte';
-	import ContactForm from '$lib/components/ContactForm.svelte';
 	import PbImage from '$lib/components/PbImage.svelte';
 	import * as Carousel from '$lib/components/ui/carousel';
 	import { findGlobal } from '$lib/helpers/pbHelpers';
 	import GlobalCard from '$lib/components/globals/GlobalCard.svelte';
 	import * as Card from '$lib/components/ui/card';
-	import ContactInfo from '$lib/components/ContactInfo.svelte';
 	import EditRecordButton from '$lib/components/pocketbase/EditRecordButton.svelte';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { getPbRecordImageURL } from '$lib/helpers/pbHelpers';
@@ -130,11 +128,6 @@
 						<FAQCard {faqs} />
 					</div>
 				{/if}
-				{#if route.slug === 'contact-us'}
-					<div class="px-4 md:px-8">
-						<ContactForm />
-					</div>
-				{/if}
 				{#if route.slug === 'testimonials' && testimonials && testimonials.length > 0}
 					<div class="px-4 py-8 md:px-8">
 						<div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -185,11 +178,7 @@
 		<div
 			class="col-span-full flex flex-col gap-4 px-4 py-4 md:sticky md:top-4 md:col-span-2 md:self-start md:px-4"
 		>
-			{#if route.slug === 'contact-us'}
-				<ContactInfo {siteSettings} />
-			{:else}
-				<ServiceCardsSidebar services={relatedServices} />
-			{/if}
+			<ServiceCardsSidebar services={relatedServices} />
 		</div>
 	</div>
 {/if}
