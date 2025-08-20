@@ -29,7 +29,7 @@
 <RouteMeta {route} {siteSettings} />
 
 <div
-	class="relative left-1/2 grid w-screen -translate-x-1/2 grid-cols-1 gap-4 px-2 md:px-0 lg:grid-cols-6"
+	class="relative left-1/2 mx-auto grid w-screen max-w-screen-3xl -translate-x-1/2 grid-cols-1 gap-4 px-2 md:px-0 lg:grid-cols-6"
 >
 	<div class="col-span-full md:col-span-4">
 		<div class="py-3">
