@@ -2,11 +2,11 @@
     "redirects": [
         {
             "source": "/admin/",
-            "destination": "https://headlessz-pb.zimmer.marketing/_/"
+            "destination": "https://pb.auroramovet.com/_/"
         },
         {
             "source": "/wp-admin/",
-            "destination": "https://headlessz-pb.zimmer.marketing/_/"
+            "destination": "https://pb.auroramovet.com/_/"
         },
         {
             "source": "/home",
