@@ -38,6 +38,7 @@
 
 	// Function to check if a navigation item is active
 	const isActiveRoute = (itemPath: string) => {
+		$inspect(itemPath, ' <- item path', currentPath, '<-- current path');
 		if (!currentPath) return false;
 
 		// Exact match
@@ -191,7 +192,9 @@
 					<a
 						href={item.path}
 						class="text-2xl font-light text-white transition-colors hover:text-white/80"
-						class:font-extrabold={isActiveRoute(item.path)}
+						class:font-[600]={isActiveRoute(item.path)}
+						class:text-secondary={isActiveRoute(item.path)}
+						class:border-b-2={isActiveRoute(item.path)}
 					>
 						{item.title}
 					</a>

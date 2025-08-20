@@ -13,6 +13,7 @@
 	import { page } from '$app/stores';
 	import Navbar from '$lib/components/navigation/Navbar.svelte';
 	import PreloadScreen from '$lib/components/PreloadScreen.svelte';
+	import { pageTracking } from '$lib/stores/pageTracking';
 
 	if (PUBLIC_FATHOM_ID !== 'DEV') {
 		onMount(async () => {
@@ -24,6 +25,11 @@
 
 	// track a page view when the pathname changes
 	$: ($page.url.pathname, browser && Fathom.trackPageview());
+
+	// track journey when the pathname changes
+	$: if (browser && $page.url.pathname) {
+		pageTracking.trackPage($page.url.pathname);
+	}
 
 	export let data: LayoutData;
 

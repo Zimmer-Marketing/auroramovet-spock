@@ -10,7 +10,13 @@ import {
 
 export async function POST({ request, getClientAddress }) {
 	try {
-		const formData = await request.json();
+		const requestData = await request.json();
+		
+		// Extract user journey before validation
+		const userJourney = requestData.user_journey;
+		
+		// Create clean form data for validation (without journey)
+		const { user_journey, ...formData } = requestData;
 
 		// Validate using the schema
 		const result = contact_schema.safeParse(formData);
@@ -23,6 +29,19 @@ export async function POST({ request, getClientAddress }) {
 				},
 				{ status: 400 }
 			);
+		}
+
+		// Create enhanced form data for submission with journey appended
+		const formDataForSubmission = { ...result.data };
+		
+		// Append journey to note if provided and not already included
+		if (userJourney && typeof userJourney === 'string') {
+			const currentNote = formDataForSubmission.note || '';
+			const journeyDelimiter = '\n\n----- User Journey -----\n';
+			const journeyText = `${journeyDelimiter}Pages visited: ${userJourney}`;
+			if (!currentNote.includes('----- User Journey -----')) {
+				formDataForSubmission.note = currentNote + journeyText;
+			}
 		}
 
 		// Get site settings from PocketBase - exactly as in original
@@ -54,7 +73,7 @@ export async function POST({ request, getClientAddress }) {
 				campfireId: PRIVATE_BC_CAMPFIRE_ID,
 				projectId: PRIVATE_BC_PROJECT_ID,
 				mentions: PRIVATE_BC_CAMPFIRE_MENTIONS,
-				formData: result.data,
+				formData: formDataForSubmission,
 				userIp: getClientAddress(),
 				origin: request.headers.get('referer'),
 				appDomain: siteSettings.meta.appDomain,

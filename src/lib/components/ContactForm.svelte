@@ -9,6 +9,7 @@
 	import { ExclamationTriangle, Rocket } from 'radix-icons-svelte';
 	import { toast } from 'svelte-sonner';
 	import * as Fathom from 'fathom-client';
+	import { pageTracking } from '$lib/stores/pageTracking';
 
 	let submitting = $state(false);
 	let success = $state(false);
@@ -38,6 +39,7 @@
 				},
 				body: JSON.stringify({
 					...formData,
+					user_journey: pageTracking.getVisitedPagesText(),
 					origin: browser ? $page.url.href : undefined
 				})
 			});
@@ -46,6 +48,7 @@
 
 			if (result.success) {
 				success = true;
+				pageTracking.clear();
 				toast.success('Message Sent', {
 					description: result.message || 'Thank you for your message. We will get back to you soon.'
 				});
