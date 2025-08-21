@@ -38,7 +38,6 @@
 
 	// Function to check if a navigation item is active
 	const isActiveRoute = (itemPath: string) => {
-		$inspect(itemPath, ' <- item path', currentPath, '<-- current path');
 		if (!currentPath) return false;
 
 		// Exact match

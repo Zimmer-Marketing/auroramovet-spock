@@ -84,6 +84,7 @@ export async function load({ locals, params }) {
 	if (routeSlug === 'careers') {
 		try {
 			jobs = await locals.pb.collection('jobs').getFullList({
+				filter: 'active = true',
 				sort: 'created'
 			});
 		} catch (err) {
