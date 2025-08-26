@@ -17,6 +17,7 @@
 	import TeamSection from '$lib/components/sections/TeamSection.svelte';
 	import Careers from '$lib/components/sections/Careers.svelte';
 	import ServiceCardsSidebar from '$lib/components/ServiceCardsSidebar.svelte';
+	import GoogleReviewButton from '$lib/components/GoogleReviewButton.svelte';
 
 	let isOpen = $state(false);
 
@@ -179,6 +180,7 @@
 			class="col-span-full flex flex-col gap-4 px-4 py-4 md:sticky md:top-4 md:col-span-2 md:self-start md:px-4"
 		>
 			<ServiceCardsSidebar services={relatedServices} />
+			<GoogleReviewButton googleReviewLink={siteSettings.meta.googleReviewLink} />
 		</div>
 	</div>
 {/if}

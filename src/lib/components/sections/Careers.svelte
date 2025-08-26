@@ -13,6 +13,7 @@
 	import * as Carousel from '$lib/components/ui/carousel';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { getPbRecordImageURL } from '$lib/helpers/pbHelpers';
+	import GoogleReviewButton from '$lib/components/GoogleReviewButton.svelte';
 
 	interface Props {
 		data: PageData;
@@ -176,6 +177,11 @@
 								</div>
 							{/if}
 						</div>
+					</div>
+					
+					<!-- Google Review Button -->
+					<div class="mt-6">
+						<GoogleReviewButton googleReviewLink={siteSettings.meta.googleReviewLink} />
 					</div>
 				</div>
 		</div>
