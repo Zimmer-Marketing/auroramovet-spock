@@ -14,6 +14,7 @@
 	import Navbar from '$lib/components/navigation/Navbar.svelte';
 	import PreloadScreen from '$lib/components/PreloadScreen.svelte';
 	import { pageTracking } from '$lib/stores/pageTracking';
+	import FloatingButton from '$lib/components/cherry/FloatingButton.svelte';
 
 	if (PUBLIC_FATHOM_ID !== 'DEV') {
 		onMount(async () => {
@@ -34,6 +35,9 @@
 	export let data: LayoutData;
 
 	$: ({ siteSettings, currentRoute } = data);
+
+	// Don't show floating button on payment-plans page (it has its own full Cherry widget)
+	$: showFloatingButton = $page.url.pathname !== '/payment-plans';
 </script>
 
 <svelte:head>
@@ -62,4 +66,5 @@
 	</main>
 </div>
 <!-- DO NOT REMOVE THIS FOOTER -->
+<FloatingButton />
 <Footer {siteSettings} />

@@ -147,6 +147,15 @@
 								</a>
 							</div>
 						{/each}
+						<div>
+							<a
+								href="/payment-plans"
+								data-sveltekit-reload
+								class="block py-1 text-secondary transition-colors hover:text-secondary/80"
+							>
+								Payment Plans
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -216,6 +225,15 @@
 									</a>
 								</li>
 							{/each}
+							<li>
+								<a
+									href="/payment-plans"
+									data-sveltekit-reload
+									class="inline-flex items-center gap-1 text-secondary transition-colors hover:text-secondary/80"
+								>
+									Payment Plans
+								</a>
+							</li>
 						</ul>
 					</div>
 
