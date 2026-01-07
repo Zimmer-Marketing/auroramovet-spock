@@ -1,4 +1,4 @@
-<!-- CHERRY WIDGET - Floating Button -->
+<!-- CHERRY WIDGET - Full Page -->
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
@@ -41,31 +41,25 @@
 					primaryColor: '#2b482d',
 					secondaryColor: '#2b482d10',
 					fontFamily: 'Montserrat',
-					headerFontFamily: 'Montserrat',
-					floatingEstimator: {
-						position: 'bottom-right',
-						offset: {
-							x: '0px',
-							y: '0px'
-						},
-						zIndex: 9999,
-						ctaFontFamily: 'Montserrat',
-						bodyFontFamily: 'Montserrat',
-						ctaColor: '#2b482d',
-						ctaTextColor: '#FFFFFF'
-					}
+					headerFontFamily: 'Montserrat'
 				}
 			},
-			['floatingEstimator']
+			['hero', 'calculator', 'howitworks', 'faq']
 		);
 	});
 </script>
 
 <svelte:head>
+	<title>Payment Plans | Aurora Animal Clinic</title>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@200..900&family=Slabo+27px:wght@200..900&family=Lato:wght@200..900&family=Raleway:wght@200..900&family=Montserrat:wght@200..900&family=Oswald:wght@200..900&family=Poppins:wght@200..900&family=Source+Sans+Pro:wght@200..900&family=PT+Sans:wght@200..900&family=Open+Sans:wght@200..900&display=swap"
 		rel="stylesheet"
 	/>
 </svelte:head>
 
-<div id="floatingEstimator"></div>
+<div id="all"></div>
+<div id="hero"></div>
+<div id="calculator"></div>
+<div id="howitworks"></div>
+<div id="testimony"></div>
+<div id="faq"></div>

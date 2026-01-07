@@ -1,6 +1,7 @@
-<!-- <script lang="ts">
+<script lang="ts">
 	import CherryFullPage from '$lib/components/cherry/CherryFullPage.svelte';
 </script>
 
-<CherryFullPage /> -->
-
+<div class="relative mx-auto w-screen max-w-screen-3xl">
+    <CherryFullPage />
+</div>

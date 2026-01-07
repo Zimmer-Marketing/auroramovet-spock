@@ -35,6 +35,9 @@
 	export let data: LayoutData;
 
 	$: ({ siteSettings, currentRoute } = data);
+
+	// Don't show floating button on payment-plans page (it has its own full Cherry widget)
+	$: showFloatingButton = $page.url.pathname !== '/payment-plans';
 </script>
 
 <svelte:head>

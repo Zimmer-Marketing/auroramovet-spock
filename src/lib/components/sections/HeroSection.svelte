@@ -52,9 +52,18 @@
 			>
 				{@html content}
 			</p>
-			<Button size="lg" href="/contact-us" class="w-44 rounded-full px-8 py-6 text-2xl"
-				>Contact Us</Button
-			>
+			<div class="flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-4">
+				<Button size="lg" href="/contact-us" class="rounded-full px-8 py-6 text-xl">
+					Contact Us
+				</Button>
+				<a
+					href="/payment-plans"
+					data-sveltekit-reload
+					class="inline-flex h-14 items-center justify-center whitespace-nowrap rounded-full bg-white px-8 text-xl font-medium text-primary transition-colors hover:bg-white/90"
+				>
+					Payment Plans
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
