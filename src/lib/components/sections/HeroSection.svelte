@@ -56,13 +56,6 @@
 				<Button size="lg" href="/contact-us" class="rounded-full px-8 py-6 text-xl">
 					Contact Us
 				</Button>
-				<a
-					href="/payment-plans"
-					data-sveltekit-reload
-					class="inline-flex h-14 items-center justify-center whitespace-nowrap rounded-full bg-white px-8 text-xl font-medium text-primary transition-colors hover:bg-white/90"
-				>
-					Payment Plans
-				</a>
 			</div>
 		</div>
 	</div>
