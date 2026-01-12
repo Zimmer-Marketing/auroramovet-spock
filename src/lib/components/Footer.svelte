@@ -147,7 +147,7 @@
 								</a>
 							</div>
 						{/each}
-						<div>
+						<!-- <div>
 							<a
 								href="/payment-plans"
 								data-sveltekit-reload
@@ -155,7 +155,7 @@
 							>
 								Payment Plans
 							</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -225,7 +225,7 @@
 									</a>
 								</li>
 							{/each}
-							<li>
+							<!-- <li>
 								<a
 									href="/payment-plans"
 									data-sveltekit-reload
@@ -233,7 +233,7 @@
 								>
 									Payment Plans
 								</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 
