@@ -22,7 +22,10 @@
 	// Filter team members to exclude specific doctors
 	const filteredTeamMembers = $derived(
 		teamMembers.filter(
-			(member) => !member.name.includes('Dr. Ryan Jones') && !member.name.includes('Dr. Bill Bader')
+			(member) =>
+				!member.name.includes('Dr. Ryan Jones') &&
+				!member.name.includes('Dr. Bill Bader') &&
+				!member.name.includes('Natalie Scott')
 		)
 	);
 </script>
