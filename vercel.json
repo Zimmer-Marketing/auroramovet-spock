@@ -2,11 +2,11 @@
     "redirects": [
         {
             "source": "/admin/",
-            "destination": "https://pb.auroramovet.com/_/"
+            "destination": "https://auroramovet-spock.s2.zimmer.marketing/_/"
         },
         {
             "source": "/wp-admin/",
-            "destination": "https://pb.auroramovet.com/_/"
+            "destination": "https://auroramovet-spock.s2.zimmer.marketing/_/"
         },
         {
             "source": "/home",
