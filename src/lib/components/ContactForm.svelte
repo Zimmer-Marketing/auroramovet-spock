@@ -10,6 +10,8 @@
 	import { toast } from 'svelte-sonner';
 	import * as Fathom from 'fathom-client';
 	import { pageTracking } from '$lib/stores/pageTracking';
+	import AltchaField from '$lib/components/AltchaField.svelte';
+	import { readAltcha } from '$lib/altcha';
 
 	let submitting = $state(false);
 	let success = $state(false);
@@ -40,7 +42,8 @@
 				body: JSON.stringify({
 					...formData,
 					user_journey: pageTracking.getVisitedPagesText(),
-					origin: browser ? $page.url.href : undefined
+					origin: browser ? $page.url.href : undefined,
+					altcha: readAltcha(event.currentTarget)
 				})
 			});
 
@@ -80,6 +83,7 @@
 		</Alert.Root>
 	{:else}
 		<form onsubmit={handleSubmit} class="space-y-6">
+			<AltchaField />
 			<!-- Name Field -->
 			<div class="rounded-[15px] bg-[#f3f3f3] p-6">
 				<input

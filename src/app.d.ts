@@ -13,4 +13,17 @@ declare global {
 	}
 }
 
+declare module 'svelte/elements' {
+	export interface SvelteHTMLElements {
+		'altcha-widget': {
+			challenge?: string;
+			auto?: string;
+			display?: string;
+			name?: string;
+			hidefooter?: boolean;
+			hidelogo?: boolean;
+		};
+	}
+}
+
 export {};

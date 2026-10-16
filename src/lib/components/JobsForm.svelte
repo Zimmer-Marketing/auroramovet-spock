@@ -10,6 +10,8 @@
 	import { ExclamationTriangle, Rocket } from 'radix-icons-svelte';
 	import { toast } from 'svelte-sonner';
 	import * as Fathom from 'fathom-client';
+	import AltchaField from '$lib/components/AltchaField.svelte';
+	import { readAltcha } from '$lib/altcha';
 
 	interface Props {
 		jobTitle?: string;
@@ -65,7 +67,8 @@ ${formData.teamFit}`;
 					phone: formData.phone,
 					city: formData.city,
 					note: formattedNote,
-					origin: browser ? $page.url.href : undefined
+					origin: browser ? $page.url.href : undefined,
+					altcha: readAltcha(event.currentTarget)
 				})
 			});
 
@@ -119,6 +122,7 @@ ${formData.teamFit}`;
 				</Alert.Root>
 			{:else}
 				<form onsubmit={handleSubmit} class="space-y-6 pt-4">
+					<AltchaField />
 					<div class="space-y-2">
 						<Label for="name" class="font-medium text-gray-700">Full Name</Label>
 						<Input
