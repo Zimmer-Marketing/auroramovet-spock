@@ -83,13 +83,10 @@ export async function POST({ request, getClientAddress }) {
 		}
 
 		const fields = result.data;
-		let note = fields.note || '';
-		if (typeof userJourney === 'string' && userJourney && !note.includes('----- User Journey -----')) {
-			note += '\n\n----- User Journey -----\nPages visited: ' + userJourney.slice(0, 2000);
-		}
-		if (fields.referrer) {
-			note += '\n\nReferrer: ' + oneLine(fields.referrer, 300);
-		}
+		// Journey and referrer already go out as their own fields. Pasting them
+		// onto the note put a space in a one-word message, so the gibberish
+		// check never saw it.
+		const note = fields.note || '';
 
 		const payload = {
 			intakeKey: randomBytes(12).toString('hex'),
